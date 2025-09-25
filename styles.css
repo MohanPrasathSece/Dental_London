@@ -205,6 +205,37 @@ nav {
     text-align: center;
 }
 
+.icon-location,
+.icon-building {
+    color: #1a237e !important;
+    filter: hue-rotate(220deg) saturate(1.2) brightness(1.1);
+}
+
+.icon-phone {
+    color: #1a237e !important;
+    filter: hue-rotate(220deg) saturate(1.2) brightness(1.1);
+}
+
+.icon-email {
+    color: #1a237e !important;
+    filter: hue-rotate(220deg) saturate(1.2) brightness(1.1);
+}
+
+.icon-clock,
+.icon-time {
+    color: #1a237e !important;
+    filter: hue-rotate(220deg) saturate(1.2) brightness(1.1);
+}
+
+.contact-icon.icon-location,
+.contact-icon.icon-building,
+.contact-icon.icon-phone,
+.contact-icon.icon-email,
+.contact-icon.icon-clock,
+.contact-icon.icon-time {
+    font-size: 1.5rem;
+}
+
 .hero-image {
     position: relative;
     border-radius: 15px;
@@ -601,6 +632,42 @@ footer {
 .social-links a:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
+}
+
+.social-links a[title="Facebook"] {
+    background: #1877F2;
+    color: white;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.social-links a[title="Instagram"] {
+    background: linear-gradient(45deg, #F56040, #E1306C, #833AB4);
+    color: white;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.social-links a[title="X"] {
+    background: #000000;
+    color: white;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.social-links a[title="LinkedIn"] {
+    background: #0A66C2;
+    color: white;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.social-links a[title="Facebook"]:hover,
+.social-links a[title="Instagram"]:hover,
+.social-links a[title="X"]:hover,
+.social-links a[title="LinkedIn"]:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .footer-bottom {
