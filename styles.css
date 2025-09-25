@@ -1,10 +1,19 @@
 /* Precision Root Canal Therapy - Minimal & Elegant Design */
+/* Typography: Outfit (headings) + Manrope (body) */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Outfit:wght@600;700&display=swap');
 
 /* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+.services main,
+.technology main,
+.gallery main,
+.contact main {
+    background: #ffffff; /* force solid white behind sections to the footer */
+    margin-bottom: 0;     /* remove any bottom gap */
 }
 
 /* Smooth scrolling for in-page anchor navigation */
@@ -16,19 +25,205 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Homepage-only background enhancements */
+body.home {
+    /* Blue & white palette (pattern-free) */
+    background-image:
+        radial-gradient(900px 520px at 20% -10%, rgba(26, 35, 126, 0.14), transparent 60%), /* deep indigo tint */
+        radial-gradient(700px 450px at 85% 0%, rgba(63, 81, 181, 0.12), transparent 55%), /* indigo tint */
+        linear-gradient(180deg, #eef3ff 0%, #ffffff 45%, #e9efff 100%);
+    background-attachment: fixed, fixed, scroll;
+}
+
+/* Add a soft gradient glow behind the hero area */
+.home .hero {
+    position: relative;
+    overflow: hidden;
+}
+.home .hero::before {
+    content: "";
+    position: absolute;
+    inset: -80px -10% auto -10%;
+    height: 60%;
+    background:
+        radial-gradient(600px 350px at 25% 30%, rgba(63, 81, 181, 0.20), transparent 60%),
+        radial-gradient(500px 300px at 75% 20%, rgba(26, 35, 126, 0.16), transparent 60%);
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+/* Alternating background bands for homepage sections */
+.home .content-section.alt-1 {
+    background: #eef3ff; /* light blue */
+}
+.home .content-section.alt-2 {
+    background: #f7f9ff; /* very light blue-gray */
+}
+
+/* About page alternating section backgrounds (blue & white palette) */
+.about .content-section.alt-1 {
+    background: #eef3ff; /* light blue */
+}
+.about .content-section.alt-2 {
+    background: #f7f9ff; /* very light blue-gray */
+}
+
+/* Services page background - slightly darker blue than home */
+body.services {
+    background-image:
+        radial-gradient(900px 520px at 20% -10%, rgba(26, 35, 126, 0.26), transparent 60%),
+        radial-gradient(700px 450px at 85% 0%, rgba(63, 81, 181, 0.20), transparent 55%),
+        linear-gradient(180deg, #dbe6ff 0%, #f7f9ff 45%, #d7e0ff 100%);
+    background-attachment: fixed, fixed, scroll;
+}
+.services .hero {
+    position: relative;
+    overflow: hidden;
+}
+.services .hero::before {
+    content: "";
+    position: absolute;
+    inset: -80px -10% auto -10%;
+    height: 60%;
+    background:
+        radial-gradient(600px 350px at 25% 30%, rgba(63, 81, 181, 0.24), transparent 60%),
+        radial-gradient(500px 300px at 75% 20%, rgba(26, 35, 126, 0.20), transparent 60%);
+    filter: blur(44px);
+    pointer-events: none;
+}
+
+/* Apply same alternating pattern to other pages via structural selectors */
+.services main .content-section:nth-of-type(odd),
+.technology main .content-section:nth-of-type(odd),
+.gallery main .content-section:nth-of-type(odd),
+.contact main .content-section:nth-of-type(odd) {
+    background: #eef3ff; /* match About alt-1 */
+}
+.services main .content-section:nth-of-type(even),
+.technology main .content-section:nth-of-type(even),
+.gallery main .content-section:nth-of-type(even),
+.contact main .content-section:nth-of-type(even) {
+    background: #f7f9ff; /* match About alt-2 */
+}
+
+/* Services: ensure the final section above the footer is pure white (no band) */
+.services main .content-section:last-of-type {
+    background: #ffffff;
+    margin-bottom: 0;         /* prevent margin-collapsing gap */
+    padding-bottom: 2rem;     /* keep comfortable spacing */
+}
+
+/* Also enforce pure white for the last section on these pages */
+.technology main .content-section:last-of-type,
+.gallery main .content-section:last-of-type,
+.contact main .content-section:last-of-type {
+    background: #ffffff;
+    margin-bottom: 0;         /* prevent margin-collapsing gap */
+    padding-bottom: 2rem;     /* keep comfortable spacing */
+}
+
+/* Remove residual inner spacing that could create a band */
+.technology main .content-section:last-of-type .container,
+.gallery main .content-section:last-of-type .container,
+.contact main .content-section:last-of-type .container {
+    padding-bottom: 0;
+}
+.technology main .content-section:last-of-type *:last-child,
+.gallery main .content-section:last-of-type *:last-child,
+.contact main .content-section:last-of-type *:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Remove any residual top margin/border that could create a band above footer */
+.services footer,
+.technology footer,
+.gallery footer,
+.contact footer {
+    margin-top: 0;
+    border-top: none;
+}
+
+/* About page: reduce card size only in 'Our Commitment to Excellence' section */
+.about .content-section.alt-2 .services-grid {
+    gap: 1.25rem;
+}
+.about .content-section.alt-2 .services-grid .service-card {
+    padding: 1.25rem;            /* was 1.5rem */
+    border-radius: 12px;         /* keep consistent, slightly tighter */
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.about .content-section.alt-2 .services-grid .service-card h3 {
+    font-size: 1.1rem;           /* slightly smaller heading */
+}
+.about .content-section.alt-2 .services-grid .service-card p {
+    font-size: 0.95rem;          /* slightly smaller body text */
+}
+.about .content-section.alt-2 .service-icon {
+    width: 54px;                 /* was 60px */
+    height: 54px;
+    font-size: 1.3rem;           /* was 1.5rem */
+}
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #ffffff;
 }
 
+/* Current page highlight in navbar */
+nav .nav-menu a.active {
+    color: #0d1b6b;            /* deeper blue */
+    font-weight: 700;
+    position: relative;
+}
+nav .nav-menu a.active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    width: 26px;
+    height: 3px;
+    border-radius: 2px;
+    background: #0d1b6b;
+}
+
+/* CSS-only current page highlighting (prevents flicker before JS)
+   Matches by body page class and link href */
+.home nav .nav-menu a[href="index.html"],
+.about nav .nav-menu a[href="about.html"],
+.services nav .nav-menu a[href="services.html"],
+.technology nav .nav-menu a[href="technology.html"],
+.gallery nav .nav-menu a[href="gallery.html"],
+.contact nav .nav-menu a[href="contact.html"] {
+    color: #0d1b6b;
+    font-weight: 700;
+    position: relative;
+}
+.home nav .nav-menu a[href="index.html"]::after,
+.about nav .nav-menu a[href="about.html"]::after,
+.services nav .nav-menu a[href="services.html"]::after,
+.technology nav .nav-menu a[href="technology.html"]::after,
+.gallery nav .nav-menu a[href="gallery.html"]::after,
+.contact nav .nav-menu a[href="contact.html"]::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    width: 26px;
+    height: 3px;
+    border-radius: 2px;
+    background: #0d1b6b;
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Outfit', system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
     color: #1a237e;
     margin-bottom: 1rem;
     font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 h1 {
@@ -357,23 +552,55 @@ nav {
 }
 
 .service-card {
-    background: white;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
     padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    border-radius: 14px;
+    border: 1px solid rgba(26, 35, 126, 0.08);
+    box-shadow: 0 6px 20px rgba(26, 35, 126, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .service-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(26, 35, 126, 0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 42px rgba(26, 35, 126, 0.18);
+    border-color: rgba(26, 35, 126, 0.18);
+}
+
+/* Gradient border ring using layered mask (modern browsers) */
+.service-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px; /* border thickness */
+    background: linear-gradient(135deg, rgba(26,35,126,0.25), rgba(63,81,181,0.15));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Top accent bar */
+.service-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #1a237e, #3f51b5);
+    opacity: 0.18;
 }
 
 .service-icon {
     width: 60px;
     height: 60px;
-    background: #1a237e;
+    background: linear-gradient(135deg, #1a237e 0%, #2a3bb8 100%);
     border-radius: 50%;
     margin: 0 auto 1rem;
     display: flex;
@@ -381,6 +608,51 @@ nav {
     justify-content: center;
     color: white;
     font-size: 1.5rem;
+    box-shadow: 0 8px 18px rgba(26, 35, 126, 0.28), inset 0 0 0 6px rgba(255, 255, 255, 0.1);
+    transition: transform 0.25s ease;
+}
+.service-card:hover .service-icon { transform: translateY(-2px) scale(1.03); }
+
+/* Modernize content spacing inside service cards */
+.service-card h3 {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+    min-height: 3.2rem; /* keeps title block consistent across cards */
+}
+.service-card p {
+    color: #5a5f73;
+    line-height: 1.6;
+    max-width: 48ch;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 6.5rem; /* normalize description height */
+}
+
+/* Stylish list bullets for service details */
+.service-card ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+    max-width: 48ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+.service-card ul li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin: 0.35rem 0;
+}
+.service-card ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a237e, #3f51b5);
+    box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.08);
 }
 
 /* Technology Grid */
@@ -389,6 +661,76 @@ nav {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
+}
+
+/* What to Expect - modern card grid */
+.expect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+.expect-card {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid rgba(26, 35, 126, 0.10);
+    box-shadow: 0 8px 22px rgba(26, 35, 126, 0.08);
+    padding: 1.25rem 1.25rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.expect-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,35,126,0.10), rgba(63,81,181,0.06));
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.expect-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 42px rgba(26, 35, 126, 0.16);
+    border-color: rgba(26, 35, 126, 0.18);
+}
+.expect-card:hover::after { opacity: 1; }
+
+.expect-badge {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #1a237e, #3f51b5);
+    box-shadow: 0 6px 14px rgba(26, 35, 126, 0.25), inset 0 0 0 4px rgba(255,255,255,0.15);
+    margin-bottom: 0.75rem;
+}
+
+.expect-card h3 {
+    margin: 0.25rem 0 0.5rem;
+    color: #1a237e;
+    font-size: 1.05rem;
+}
+
+.expect-card p {
+    color: #5a5f73;
+    line-height: 1.55;
+    margin: 0;
+    font-size: 0.95rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;   /* show at most 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .expect-grid { gap: 1rem; }
+    .expect-card { padding: 1rem; }
 }
 
 @media (max-width: 900px) {
@@ -691,6 +1033,12 @@ footer {
     height: 28px;
     object-fit: contain;
     display: block;
+}
+
+/* Make LinkedIn logo slightly larger inside the same circle */
+.social-links a.use-image[title="LinkedIn"] img {
+    width: 36px;
+    height: 36px;
 }
 
 .footer-bottom {

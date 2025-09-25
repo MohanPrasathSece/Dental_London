@@ -15,6 +15,26 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('active');
         });
     });
+
+    // Highlight current page in navbar
+    try {
+        const path = window.location.pathname;
+        const file = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+        // Clear any existing active classes
+        navLinks.forEach(a => a.classList.remove('active'));
+
+        // Find best match: exact filename or root index
+        let matched = false;
+        navLinks.forEach(a => {
+            const href = a.getAttribute('href');
+            if (!matched && (href === file || (file === 'index.html' && (href === 'index.html' || href === './' || href === '/')))) {
+                a.classList.add('active');
+                matched = true;
+            }
+        });
+    } catch (e) {
+        console.warn('Navbar active link highlighting failed:', e);
+    }
 });
 
 // Smooth scrolling for anchor links
