@@ -7,6 +7,11 @@
     box-sizing: border-box;
 }
 
+/* Smooth scrolling for in-page anchor navigation */
+html {
+    scroll-behavior: smooth;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -346,16 +351,16 @@ nav {
 /* Service Cards */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
 }
 
 .service-card {
     background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     text-align: center;
 }
@@ -366,8 +371,8 @@ nav {
 }
 
 .service-icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     background: #1a237e;
     border-radius: 50%;
     margin: 0 auto 1rem;
@@ -375,7 +380,7 @@ nav {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 /* Technology Grid */
@@ -668,6 +673,24 @@ footer {
 .social-links a[title="LinkedIn"]:hover {
     transform: translateY(-3px) scale(1.1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Homepage-only: image-based social icons */
+.social-links a.use-image {
+    background: rgba(255, 255, 255, 0.15) !important; /* subtle backdrop */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+}
+.social-links a.use-image:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+    transform: translateY(-2px) scale(1.05);
+}
+.social-links a.use-image img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
 }
 
 .footer-bottom {
