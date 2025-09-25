@@ -1,12 +1,36 @@
 /* Precision Root Canal Therapy - Minimal & Elegant Design */
-/* Typography: Outfit (headings) + Manrope (body) */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Outfit:wght@600;700&display=swap');
+/* Typography: Florentina site-wide */
+/* NOTE: Place the font files in /fonts with these names or adjust paths below */
+@font-face {
+    font-family: 'Florentina';
+    src: url('fonts/Florentina.woff2') format('woff2'),
+         url('fonts/Florentina.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Florentina';
+    src: url('fonts/Florentina-Bold.woff2') format('woff2'),
+         url('fonts/Florentina-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 
 /* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Brand logo uses Florentina for consistency */
+nav .logo {
+    font-family: 'Florentina', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: #1a237e;
 }
 .services main,
 .technology main,
@@ -164,7 +188,7 @@ body.services {
     font-size: 1.3rem;           /* was 1.5rem */
 }
 body {
-    font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+    font-family: 'Florentina', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #ffffff;
@@ -219,11 +243,11 @@ nav .nav-menu a.active::after {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+    font-family: inherit; /* Florentina */
     color: #1a237e;
     margin-bottom: 1rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-weight: 700; /* use bold weight for headings */
+    letter-spacing: 0.2px;
 }
 
 h1 {
