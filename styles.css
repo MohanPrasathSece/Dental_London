@@ -1,18 +1,19 @@
 /* Precision Root Canal Therapy - Minimal & Elegant Design */
 /* Typography: Florentina site-wide */
 /* NOTE: Place the font files in /fonts with these names or adjust paths below */
+/* Rio Pro font (provide your files in /fonts) */
 @font-face {
-    font-family: 'Florentina';
-    src: url('fonts/Florentina.woff2') format('woff2'),
-         url('fonts/Florentina.woff') format('woff');
+    font-family: 'Rio Pro';
+    src: url('fonts/RioPro-Regular.woff2') format('woff2'),
+         url('fonts/RioPro-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'Florentina';
-    src: url('fonts/Florentina-Bold.woff2') format('woff2'),
-         url('fonts/Florentina-Bold.woff') format('woff');
+    font-family: 'Rio Pro';
+    src: url('fonts/RioPro-Bold.woff2') format('woff2'),
+         url('fonts/RioPro-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -94,7 +95,7 @@
 
 /* Brand logo uses Florentina for consistency */
 nav .logo {
-    font-family: 'Florentina', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Rio Pro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 700;
     letter-spacing: 0.2px;
     color: #08335b;
@@ -163,14 +164,15 @@ body.home {
 /* Services page background - slightly darker blue than home */
 body.services {
     background-image:
-        radial-gradient(900px 520px at 20% -10%, rgba(26, 35, 126, 0.26), transparent 60%),
-        radial-gradient(700px 450px at 85% 0%, rgba(63, 81, 181, 0.20), transparent 55%),
-        linear-gradient(180deg, #dbe6ff 0%, #f7f9ff 45%, #d7e0ff 100%);
+        radial-gradient(900px 520px at 20% -10%, rgba(135, 139, 174, 0.12), transparent 60%),
+        radial-gradient(700px 450px at 85% 0%, rgba(145, 151, 188, 0.1), transparent 55%),
+        linear-gradient(180deg, #eef3ff 0%, #ffffff 45%, #f6f9ff 100%);
     background-attachment: fixed, fixed, scroll;
 }
 .services .hero {
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, #fbfcff 0%, #ffffff 50%, #f4f7ff 100%);
 }
 .services .hero::before {
     content: "";
@@ -178,9 +180,9 @@ body.services {
     inset: -80px -10% auto -10%;
     height: 60%;
     background:
-        radial-gradient(600px 350px at 25% 30%, rgba(63, 81, 181, 0.24), transparent 60%),
-        radial-gradient(500px 300px at 75% 20%, rgba(26, 35, 126, 0.20), transparent 60%);
-    filter: blur(44px);
+        radial-gradient(600px 350px at 25% 30%, rgba(63, 81, 181, 0.10), transparent 60%),
+        radial-gradient(500px 300px at 75% 20%, rgba(26, 35, 126, 0.08), transparent 60%);
+    filter: blur(36px);
     pointer-events: none;
 }
 
@@ -196,6 +198,16 @@ body.services {
 .gallery main .content-section:nth-of-type(even),
 .contact main .content-section:nth-of-type(even) {
     background: #f7f9ff; /* match About alt-2 */
+}
+
+/* Services: lighten just the FIRST content section background to be subtler */
+.services main .content-section:nth-of-type(1) {
+    background: #f9fbff; /* softer than #eef3ff */
+}
+
+/* The first content section is actually the second <section> in main (after the hero) */
+.services main > section.content-section:nth-of-type(2) {
+    background: #ffffff !important; /* force lighter background for the first content section */
 }
 
 /* Services: ensure the final section above the footer is pure white (no band) */
@@ -256,7 +268,7 @@ body.services {
     font-size: 1.3rem;           /* was 1.5rem */
 }
 body {
-    font-family: 'Florentina', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Rio Pro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #ffffff;
@@ -551,25 +563,13 @@ nav {
 }
 
 .icon-location,
-.icon-building {
-    color: #08335b !important;
-    filter: hue-rotate(220deg) saturate(1.2) brightness(1.1);
-}
-
-.icon-phone {
-    color: #08335b !important;
-    filter: hue-rotate(220deg) saturate(1.2) brightness(1.1);
-}
-
-.icon-email {
-    color: #08335b !important;
-    filter: hue-rotate(220deg) saturate(1.2) brightness(1.1);
-}
-
+.icon-building,
+.icon-phone,
+.icon-email,
 .icon-clock,
 .icon-time {
-    color: #08335b !important;
-    filter: hue-rotate(220deg) saturate(1.2) brightness(1.1);
+    color: inherit !important; /* keep original emoji rendering */
+    filter: none !important;
 }
 
 .contact-icon.icon-location,
@@ -705,6 +705,59 @@ nav {
     padding: 3rem 0;
 }
 
+/* Home - Why Choose section */
+.home .home-why {
+    background: linear-gradient(180deg, #f8faff 0%, #eef3ff 100%);
+}
+.home .why-split {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 2rem;
+    align-items: center;
+}
+.home .why-media img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(26,35,126,0.10);
+    display: block;
+}
+.home .why-title {
+    font-size: 2.4rem;
+    color: #0a2a6b;
+    line-height: 1.15;
+}
+.home .why-accent { color: #1a237e; text-decoration: none; }
+.home .why-subtitle { color: #5a5f73; margin: 0.75rem 0 1.25rem; }
+.home .why-list { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+.home .why-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin: 0.5rem 0;
+    color: #2b3550;
+}
+.home .why-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #3f51b5;
+    font-weight: 800;
+}
+@media (max-width: 900px) {
+    .home .why-split { grid-template-columns: 1fr; }
+    .home .why-title { font-size: 2rem; }
+}
+
+.home .home-welcome { background: linear-gradient(180deg, #f8faff 0%, #eef3ff 100%); }
+.home .welcome-header { text-align: center; max-width: 800px; margin: 0 auto 1rem; }
+.home .welcome-title { font-size: 2.4rem; color: #0a2a6b; line-height: 1.15; }
+.home .welcome-subtitle { color: #5a5f73; margin-top: 0.5rem; }
+.home .welcome-visual { position: relative; margin-top: 1rem; }
+.home .welcome-visual img { width: 100%; border-radius: 16px; box-shadow: 0 16px 40px rgba(26,35,126,0.10); display: block; }
+
+@media (max-width: 700px) {
+    .home .welcome-title { font-size: 2rem; }
+}
 .content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1249,14 +1302,11 @@ nav {
 
 /* Footer - Royal & Elegant */
 footer {
-    background: 
-        linear-gradient(135deg, #08335b 0%, #0a3e6e 50%, #0c4a82 100%),
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), transparent 60%);
-    color: white;
-    padding: 1.25rem 0 0.5rem; /* further reduced vertical padding */
-    margin-top: 2rem;          /* tighter gap above footer */
+    background: linear-gradient(180deg, #0b1e3a 0%, #0d274a 100%);
+    color: #e6eef9;
+    padding: 2.5rem 0 1.25rem;
+    margin-top: 2.5rem;
     position: relative;
-    overflow: hidden;
 }
 
 footer::before {
@@ -1274,11 +1324,30 @@ footer::before {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(3, minmax(220px, 1fr));
-    gap: 0.75rem;              /* tighter grid gap */
-    margin-bottom: 0.5rem;     /* reduced bottom spacing */
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
     align-items: start;
 }
+footer .footer-section h3 {
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin: 0 0 0.75rem;
+}
+footer .footer-section p,
+footer .footer-section a {
+    color: rgba(230, 238, 249, 0.85);
+    text-decoration: none;
+    line-height: 1.6;
+}
+footer .footer-section a:hover { color: #ffffff; text-decoration: underline; text-underline-offset: 2px; }
+footer .social-links { display: flex; gap: 0.5rem; }
+footer .social-links a { width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.12); transition: background 0.2s ease; }
+footer .social-links a:hover { background: rgba(255,255,255,0.22); }
+footer .social-links a.use-image img { width: 22px; height: 22px; filter: brightness(0) invert(1); }
+
+/* Hide legacy bottom row if present on some pages */
+.footer-bottom-row { display: none !important; }
 /* Order: Quick Links (2) left, Address (1) center, Services (3) right, Social (4) full row */
 .footer-content .footer-section:nth-child(2) { order: 1; text-align: left; }
 .footer-content .footer-section:nth-child(1) { order: 2; text-align: center; }
@@ -1413,9 +1482,16 @@ footer .footer-content .footer-section:first-child p:nth-of-type(4) {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ccc;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(230,238,249,0.75);
+}
+
+@media (max-width: 900px) {
+    .footer-content { grid-template-columns: repeat(2, minmax(200px, 1fr)); gap: 1rem; }
+}
+@media (max-width: 600px) {
+    .footer-content { grid-template-columns: 1fr; }
 }
 
 /* Footer CTA band (centered heading, subtext, pill button) */
