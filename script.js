@@ -276,53 +276,7 @@ document.addEventListener('DOMContentLoaded', function() {
     images.forEach(img => imageObserver.observe(img));
 });
 
-// Scroll to top functionality
-function createScrollToTopButton() {
-    const scrollButton = document.createElement('button');
-    scrollButton.innerHTML = '↑';
-    scrollButton.className = 'scroll-to-top';
-    scrollButton.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        border: none;
-        border-radius: 50%;
-        background: #1a237e;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        opacity: 0;
-        transform: translateY(100px);
-        transition: all 0.3s ease;
-        z-index: 1000;
-        box-shadow: 0 5px 20px rgba(26, 35, 126, 0.3);
-    `;
-    
-    scrollButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-    
-    document.body.appendChild(scrollButton);
-    
-    // Show/hide scroll button based on scroll position
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-            scrollButton.style.opacity = '1';
-            scrollButton.style.transform = 'translateY(0)';
-        } else {
-            scrollButton.style.opacity = '0';
-            scrollButton.style.transform = 'translateY(100px)';
-        }
-    });
-}
-
-// Initialize scroll to top button
-document.addEventListener('DOMContentLoaded', createScrollToTopButton);
+// Scroll to top functionality removed per request
 
 // Form field focus effects
 document.addEventListener('DOMContentLoaded', function() {
@@ -396,3 +350,40 @@ function createPreloader() {
 // document.addEventListener('DOMContentLoaded', createPreloader);
 
 console.log('Precision Root Canal Therapy - Website loaded successfully!');
+
+// FAQ Accordion interaction (Contact page)
+document.addEventListener('DOMContentLoaded', function() {
+    const faqAccordion = document.querySelector('.faq-accordion');
+    if (!faqAccordion) return;
+
+    faqAccordion.addEventListener('click', function(e) {
+        const trigger = e.target.closest('.faq-trigger');
+        if (!trigger) return;
+
+        const item = trigger.closest('.faq-item');
+        const panelId = trigger.getAttribute('aria-controls');
+        const panel = document.getElementById(panelId);
+        const isOpen = item.classList.contains('open');
+
+        // Close all items first
+        faqAccordion.querySelectorAll('.faq-item').forEach(i => {
+            i.classList.remove('open');
+            const btn = i.querySelector('.faq-trigger');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+            const pid = btn ? btn.getAttribute('aria-controls') : null;
+            const pnl = pid ? document.getElementById(pid) : null;
+            if (pnl) pnl.hidden = true;
+            const icon = i.querySelector('.icon');
+            if (icon) icon.textContent = '＋';
+        });
+
+        // Open the clicked item if it was not open
+        if (!isOpen) {
+            item.classList.add('open');
+            trigger.setAttribute('aria-expanded', 'true');
+            if (panel) panel.hidden = false;
+            const icon = item.querySelector('.icon');
+            if (icon) icon.textContent = '−';
+        }
+    });
+});
