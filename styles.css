@@ -1,5 +1,35 @@
 :root { --topbar-h: 36px; }
 
+/* Home hero: highlight address/phone/timings chips */
+.hero-info {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.1rem;
+}
+.hero-info .info-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0; /* no pill */
+    background: transparent;
+    color: #0a2a6b;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    box-shadow: none;
+}
+.hero-info .info-item .icon,
+.hero-info .info-item .ico {
+    width: 18px;
+    height: 18px;
+    color: #3f51b5; /* subtle brand on icon only */
+}
+@media (max-width: 700px) {
+  .hero-info { gap: 0.6rem; }
+  .hero-info .info-item { font-size: 0.9rem; }
+}
+
 /* Global responsive enhancements */
 @media (max-width: 900px) {
     .hero { padding: 6rem 0 2rem; min-height: auto; }
