@@ -1,11 +1,11 @@
 :root { --topbar-h: 36px; }
 
 /* Global responsive enhancements */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
     .hero { padding: 6rem 0 2rem; min-height: auto; }
     .hero h1 { font-size: 2.4rem; }
     .page-title { font-size: 2.2rem; }
-    nav { padding: 1rem 1.25rem; }
+    nav { padding: 0.7rem 1rem; }
     .nav-menu { gap: 1rem; }
 }
 
@@ -23,9 +23,9 @@
     .content-grid { gap: 1.5rem; }
 }
 
-/* Ensure floating actions are hidden on contact page */
+/* Ensure floating actions are visible on contact page */
 body.contact .call-floating,
-body.contact .email-floating { display: none !important; }
+body.contact .email-floating { display: inline-flex !important; }
 /* Precision Root Canal Therapy - Minimal & Elegant Design */
 /* Typography: Florentina site-wide */
 /* NOTE: Place the font files in /fonts with these names or adjust paths below */
@@ -493,7 +493,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 2rem;
+    padding: 0.85rem 1.5rem;
     max-width: none; /* allow full viewport width */
     margin: 0;       /* no centering */
     position: relative;
@@ -2874,7 +2874,7 @@ body.services .hero {
     }
     
     nav {
-        padding: 1rem;
+        padding: 0.75rem;
     }
     
     .mobile-menu-toggle {
