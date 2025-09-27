@@ -9,10 +9,10 @@
     <style>
       footer .social-links a.use-image img { display: block !important; }
       .call-floating { bottom: 100px !important; }
-      .whatsapp-floating { bottom: 32px !important; }
+      .email-floating { bottom: 32px !important; }
       @media (max-width: 600px) {
         .call-floating { bottom: 90px !important; }
-        .whatsapp-floating { bottom: 26px !important; }
+        .email-floating { bottom: 26px !important; }
       }
       /* Mobile active nav highlight */
       @media (max-width: 900px) {
@@ -33,16 +33,11 @@
     </style>
 </head>
 <body class="contact">
-    <header>
         <nav>
             <div class="brand-wrap">
                 <a href="index.html" class="logo">
                     Precision Root Canal Therapy
                 </a>
-                <div class="brand-subline">
-                    <div class="top-item"><span class="ico ico-location" aria-hidden="true"></span><span>SE19 2LJ, 71 Church Rd, London</span></div>
-                    <div class="top-item"><span class="ico ico-phone" aria-hidden="true"></span><a href="tel:+447985139924" class="topbar-phone">+44 7985 139924</a></div>
-                </div>
             </div>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
             <ul class="nav-menu" id="navMenu">
@@ -96,8 +91,8 @@
                             <div class="info-item">
                                 <div class="info-icon"><span class="ico ico-phone" aria-hidden="true"></span></div>
                                 <div class="info-text">
-                                    <h4>Phone & WhatsApp</h4>
-                                    <p><a href="tel:+447985139924" style="text-decoration:none; color:#08335b; font-weight:700;">+44 7985 139924</a> · <a href="https://wa.me/447985139924" target="_blank" rel="noopener" style="text-decoration:none; color:#08335b;">Chat on WhatsApp</a></p>
+                                    <h4>Call or Email</h4>
+                                    <p><a href="tel:+447985139924" style="text-decoration:none; color:#08335b; font-weight:700;">+44 7985 139924</a> · <a href="mailto:info@precisionrootcanal.co.uk" style="text-decoration:none; color:#08335b;">info@precisionrootcanal.co.uk</a></p>
                                 </div>
                             </div>
                         </div>
@@ -221,6 +216,13 @@
             </div>
         </section>
     </main>
+
+    <a class="call-floating" href="tel:+447985139924" aria-label="Call us">
+        <span class="ico ico-phone" aria-hidden="true"></span>
+    </a>
+    <a class="email-floating" href="mailto:info@precisionrootcanal.co.uk" aria-label="Email us">
+        <img src="images/emaillogo.png" alt="Email icon">
+    </a>
 
     <footer>
         <div class="container">
