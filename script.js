@@ -3,7 +3,10 @@
 // Mobile Menu Toggle
 function toggleMobileMenu() {
     const navMenu = document.getElementById('navMenu');
-    navMenu.classList.toggle('active');
+    if (!navMenu) return;
+    // Use 'open' to match CSS breakpoint styles; remove any legacy 'active'
+    navMenu.classList.remove('active');
+    navMenu.classList.toggle('open');
 }
 
 // Close mobile menu when clicking on a link
@@ -12,7 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             const navMenu = document.getElementById('navMenu');
+            if (!navMenu) return;
             navMenu.classList.remove('active');
+            navMenu.classList.remove('open');
         });
     });
 
@@ -55,27 +60,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            entry.target.classList.add('animate');
-        }
-    });
-}, observerOptions);
-
-// Observe all elements with animation classes
+// Disable scroll-in animations: make everything visible immediately
 document.addEventListener('DOMContentLoaded', function() {
-    const animatedElements = document.querySelectorAll('.section, .fade-in-up, .fade-in-left, .fade-in-right');
-    animatedElements.forEach(element => {
-        observer.observe(element);
-    });
+    // Sections become visible by applying 'fade-in' (matches styles.css rule .section.fade-in)
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(el => el.classList.add('fade-in'));
+
+    // Elements with directional fade classes: apply 'animate' immediately
+    const directional = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+    directional.forEach(el => el.classList.add('animate'));
 });
 
 // Header scroll effect

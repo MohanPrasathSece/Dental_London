@@ -5,7 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Precision Root Canal Therapy & Hygiene - London Dental Clinic</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="overrides.css">
     <meta name="description" content="Expert Root Canal Therapy and dental hygiene services in London. Located at SE19 2LJ, 71 Church Rd, London. Premium dental care with modern technology.">
+    <style>
+      footer .social-links a.use-image img { display: block !important; }
+      .call-floating { bottom: 100px !important; }
+      .whatsapp-floating { bottom: 32px !important; }
+      @media (max-width: 600px) {
+        .call-floating { bottom: 90px !important; }
+        .whatsapp-floating { bottom: 26px !important; }
+      }
+      /* Mobile active nav highlight */
+      @media (max-width: 900px) {
+        /* Reserve space for fixed header to avoid content cut-off */
+        header { top: 12px; }
+        body { padding-top: 100px; }
+        /* Show full brand name on mobile and reduce size */
+        .logo { font-size: 1.3rem !important; }
+        .logo .logo-full { display: inline !important; }
+        .logo .logo-short { display: none !important; }
+        .nav-menu a.active {
+          background: rgba(26,35,126,0.08);
+          color: #08335b;
+        }
+        .nav-menu a.active::after { display: none; }
+        .nav-menu a.active::before {
+          content: "";
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 4px;
+          background: #08335b;
+          border-radius: 0 3px 3px 0;
+        }
+      }
+      /* Ensure section images scale nicely */
+      .content-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; display: block; }
+    </style>
 </head>
 <body class="home">
     <header>
@@ -127,7 +162,9 @@
                     <p class="welcome-subtitle">We use only the best quality materials and modern techniques to provide the best products to our patients.</p>
                 </div>
                 <div class="welcome-visual">
-                    <div class="content-image">[New Patients – Image Placeholder]</div>
+                    <div class="content-image">
+                        <img src="https://images.unsplash.com/photo-1598257006485-7ac425bb0e69?q=80&w=1400&auto=format&fit=crop" alt="Welcoming new dental patients" />
+                    </div>
                 </div>
             </div>
         </section>
@@ -135,14 +172,89 @@
         <section class="section content-section">
             <div class="container">
                 <div class="content-grid">
-                    <div class="content-image fade-in-left">
-                        [Image - Modern Dental Equipment]
+                    <div class="content-image fade-in-left" style="height:300px;">
+                        <img src="https://images.unsplash.com/photo-1588774069163-4536df4babae?q=80&w=1400&auto=format&fit=crop" alt="Modern dental equipment" />
                     </div>
                     <div class="content-text fade-in-right">
                         <h2>State-of-the-Art Technology</h2>
                         <p>We invest in the latest dental technology to ensure precise diagnoses and comfortable treatments. Our advanced equipment includes digital imaging, rotary endodontic systems, and modern sterilization techniques.</p>
                         <p>This commitment to technology means shorter treatment times, better outcomes, and a more comfortable experience for our patients.</p>
                         <a href="technology.html" class="btn">Explore Our Technology</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="section content-section" style="background: #f8f9ff;">
+            <div class="container">
+                <div style="text-align: center;">
+                    <h2>Ready to Schedule Your Treatment?</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem;">Don't let dental pain affect your quality of life. Contact us today to schedule your consultation and take the first step toward optimal oral health.</p>
+                    <a href="contact.html" class="btn">Book Appointment</a>
+                    <a href="technology.html" class="btn btn-outline">Learn About Our Technology</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section (Home) -->
+        <section class="section content-section faq-section">
+            <div class="container">
+                <div class="faq-header-wrap">
+                    <h2 class="faq-title">Frequently Asked Questions</h2>
+                    <p class="faq-subtitle">We use only the best quality materials and modern techniques to provide the best outcomes for our patients.</p>
+                </div>
+                <div class="faq-accordion">
+                    <!-- Item 1 (open) -->
+                    <div class="faq-item open">
+                        <button id="home-faq1-btn" class="faq-trigger" aria-expanded="true" aria-controls="home-faq1">
+                            <span class="dot">•</span>
+                            <span class="question">Do you accept insurance?</span>
+                            <span class="icon" aria-hidden="true">−</span>
+                        </button>
+                        <div id="home-faq1" class="faq-content" role="region" aria-labelledby="home-faq1-btn">
+                            <div class="faq-divider"></div>
+                            <p>We work with most major dental insurance providers. Share your insurance details with us and we’ll verify your coverage before your appointment.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="faq-item">
+                        <button id="home-faq2-btn" class="faq-trigger" aria-expanded="false" aria-controls="home-faq2">
+                            <span class="dot">•</span>
+                            <span class="question">How do I prepare for my appointment?</span>
+                            <span class="icon" aria-hidden="true">＋</span>
+                        </button>
+                        <div id="home-faq2" class="faq-content" hidden role="region" aria-labelledby="home-faq2-btn">
+                            <div class="faq-divider"></div>
+                            <p>Please bring a valid ID, insurance information, and a list of medications. If you’re in pain, over-the-counter pain relief as directed is fine before your visit.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="faq-item">
+                        <button id="home-faq3-btn" class="faq-trigger" aria-expanded="false" aria-controls="home-faq3">
+                            <span class="dot">•</span>
+                            <span class="question">How long does a root canal procedure take?</span>
+                            <span class="icon" aria-hidden="true">＋</span>
+                        </button>
+                        <div id="home-faq3" class="faq-content" hidden role="region" aria-labelledby="home-faq3-btn">
+                            <div class="faq-divider"></div>
+                            <p>Most treatments are completed in one to two appointments of about 60–90 minutes each. Complex cases may require additional visits.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="faq-item">
+                        <button id="home-faq4-btn" class="faq-trigger" aria-expanded="false" aria-controls="home-faq4">
+                            <span class="dot">•</span>
+                            <span class="question">Is root canal treatment painful?</span>
+                            <span class="icon" aria-hidden="true">＋</span>
+                        </button>
+                        <div id="home-faq4" class="faq-content" hidden role="region" aria-labelledby="home-faq4-btn">
+                            <div class="faq-divider"></div>
+                            <p>With modern techniques and local anesthesia, treatment is typically no more uncomfortable than a filling. Your comfort is our priority throughout.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -201,10 +313,10 @@
                 <div class="footer-section">
                     <h3>Follow Us</h3>
                     <div class="social-links">
-                        <a href="#" title="Facebook" class="fb"><span class="ico ico-facebook" aria-hidden="true"></span></a>
-                        <a href="#" title="Instagram" class="ig"><span class="ico ico-instagram" aria-hidden="true"></span></a>
-                        <a href="#" title="LinkedIn" class="li"><span class="ico ico-linkedin" aria-hidden="true"></span></a>
-                        <a href="#" title="X" class="x"><span class="ico ico-x" aria-hidden="true"></span></a>
+                        <a href="#" title="Facebook" class="use-image"><img src="images/facebook-logo.png" alt="Facebook" /></a>
+                        <a href="#" title="Instagram" class="use-image"><img src="images/ig.png" alt="Instagram" /></a>
+                        <a href="#" title="LinkedIn" class="use-image"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+                        <a href="#" title="X" class="use-image"><img src="images/x png.png" alt="X" /></a>
                     </div>
                 </div>
             </div>

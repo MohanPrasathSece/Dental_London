@@ -6,6 +6,47 @@
     <title>Gallery - Precision Root Canal Therapy & Hygiene</title>
     <link rel="stylesheet" href="styles.css">
     <meta name="description" content="Take a virtual tour of our modern dental clinic in London. See our state-of-the-art equipment and comfortable patient environment.">
+    <style>
+      footer .social-links a.use-image img { display: block !important; }
+      .call-floating { bottom: 100px !important; }
+      .whatsapp-floating { bottom: 32px !important; }
+      @media (max-width: 600px) {
+        .call-floating { bottom: 90px !important; }
+        .whatsapp-floating { bottom: 26px !important; }
+      }
+      /* Mobile active nav highlight */
+      @media (max-width: 900px) {
+        /* Reserve space for fixed header to avoid content cut-off */
+        header { top: 12px; }
+        body { padding-top: 100px; }
+        /* Full brand name on mobile with reduced size */
+        .logo { font-size: 1.3rem !important; }
+        .logo .logo-full { display: inline !important; }
+        .logo .logo-short { display: none !important; }
+        .nav-menu a.active {
+          background: rgba(26,35,126,0.08);
+          color: #08335b;
+        }
+        .nav-menu a.active::after { display: none; }
+        .nav-menu a.active::before {
+          content: "";
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 4px;
+          background: #08335b;
+          border-radius: 0 3px 3px 0;
+        }
+      }
+      /* Disable scroll-in animations */
+      .section,
+      .section.fade-in,
+      .fade-in-up, .fade-in-left, .fade-in-right,
+      .fade-in-up.animate, .fade-in-left.animate, .fade-in-right.animate {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    </style>
 </head>
 <body class="gallery">
     <header>
@@ -41,29 +82,23 @@
             <div class="container">
                 <h2 style="text-align: center; margin-bottom: 3rem;">Our Modern Clinic</h2>
                 <div class="gallery-grid">
-                    <div class="gallery-item fade-in-up">
-                        [Reception Area - Comfortable Seating]
-                        <div class="gallery-overlay"><span>Reception Area</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1588771938245-4d9a50a6c2f3?q=80&w=1400&auto=format&fit=crop" alt="Reception Area - Comfortable Seating" />
                     </div>
-                    <div class="gallery-item fade-in-up">
-                        [Waiting Room - Modern Design]
-                        <div class="gallery-overlay"><span>Waiting Room</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?q=80&w=1400&auto=format&fit=crop" alt="Waiting Room - Modern Design" />
                     </div>
-                    <div class="gallery-item fade-in-up">
-                        [Treatment Room - Advanced Equipment]
-                        <div class="gallery-overlay"><span>Treatment Room</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1400&auto=format&fit=crop" alt="Treatment Room - Advanced Equipment" />
                     </div>
-                    <div class="gallery-item fade-in-up">
-                        [Consultation Room - Private Discussion]
-                        <div class="gallery-overlay"><span>Consultation Room</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1629909612203-2ec4f0c9a4b1?q=80&w=1400&auto=format&fit=crop" alt="Consultation Room - Private Discussion" />
                     </div>
-                    <div class="gallery-item fade-in-up">
-                        [Sterilization Area - Safety First]
-                        <div class="gallery-overlay"><span>Sterilization Center</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1588771939860-466b58a5f99a?q=80&w=1400&auto=format&fit=crop" alt="Sterilization Area - Safety First" />
                     </div>
-                    <div class="gallery-item fade-in-up">
-                        [Clinic Exterior - Professional Signage]
-                        <div class="gallery-overlay"><span>Clinic Exterior</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=1400&auto=format&fit=crop" alt="Clinic Exterior - Professional Signage" />
                     </div>
                 </div>
             </div>
@@ -73,29 +108,23 @@
             <div class="container">
                 <h2 style="text-align: center; margin-bottom: 3rem;">Advanced Technology</h2>
                 <div class="gallery-grid">
-                    <div class="gallery-item fade-in-up">
-                        [Digital X-Ray Machine]
-                        <div class="gallery-overlay"><span>Digital Radiography</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1582719478250-14a5b3b6d90a?q=80&w=1400&auto=format&fit=crop" alt="Digital X-Ray Machine" />
                     </div>
-                    <div class="gallery-item fade-in-up">
-                        [Surgical Microscope]
-                        <div class="gallery-overlay"><span>Surgical Microscope</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1629909612203-2ec4f0c9a4b1?q=80&w=1400&auto=format&fit=crop" alt="Surgical Microscope" />
                     </div>
-                    <div class="gallery-item fade-in-up">
-                        [Rotary Endodontic Equipment]
-                        <div class="gallery-overlay"><span>Rotary Systems</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1582719478250-14a5b3b6d90a?q=80&w=1400&auto=format&fit=crop" alt="Rotary Endodontic Equipment" />
                     </div>
-                    <div class="gallery-item fade-in-up">
-                        [Ultrasonic Cleaning Equipment]
-                        <div class="gallery-overlay"><span>Ultrasonic Technology</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=1400&auto=format&fit=crop" alt="Ultrasonic Cleaning Equipment" />
                     </div>
-                    <div class="gallery-item fade-in-up">
-                        [Laser Technology Equipment]
-                        <div class="gallery-overlay"><span>Laser Therapy</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1511079901781-2f092231c8e2?q=80&w=1400&auto=format&fit=crop" alt="Laser Technology Equipment" />
                     </div>
-                    <div class="gallery-item fade-in-up">
-                        [Autoclave Sterilization]
-                        <div class="gallery-overlay"><span>Sterilization Equipment</span></div>
+                    <div class="gallery-item">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1606811971607-4462be98c9a2?q=80&w=1400&auto=format&fit=crop" alt="Autoclave Sterilization" />
                     </div>
                 </div>
             </div>
@@ -149,10 +178,10 @@
                 <div class="footer-section">
                     <h3>Follow Us</h3>
                     <div class="social-links">
-                        <a href="#" title="Facebook" class="fb"><span class="ico ico-facebook" aria-hidden="true"></span></a>
-                        <a href="#" title="Instagram" class="ig"><span class="ico ico-instagram" aria-hidden="true"></span></a>
-                        <a href="#" title="LinkedIn" class="li"><span class="ico ico-linkedin" aria-hidden="true"></span></a>
-                        <a href="#" title="X" class="x"><span class="ico ico-x" aria-hidden="true"></span></a>
+                        <a href="#" title="Facebook" class="use-image"><img src="images/facebook-logo.png" alt="Facebook" /></a>
+                        <a href="#" title="Instagram" class="use-image"><img src="images/ig.png" alt="Instagram" /></a>
+                        <a href="#" title="LinkedIn" class="use-image"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+                        <a href="#" title="X" class="use-image"><img src="images/x png.png" alt="X" /></a>
                     </div>
                 </div>
             </div>

@@ -6,6 +6,31 @@
     <title>Contact Us - Precision Root Canal Therapy & Hygiene</title>
     <link rel="stylesheet" href="styles.css">
     <meta name="description" content="Contact Precision Root Canal Therapy & Hygiene in London. Book your appointment at SE19 2LJ, 71 Church Rd, London. Expert root canal and dental hygiene services.">
+    <style>
+      footer .social-links a.use-image img { display: block !important; }
+      .call-floating { bottom: 100px !important; }
+      .whatsapp-floating { bottom: 32px !important; }
+      @media (max-width: 600px) {
+        .call-floating { bottom: 90px !important; }
+        .whatsapp-floating { bottom: 26px !important; }
+      }
+      /* Mobile active nav highlight */
+      @media (max-width: 900px) {
+        .nav-menu a.active {
+          background: rgba(26,35,126,0.08);
+          color: #08335b;
+        }
+        .nav-menu a.active::after { display: none; }
+        .nav-menu a.active::before {
+          content: "";
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 4px;
+          background: #08335b;
+          border-radius: 0 3px 3px 0;
+        }
+      }
+    </style>
 </head>
 <body class="contact">
     <header>
@@ -226,10 +251,10 @@
                 <div class="footer-section">
                     <h3>Follow Us</h3>
                     <div class="social-links">
-                        <a href="#" title="Facebook" class="fb"><span class="ico ico-facebook" aria-hidden="true"></span></a>
-                        <a href="#" title="Instagram" class="ig"><span class="ico ico-instagram" aria-hidden="true"></span></a>
-                        <a href="#" title="LinkedIn" class="li"><span class="ico ico-linkedin" aria-hidden="true"></span></a>
-                        <a href="#" title="X" class="x"><span class="ico ico-x" aria-hidden="true"></span></a>
+                        <a href="#" title="Facebook" class="use-image"><img src="images/facebook-logo.png" alt="Facebook" /></a>
+                        <a href="#" title="Instagram" class="use-image"><img src="images/ig.png" alt="Instagram" /></a>
+                        <a href="#" title="LinkedIn" class="use-image"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+                        <a href="#" title="X" class="use-image"><img src="images/x png.png" alt="X" /></a>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Precision Root Canal Therapy & Hygiene</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="overrides.css">
     <meta name="description" content="Learn about our specialized dental clinic in London. Expert root canal therapy and hygiene services with a focus on patient comfort and advanced care.">
+    <style>
+      footer .social-links a.use-image img { display: block !important; }
+      .call-floating { bottom: 100px !important; }
+      .whatsapp-floating { bottom: 32px !important; }
+      @media (max-width: 600px) {
+        .call-floating { bottom: 90px !important; }
+        .whatsapp-floating { bottom: 26px !important; }
+      }
+      /* Mobile active nav highlight */
+      @media (max-width: 900px) {
+        /* Reserve space for fixed header to avoid content cut-off and add top gap */
+        header { top: 8px; }
+        body { padding-top: 92px; }
+        /* Show full brand name on mobile and reduce size */
+        .logo { font-size: 1.3rem !important; }
+        .logo .logo-full { display: inline !important; }
+        .logo .logo-short { display: none !important; }
+        .nav-menu a.active {
+          background: rgba(26,35,126,0.08);
+          color: #08335b;
+        }
+        .nav-menu a.active::after { display: none; }
+        .nav-menu a.active::before {
+          content: "";
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 4px;
+          background: #08335b;
+          border-radius: 0 3px 3px 0;
+        }
+      }
+      /* Ensure section images scale nicely */
+      .content-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; display: block; }
+    </style>
 </head>
 <body class="about">
     <header>
@@ -54,8 +89,8 @@
                         <p>We believe that every patient deserves personalized attention and the most advanced treatment options available. Our practice combines years of specialized training with cutting-edge technology to deliver exceptional results.</p>
                         <p>What sets us apart is our exclusive focus on root canal therapy and dental hygiene. This specialization allows us to maintain the highest standards of care and stay at the forefront of endodontic innovations.</p>
                     </div>
-                    <div class="content-image fade-in-right">
-                        [Image - Clinic Exterior or Team Photo]
+                    <div class="content-image fade-in-right" style="height:300px;">
+                        <img src="https://images.unsplash.com/photo-1588774069163-4536df4babae?q=80&w=1400&auto=format&fit=crop" alt="Clinic exterior or team" />
                     </div>
                 </div>
             </div>
@@ -64,8 +99,8 @@
         <section class="section content-section alt-1">
             <div class="container">
                 <div class="content-grid">
-                    <div class="content-image fade-in-left">
-                        [Image - Lead Dentist or Clinic Interior]
+                    <div class="content-image fade-in-left" style="height:300px;">
+                        <img src="https://images.unsplash.com/photo-1580281657527-47db0f9c7c7a?q=80&w=1400&auto=format&fit=crop" alt="Clinic interior" />
                     </div>
                     <div class="content-text fade-in-right">
                         <h2>Our Expertise</h2>
@@ -193,10 +228,10 @@
                 <div class="footer-section">
                     <h3>Follow Us</h3>
                     <div class="social-links">
-                        <a href="#" title="Facebook" class="fb"><span class="ico ico-facebook" aria-hidden="true"></span></a>
-                        <a href="#" title="Instagram" class="ig"><span class="ico ico-instagram" aria-hidden="true"></span></a>
-                        <a href="#" title="LinkedIn" class="li"><span class="ico ico-linkedin" aria-hidden="true"></span></a>
-                        <a href="#" title="X" class="x"><span class="ico ico-x" aria-hidden="true"></span></a>
+                        <a href="#" title="Facebook" class="use-image"><img src="images/facebook-logo.png" alt="Facebook" /></a>
+                        <a href="#" title="Instagram" class="use-image"><img src="images/ig.png" alt="Instagram" /></a>
+                        <a href="#" title="LinkedIn" class="use-image"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+                        <a href="#" title="X" class="use-image"><img src="images/x png.png" alt="X" /></a>
                     </div>
                 </div>
             </div>

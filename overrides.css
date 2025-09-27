@@ -1,0 +1,47 @@
+/* Global overrides: disable scroll-in animations */
+.section,
+.section.fade-in,
+.fade-in-up, .fade-in-left, .fade-in-right,
+.fade-in-up.animate, .fade-in-left.animate, .fade-in-right.animate {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Gallery: remove hover effects and overlays, ensure images fill */
+.gallery .gallery-item { transition: none !important; box-shadow: none !important; }
+.gallery .gallery-item:hover { transform: none !important; box-shadow: none !important; border-color: inherit !important; }
+.gallery .gallery-overlay { display: none !important; }
+.gallery .gallery-item img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; border-radius: 15px; }
+
+/* Mobile header offset + consistent branding across all pages */
+@media (max-width: 900px) {
+  :root { --mobile-header-gap: 12px; }
+
+  /* Keep the header slightly below the device top edge */
+  header { top: calc(var(--mobile-header-gap) + env(safe-area-inset-top, 0px)) !important; }
+
+  /* Reserve matching space for content under fixed header */
+  body { padding-top: calc(100px) !important; }
+
+  /* Always show full brand name and reduce size */
+  .logo { font-size: 1.3rem !important; }
+  .logo .logo-full { display: inline !important; }
+  .logo .logo-short { display: none !important; }
+
+  /* Improve mobile active highlight */
+  .nav-menu a.active { background: rgba(26,35,126,0.08); color: #08335b; }
+  .nav-menu a.active::after { display: none; }
+  .nav-menu a.active::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: #08335b;
+    border-radius: 0 3px 3px 0;
+  }
+
+  /* Anchor scroll safety */
+  html { scroll-padding-top: calc(84px + var(--mobile-header-gap)); }
+  .content-section, .hero, .tech4-section { scroll-margin-top: calc(84px + var(--mobile-header-gap)); }
+}
