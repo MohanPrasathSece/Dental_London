@@ -49,9 +49,9 @@ body.contact .email-floating { display: none !important; }
 .call-floating {
     position: fixed;
     right: 20px;
-    bottom: 88px; /* lifted to make room for email button below */
-    width: 64px;
-    height: 64px;
+    bottom: 113px; /* lifted to make room for email button below */
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -67,18 +67,18 @@ body.contact .email-floating { display: none !important; }
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 16px 40px rgba(26,35,126,0.45), 0 6px 14px rgba(26,35,126,0.25);
 }
-.call-floating .ico { width: 26px; height: 26px; color: #fff; }
+.call-floating .ico { width: 32px; height: 32px; color: #fff; }
 @media (max-width: 600px) {
-    .call-floating { right: 16px; bottom: 80px; width: 60px; height: 60px; }
+    .call-floating { right: 16px; bottom: 92px; width: 60px; height: 60px; }
 }
 
 /* Email Floating Button */
 .email-floating {
     position: fixed;
     right: 20px;
-    bottom: 20px;
-    width: 64px;
-    height: 64px;
+    bottom: 28px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -94,12 +94,12 @@ body.contact .email-floating { display: none !important; }
     box-shadow: 0 16px 40px rgba(8,51,91,0.35), 0 6px 14px rgba(8,51,91,0.22);
 }
 .email-floating img {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
 }
 @media (max-width: 600px) {
-    .email-floating { right: 16px; bottom: 16px; width: 60px; height: 60px; }
+    .email-floating { right: 16px; bottom: 12px; width: 60px; height: 60px; }
 }
 
 /* Footer responsive stacking */
@@ -129,10 +129,26 @@ nav .logo {
 }
 .services main,
 .technology main,
-.gallery main,
-.contact main {
+.gallery main {
     background: #ffffff; /* force solid white behind sections to the footer */
     margin-bottom: 0;     /* remove any bottom gap */
+}
+
+body.technology,
+body.contact,
+body.services {
+    background-image:
+        radial-gradient(900px 520px at 20% -10%, rgba(135, 139, 174, 0.12), transparent 60%),
+        radial-gradient(700px 450px at 85% 0%, rgba(145, 151, 188, 0.1), transparent 55%),
+        linear-gradient(180deg, #eef3ff 0%, #ffffff 45%, #f6f9ff 100%);
+    background-attachment: fixed, fixed, scroll;
+}
+
+.technology main,
+.contact main,
+.services main {
+    background: #ffffff; /* ensure main sections stay white */
+    margin-bottom: 0;
 }
 
 /* Smooth scrolling for in-page anchor navigation */
@@ -441,16 +457,29 @@ header {
     .topbar .right .top-item:first-child { display: none; } /* hide address on small */
 }
 
+@media (max-width: 900px) {
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 16px;
+        background: rgba(255, 255, 255, 0.92);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 2px 12px rgba(8, 27, 107, 0.08);
+        z-index: 999;
+        pointer-events: none;
+    }
+
+    /* Contact: remove the small white top overlay band below navbar */
+    body.contact::before { display: none; }
+}
 /* Prevent content from being hidden under the fixed header when there is no hero */
 main > :first-child:not(.hero) { margin-top: 84px; }
 
-body.contact main > :first-child {
-    margin-top: 48px;
-}
-
-body.contact .contact-modern {
-    padding-top: 1.75rem;
-}
+body.contact main > :first-child { margin-top: 0; }
 
 body.technology main > :first-child {
     margin-top: 48px;
@@ -862,6 +891,9 @@ nav {
     transition: all 0.3s ease;
     text-decoration: none;
     color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .quick-link:hover {
@@ -876,6 +908,15 @@ nav {
 .quick-link p {
     color: #666;
     font-size: 0.9rem;
+    margin: 0;
+}
+
+.quick-link .view-more {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
 }
 
 /* Content Sections */
@@ -1731,10 +1772,7 @@ footer .footer-content .footer-section:first-child p:nth-of-type(4) {
 }
 
 /* Contact page - Modern two-column layout */
-.contact-modern {
-    background: #ffffff;
-    padding: 3rem 0;
-}
+.contact-modern { background: linear-gradient(135deg, #e9efff 0%, #eef3ff 100%); padding: 1.5rem 0 2rem; }
 .contact-modern .grid {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -1769,6 +1807,21 @@ footer .footer-content .footer-section:first-child p:nth-of-type(4) {
     box-shadow: 0 14px 28px rgba(8,51,91,0.35);
 }
 
+body.contact .faq-section {
+    background: #ffffff;
+}
+
+/* Contact: no extra hero band */
+body.contact .contact-modern { padding: 140px 0 2rem; min-height: 0; margin-top: 0; }
+
+@media (max-width: 700px) {
+  /* Mobile: keep adequate clearance under fixed header */
+  body.contact .contact-modern { margin-top: 0; padding-top: 120px; }
+}
+
+/* Ensure contact content clears the fixed header: move spacing into section to avoid white bar */
+body.contact main { padding-top: 0; background: transparent; }
+
 @media (max-width: 900px) {
     .contact-modern .grid { grid-template-columns: 1fr; }
 }
@@ -1779,6 +1832,11 @@ footer .footer-content .footer-section:first-child p:nth-of-type(4) {
 }
 
 /* Technology Page Complete Redesign V2 */
+
+/* Services: ensure hero uses gradient similar to technology */
+body.services .hero {
+    background: linear-gradient(135deg, #f8faff 0%, #eef3ff 100%);
+}
 .technology .tech-hero-v2 {
     padding: 8rem 0 4rem;
     min-height: 80vh;

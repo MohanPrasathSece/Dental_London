@@ -86,65 +86,69 @@ window.addEventListener('scroll', function() {
 // Contact form submission
 function submitForm(event) {
     event.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(event.target);
-    const formObject = {};
-    formData.forEach((value, key) => {
-        formObject[key] = value;
-    });
-    
+
+    const form = event.target;
+    const data = new FormData(form);
+    const values = Object.fromEntries(data.entries());
+
+    // Map to the actual element IDs/fields used in contact.html
+    const firstNameEl = document.getElementById('firstName');
+    const lastNameEl = document.getElementById('lastName');
+    const emailEl = document.getElementById('email');
+    const phoneEl = document.getElementById('phone');
+    const serviceEl = document.getElementById('service');
+    const messageEl = document.getElementById('message');
+
     // Validate required fields
-    const requiredFields = ['name', 'email', 'message'];
-    let isValid = true;
-    
-    requiredFields.forEach(field => {
-        const input = document.getElementById(field);
-        if (!formObject[field] || formObject[field].trim() === '') {
-            input.style.borderColor = '#e74c3c';
-            isValid = false;
-        } else {
-            input.style.borderColor = '#e0e0e0';
-        }
-    });
-    
-    if (!isValid) {
-        showNotification('Please fill in all required fields.', 'error');
-        return;
-    }
-    
-    // Validate email format
+    let valid = true;
+    const mark = (el, ok) => {
+        if (!el) return; // safety
+        el.style.borderColor = ok ? '#e0e0e0' : '#e74c3c';
+    };
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formObject.email)) {
-        document.getElementById('email').style.borderColor = '#e74c3c';
-        showNotification('Please enter a valid email address.', 'error');
+    const firstName = (values.firstName || '').trim();
+    const lastName = (values.lastName || '').trim();
+    const email = (values.email || '').trim();
+    const phone = (values.phone || '').trim();
+    const service = (values.service || '').trim();
+    const msg = (values.message || '').trim();
+
+    if (!firstName) { valid = false; mark(firstNameEl, false); } else { mark(firstNameEl, true); }
+    if (!lastName)  { valid = false; mark(lastNameEl, false); } else { mark(lastNameEl, true); }
+    if (!email || !emailRegex.test(email)) { valid = false; mark(emailEl, false); } else { mark(emailEl, true); }
+    if (!msg) { valid = false; mark(messageEl, false); } else { mark(messageEl, true); }
+
+    if (!valid) {
+        showNotification('Please fill in all required fields (First name, Last name, Email, Message).', 'error');
         return;
     }
-    
-    // Show loading state
-    const submitButton = event.target.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
-    
-    // Simulate form submission (replace with actual form handling)
-    setTimeout(() => {
-        // Reset form
-        event.target.reset();
-        
-        // Reset button
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-        
-        // Show success message
-        showNotification('Thank you for your message! We\'ll get back to you within 24 hours.', 'success');
-        
-        // Reset field borders
-        requiredFields.forEach(field => {
-            document.getElementById(field).style.borderColor = '#e0e0e0';
-        });
-        
-    }, 2000);
+
+    // Build a prefilled email using mailto
+    const to = 'info@precisionrootcanal.co.uk';
+    const subject = `Appointment Request: ${service || 'General Enquiry'} - ${firstName} ${lastName}`;
+    const bodyLines = [
+        'Hello Precision Root Canal Therapy Team,',
+        '',
+        'I would like to book an appointment.',
+        `Name: ${firstName} ${lastName}`,
+        `Email: ${email}`,
+        phone ? `Phone: ${phone}` : null,
+        service ? `Service: ${service}` : null,
+        '',
+        'Message:',
+        msg,
+        '',
+        'Thank you!'
+    ].filter(Boolean);
+
+    const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+
+    // Attempt to open the user's default email client with prefilled details
+    window.location.href = mailto;
+
+    // Provide quick visual feedback
+    showNotification('Opening your email client to send the appointment request...', 'success');
 }
 
 // Notification system
