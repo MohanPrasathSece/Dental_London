@@ -70,3 +70,40 @@
   html { scroll-padding-top: calc(84px + var(--mobile-header-gap)); }
   .content-section, .hero, .tech4-section { scroll-margin-top: calc(84px + var(--mobile-header-gap)); }
 }
+
+/* Home Welcome: make image fill horizontally as a banner (override base rules) */
+.home .home-welcome .content-image {
+  height: auto !important;        /* allow full image to determine height */
+  overflow: visible;              /* no clipping */
+}
+.home .home-welcome .content-image img {
+  width: 100%;
+  height: auto !important;        /* keep full image visible */
+  object-fit: contain !important; /* no cropping */
+  object-position: center center !important;
+  display: block;
+}
+/* Ensure generic rule also allows full image */
+.home .welcome-visual img {
+  height: auto !important;
+  max-height: 480px !important;   /* preserve previous visual balance */
+  object-fit: contain !important;
+  object-position: center center !important;
+  border-radius: 16px !important;  /* rounded corners on the image */
+  box-shadow: none !important;    /* remove card-like shadow */
+}
+
+/* Remove any outer container styling around the welcome image */
+.home .welcome-visual {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 16px !important;
+}
+.home .home-welcome .content-image {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 16px !important;  /* rounded container */
+  overflow: hidden;                 /* clip image to rounded corners */
+}

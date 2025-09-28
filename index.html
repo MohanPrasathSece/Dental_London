@@ -40,6 +40,8 @@
       }
       /* Ensure section images scale nicely */
       .content-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; display: block; }
+      /* Show full image (no crop) in the Welcome section */
+      .home-welcome .content-image img { height: auto !important; object-fit: contain !important; }
     </style>
 </head>
 <body class="home">
@@ -142,7 +144,7 @@
         <section class="section home-why">
             <div class="container why-split">
                 <div class="why-media fade-in-left">
-                    <img src="https://images.unsplash.com/photo-1629909612203-2ec4f0c9a4b1?q=80&w=1400&auto=format&fit=crop" alt="Endodontist working with operating microscope" />
+                    <img src="images/home/endodontist.png" alt="Endodontist working with operating microscope" />
                 </div>
                 <div class="why-content fade-in-right">
                     <h2 class="why-title">Why Choose <span class="why-accent">Precision</span> Root Canal Therapy?</h2>
@@ -167,7 +169,7 @@
                 </div>
                 <div class="welcome-visual">
                     <div class="content-image">
-                        <img src="https://images.unsplash.com/photo-1598257006485-7ac425bb0e69?q=80&w=1400&auto=format&fit=crop" alt="Welcoming new dental patients" />
+                        <img src="images/home/welcome.jpg" alt="Welcoming new dental patients" />
                     </div>
                 </div>
             </div>
@@ -176,8 +178,8 @@
         <section class="section content-section">
             <div class="container">
                 <div class="content-grid">
-                    <div class="content-image fade-in-left" style="height:300px;">
-                        <img src="https://images.unsplash.com/photo-1588774069163-4536df4babae?q=80&w=1400&auto=format&fit=crop" alt="Modern dental equipment" />
+                    <div class="content-image fade-in-left" style="height:380px;">
+                        <img src="images/home/modern.png" alt="Modern dental equipment" />
                     </div>
                     <div class="content-text fade-in-right">
                         <h2>State-of-the-Art Technology</h2>
@@ -326,7 +328,13 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Precision Root Canal Therapy & Hygiene. All rights reserved.</p>
+                <div class="container">
+                    <div>&copy; 2024 Precision Root Canal Therapy & Hygiene.</div>
+                    <div class="legal-links">
+                        <a href="#">Terms of Use</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>

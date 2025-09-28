@@ -1010,11 +1010,17 @@ nav {
 .home .welcome-header { text-align: center; max-width: 800px; margin: 0 auto 1rem; }
 .home .welcome-title { font-size: 2.4rem; color: #0a2a6b; line-height: 1.15; }
 .home .welcome-subtitle { color: #5a5f73; margin-top: 0.5rem; }
-.home .welcome-visual { position: relative; margin-top: 1rem; }
-.home .welcome-visual img { width: 100%; border-radius: 16px; box-shadow: 0 16px 40px rgba(26,35,126,0.10); display: block; }
+.home .welcome-visual { position: relative; margin-top: 1rem; margin-bottom: 1rem; }
+.home .welcome-visual img { width: 100%; border-radius: 16px; box-shadow: 0 16px 40px rgba(26,35,126,0.10); display: block; height: auto; object-fit: contain; max-height: 480px; }
+/* Welcome image container should auto-size so it doesn't force overlap */
+.home .home-welcome .content-image { height: auto; background: transparent; border: 0; }
+.home .home-welcome .content-image img { width: 100%; height: auto; object-fit: contain; }
 
 @media (max-width: 700px) {
     .home .welcome-title { font-size: 2rem; }
+}
+@media (max-width: 900px) {
+    .home .welcome-visual img { max-height: 360px; }
 }
 .content-grid {
     display: grid;
@@ -1030,14 +1036,14 @@ nav {
 .content-image {
     width: 100%;
     height: 300px;
-    background: #f0f0f0;
+    background: transparent;
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #999;
     font-size: 1.2rem;
-    border: 2px dashed #ddd;
+    border: 0;
 }
 
 /* Service Cards */
@@ -1562,35 +1568,28 @@ nav {
 footer {
     background: linear-gradient(180deg, #0b1e3a 0%, #0d274a 100%);
     color: #e6eef9;
-    padding: 2.5rem 0 1.25rem;
+    padding: 2.5rem 0 0;
     margin-top: 2.5rem;
     position: relative;
+    overflow: hidden;
 }
 
 footer::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, 
-        rgba(255, 255, 255, 0.3) 0%, 
-        rgba(255, 255, 255, 0.8) 50%, 
-        rgba(255, 255, 255, 0.3) 100%);
+    content: none; /* remove striped overlay */
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     align-items: start;
 }
 footer .footer-section h3 {
     color: #ffffff;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     margin: 0 0 0.75rem;
+    font-weight: 800;
 }
 footer .footer-section p,
 footer .footer-section a {
@@ -1600,32 +1599,40 @@ footer .footer-section a {
 }
 footer .footer-section a:hover { color: #ffffff; text-decoration: underline; text-underline-offset: 2px; }
 footer .social-links { display: flex; gap: 0.5rem; }
-footer .social-links a { width: 44px; height: 44px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid rgba(63,81,181,0.9); color: rgba(63,81,181,0.9); background: transparent; transition: all 0.2s ease; }
-footer .social-links a:hover { background: rgba(63,81,181,0.9); color: #fff; }
-footer .social-links a .ico { width: 20px; height: 20px; }
-/* Remove image-based social icons if present */
-footer .social-links a.use-image img { display: none; }
+footer .social-links a { width: 40px; height: 40px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.18); color: #e6eef9; background: rgba(255,255,255,0.06); transition: all 0.2s ease; }
+footer .social-links a:hover { background: rgba(255,255,255,0.12); color: #fff; transform: translateY(-2px); }
+footer .social-links a .ico { width: 18px; height: 18px; }
+/* Ensure image-based social icons show properly */
+footer .social-links a.use-image img { display: block !important; width: 18px; height: 18px; filter: brightness(1) invert(0); }
 
 /* Hide legacy bottom row if present on some pages */
 .footer-bottom-row { display: none !important; }
-/* Order: Quick Links (2) left, Address (1) center, Services (3) right, Social (4) full row */
-.footer-content .footer-section:nth-child(2) { order: 1; text-align: left; }
-.footer-content .footer-section:nth-child(1) { order: 2; text-align: center; }
-.footer-content .footer-section:nth-child(3) { order: 3; text-align: right; }
-.footer-content .footer-section:nth-child(4) { order: 4; grid-column: 1 / -1; justify-self: center; }
+/* Equal three-column layout: keep natural order (1: Address, 2: Quick Links, 3: Services) and left-align for consistency */
+.footer-content .footer-section:nth-child(1) { order: 1; text-align: left; }
+.footer-content .footer-section:nth-child(2) { order: 2; text-align: left; }
+.footer-content .footer-section:nth-child(3) { order: 3; text-align: left; }
+.footer-content .footer-section:nth-child(4) { 
+  order: 4; 
+  grid-column: 1 / -1; 
+  justify-self: center; 
+  text-align: center; 
+  margin-top: 0; 
+  margin-bottom: 0.75rem; 
+  padding-bottom: 0.25rem; 
+}
 
 .footer-section h3 {
     color: #ffffff;
-    margin-bottom: 0.25rem;   /* smaller heading spacing */
-    font-size: 0.95rem;       /* slightly smaller headings to save space */
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
 }
 
 .footer-section p,
 .footer-section a {
-    color: #ccc;
+    color: rgba(230, 238, 249, 0.85);
     text-decoration: none;
     transition: color 0.3s ease;
-    line-height: 1.3;        /* tighten line height */
+    line-height: 1.6;
 }
 
 /* Emphasize address and phone (first section, first two lines) */
@@ -1740,9 +1747,33 @@ footer .footer-content .footer-section:first-child p:nth-of-type(4) {
     height: 36px;
 }
 
+/* Footer social: enforce centered layout and consistent neutral look */
+footer .footer-section:nth-child(4) h3 { text-align: center; margin-bottom: 0.25rem; }
+footer .social-links { justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.25rem; margin-bottom: 0.6rem; }
+footer .social-links a { 
+  width: 40px !important; 
+  height: 40px !important; 
+  border-radius: 8px; 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  border: 1px solid rgba(255,255,255,0.18) !important; 
+  color: #e6eef9 !important; 
+  background: rgba(255,255,255,0.06) !important; 
+  box-shadow: none !important;
+}
+footer .social-links a:hover { 
+  background: rgba(255,255,255,0.12) !important; 
+  color: #ffffff !important; 
+  transform: translateY(-2px) !important; 
+}
+/* Normalize image sizes in footer regardless of brand */
+footer .social-links a.use-image img { width: 20px !important; height: 20px !important; }
+footer .social-links a.use-image[title="LinkedIn"] img { width: 20px !important; height: 20px !important; }
+
 .footer-bottom {
     text-align: center;
-    padding-top: 1rem;
+    padding-top: 0.75rem;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     color: rgba(230,238,249,0.75);
 }
@@ -2727,6 +2758,38 @@ body.services .hero {
 .technology .cta-content h2 { margin: 0 0 0.25rem; }
 .technology .cta-content p { margin: 0; color: #5a5f73; }
 .technology .cta-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+/* About page: clean professional feature cards */
+.about .services-grid { grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1rem; }
+.about .services-grid .service-card {
+    background: #ffffff;
+    border: 1px solid rgba(8, 27, 107, 0.12);
+    box-shadow: 0 8px 22px rgba(8, 27, 107, 0.06);
+    border-radius: 14px;
+    padding: 1.25rem 1.25rem 1.35rem;
+    text-align: left;
+}
+.about .services-grid .service-card::before,
+.about .services-grid .service-card::after { display: none; }
+.about .services-grid .service-icon { display: none; }
+.about .services-grid .service-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: #0a2a6b;
+    font-weight: 800;
+}
+.about .services-grid .service-card h3::after { display: none; }
+.about .services-grid .service-card p {
+    margin: 0;
+    color: #4a5568;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+.about .services-grid .service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(8, 27, 107, 0.10);
+    border-color: rgba(8, 27, 107, 0.18);
+}
 
 @media (max-width: 900px) {
     .technology .tech-hero .tech-hero-inner { grid-template-columns: 1fr; text-align: center; }
