@@ -74,6 +74,64 @@
   .content-section, .hero, .tech4-section { scroll-margin-top: calc(84px + var(--mobile-header-gap)); }
 }
 
+/* Tablet layout fixes: keep mobile and desktop untouched */
+@media (min-width: 700px) and (max-width: 1024px) {
+  /* Header spacing so content doesn't hide under fixed header */
+  header { top: 8px !important; }
+  body { padding-top: 96px !important; }
+
+  /* Compact nav on tablet */
+  nav { padding: 0.6rem 1rem !important; }
+  .brand-wrap { max-width: 55% !important; }
+  .brand-subline { display: none !important; }
+  .logo { font-size: 1.5rem !important; }
+  .nav-menu { gap: 1rem !important; }
+  .nav-menu a { padding: 0.5rem 0.75rem !important; font-size: 0.95rem !important; }
+
+  /* Containers: a bit tighter gutters */
+  .container { padding: 0 1.25rem !important; }
+
+  /* Hero adjustments */
+  .hero { padding: 6rem 0 3rem !important; min-height: initial !important; }
+  .hero-grid { grid-template-columns: 1.1fr 0.9fr !important; gap: 2rem !important; }
+  .hero-image, .home .welcome-visual, .home .home-welcome .content-image { max-height: 380px !important; }
+
+  /* Generic content grids */
+  .content-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
+
+  /* Services/cards grids */
+  .services-grid, .expect-grid { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 1.25rem !important; }
+
+  /* Technology split sections */
+  .tech4-split { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 2rem !important; align-items: center !important; }
+  .tech4-split.reverse .tech4-text { order: 2; }
+  .tech4-split.reverse .tech4-media { order: 1; }
+
+  /* Gallery grid: two columns on tablet */
+  .gallery .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 1.25rem !important; }
+
+  /* Section headings sizing for balance */
+  .page-section-title { font-size: 2.2rem !important; }
+
+  /* Force desktop-like nav on tablet to avoid mobile dropdown collapse */
+  .mobile-menu-toggle { display: none !important; }
+  .nav-menu {
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    gap: 1rem !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  .nav-menu li a { display: inline-block !important; }
+}
+
 /* Standardize first section headings across all pages - match "Get In Touch" exactly */
 .page-section-title {
   text-align: center !important;
