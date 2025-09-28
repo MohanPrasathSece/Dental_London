@@ -23,11 +23,12 @@
   .home .hero { padding-top: 4.5rem !important; }
 }
 
-/* Gallery: remove hover effects and overlays, ensure images fill */
+/* Gallery: remove hover effects and overlays, ensure images display */
 .gallery .gallery-item { transition: none !important; box-shadow: none !important; }
 .gallery .gallery-item:hover { transform: none !important; box-shadow: none !important; border-color: inherit !important; }
 .gallery .gallery-overlay { display: none !important; }
-.gallery .gallery-item img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; border-radius: 15px; }
+/* Important: use height:auto by default to avoid zero-height images when parent has no fixed height */
+.gallery .gallery-item img { width: 100% !important; height: auto !important; object-fit: contain !important; display: block !important; border-radius: 15px; }
 
 /* Gallery: use two columns on mobile */
 @media (max-width: 600px) {
@@ -37,6 +38,8 @@
     gap: 0.75rem !important; 
   }
   .gallery .gallery-item { height: 180px !important; }
+  /* On small screens where we fix item height, make image cover the tile */
+  .gallery .gallery-item img { height: 100% !important; width: 100% !important; object-fit: cover !important; }
 }
 
 /* Mobile header offset + consistent branding across all pages */
@@ -69,6 +72,69 @@
   /* Anchor scroll safety */
   html { scroll-padding-top: calc(84px + var(--mobile-header-gap)); }
   .content-section, .hero, .tech4-section { scroll-margin-top: calc(84px + var(--mobile-header-gap)); }
+}
+
+/* Standardize first section headings across all pages - match "Get In Touch" exactly */
+.page-section-title {
+  text-align: center !important;
+  margin-bottom: 1rem !important;
+  font-size: 2.5rem !important;
+  color: #08335b !important;
+  font-weight: 700 !important;
+}
+
+.page-section-subtitle {
+  text-align: center !important;
+  color: #5a5f73 !important;
+  max-width: 60ch !important;
+  margin: 0 auto 1.5rem !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Ensure all pages using contact-modern have consistent spacing and background */
+body.services .contact-modern,
+body.about .contact-modern,
+body.technology .contact-modern,
+body.gallery .contact-modern {
+  padding: 140px 0 2rem !important;
+  min-height: 0 !important;
+  margin-top: 0 !important;
+  background: linear-gradient(135deg, #e9efff 0%, #eef3ff 100%) !important;
+}
+
+/* Mobile spacing for all pages */
+@media (max-width: 700px) {
+  body.services .contact-modern,
+  body.about .contact-modern,
+  body.technology .contact-modern,
+  body.gallery .contact-modern {
+    margin-top: 0 !important;
+    padding-top: 120px !important;
+  }
+}
+
+/* Ensure main content has no extra padding for all pages */
+body.services main,
+body.about main,
+body.technology main,
+body.gallery main {
+  padding-top: 0 !important;
+  background: transparent !important;
+}
+
+/* Override any existing technology and gallery specific styles */
+body.technology .contact-modern,
+body.gallery .contact-modern {
+  padding: 140px 0 2rem !important;
+  background: linear-gradient(135deg, #e9efff 0%, #eef3ff 100%) !important;
+}
+
+@media (max-width: 700px) {
+  body.technology .contact-modern,
+  body.gallery .contact-modern {
+    padding-top: 120px !important;
+  }
 }
 
 /* Home Welcome: make image fill horizontally as a banner (override base rules) */
