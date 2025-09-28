@@ -1861,7 +1861,7 @@ footer .social-links a.use-image[title="LinkedIn"] img { width: 20px !important;
 .contact-modern .map-wrap { overflow: hidden; border-radius: 14px; border: 1px solid #e6e9ef; }
 .contact-modern .map-embed { width: 100%; height: 260px; border: 0; display: block; }
 .contact-modern .info-list { margin-top: 1rem; display: grid; gap: 1rem; }
-.contact-modern .info-item { display: grid; grid-template-columns: 64px 1fr; align-items: center; gap: 1rem; background: rgba(255,255,255,0.75); border: 1px solid rgba(26,35,126,0.08); border-radius: 16px; padding: 1rem; box-shadow: 0 12px 30px rgba(8,51,91,0.08); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.contact-modern .info-item { display: grid; grid-template-columns: 64px 1fr; align-items: center; gap: 1rem; background: rgba(255,255,255,0.75); border: 1px solid rgba(26,35,126,0.08); border-radius: 16px; padding: 1rem; box-shadow: 0 12px 30px rgba(8,51,91,0.08); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .contact-modern .info-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0d2a8a, #163aa6); color: #ffffff; font-size: 1.4rem; box-shadow: 0 10px 22px rgba(13,42,138,0.28); }
 .contact-modern .info-text h4 { margin: 0 0 0.25rem; color: #0d1b6b; font-size: 1rem; }
 .contact-modern .info-text p { margin: 0; color: #5a5f73; font-size: 0.9rem; }

@@ -73,39 +73,38 @@
   html { scroll-padding-top: calc(84px + var(--mobile-header-gap)); }
   .content-section, .hero, .tech4-section { scroll-margin-top: calc(84px + var(--mobile-header-gap)); }
 }
-
 /* Tablet layout fixes: keep mobile and desktop untouched */
 @media (min-width: 700px) and (max-width: 1024px) {
-  /* Header spacing so content doesn't hide under fixed header */
   header { top: 8px !important; }
   body { padding-top: 96px !important; }
 
-  /* Compact nav on tablet */
-  nav { padding: 0.6rem 1rem !important; }
-  .brand-wrap { max-width: 55% !important; }
+  /* Compact nav on tablet (single row, desktop-like) */
+  nav { padding: 0.5rem 0.75rem !important; flex-wrap: nowrap !important; }
+  .brand-wrap { max-width: 38% !important; min-width: 0 !important; }
   .brand-subline { display: none !important; }
-  .logo { font-size: 1.5rem !important; }
-  .nav-menu { gap: 1rem !important; }
-  .nav-menu a { padding: 0.5rem 0.75rem !important; font-size: 0.95rem !important; }
-
-  /* Containers: a bit tighter gutters */
-  .container { padding: 0 1.25rem !important; }
+  .logo { font-size: 1.15rem !important; letter-spacing: 0 !important; }
+  /* Keep full brand like desktop */
+  .logo .logo-full { display: inline !important; }
+  .logo .logo-short { display: none !important; }
+  .nav-menu { gap: 0.4rem !important; flex: 1 1 auto !important; min-width: 0 !important; flex-wrap: nowrap !important; }
+  .nav-menu a { padding: 0.35rem 0.5rem !important; font-size: 0.8rem !important; }
+  .nav-utility { flex: 0 0 auto !important; order: initial !important; margin-top: 0 !important; }
 
   /* Hero adjustments */
   .hero { padding: 6rem 0 3rem !important; min-height: initial !important; }
-  .hero-grid { grid-template-columns: 1.1fr 0.9fr !important; gap: 2rem !important; }
   .hero-image, .home .welcome-visual, .home .home-welcome .content-image { max-height: 380px !important; }
 
   /* Generic content grids */
-  .content-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
-
-  /* Services/cards grids */
-  .services-grid, .expect-grid { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 1.25rem !important; }
+  .content-grid, .services-grid, .expect-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.25rem !important;
+  }
 
   /* Technology split sections */
   .tech4-split { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 2rem !important; align-items: center !important; }
   .tech4-split.reverse .tech4-text { order: 2; }
-  .tech4-split.reverse .tech4-media { order: 1; }
+{{ ... }}
 
   /* Gallery grid: two columns on tablet */
   .gallery .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 1.25rem !important; }
@@ -135,24 +134,45 @@
 /* Standardize first section headings across all pages - match "Get In Touch" exactly */
 .page-section-title {
   text-align: center !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.5rem !important; /* tighter gap to subtitle */
   font-size: 2.5rem !important;
   color: #08335b !important;
   font-weight: 700 !important;
 }
 
 .page-section-subtitle {
+  display: block !important;            /* ensure block to allow margins */
   text-align: center !important;
   color: #5a5f73 !important;
   max-width: 60ch !important;
-  margin: 0 auto 1.5rem !important;
-  font-size: 1rem !important;
-  line-height: 1.6 !important;
+  margin: 0.5rem auto 1.5rem !important; /* consistent spacing under title and before next content */
 }
 
-/* Ensure all pages using contact-modern have consistent spacing and background */
-body.services .contact-modern,
+/* Ensure consistent centering for first heading group within hero-like page headers */
+.contact-modern .container { text-align: center; }
+
+/* Unify About & Services header spacing/background with Gallery */
 body.about .contact-modern,
+body.services .contact-modern {
+  padding: 140px 0 2rem !important;
+  margin-top: 0 !important;
+  background: linear-gradient(135deg, #e9efff 0%, #eef3ff 100%) !important;
+}
+
+/* Utility classes replacing former inline styles */
+.centered-block { text-align: center !important; }
+.centered-title { text-align: center !important; margin-bottom: 3rem !important; }
+.lead-subtext { font-size: 1.2rem !important; margin-bottom: 2rem !important; color: #666 !important; }
+.mb-3rem { margin-bottom: 3rem !important; }
+.alt-bg { background: #f8f9ff !important; }
+.phone-link { text-decoration: none !important; color: #08335b !important; font-weight: 700 !important; }
+
+/* Specific element heights previously set inline */
+.about .content-image { height: 300px !important; }
+/* Generic utilities */
+.h-300 { height: 300px !important; }
+.h-380 { height: 380px !important; }
+.list-left-muted { text-align: left !important; margin-top: 1rem !important; color: #666 !important; }
 body.technology .contact-modern,
 body.gallery .contact-modern {
   padding: 140px 0 2rem !important;
