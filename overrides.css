@@ -164,8 +164,32 @@ body.services .contact-modern {
 .alt-bg { background: #f8f9ff !important; }
 .phone-link { text-decoration: none !important; color: #08335b !important; font-weight: 700 !important; }
 
-/* Specific element heights previously set inline */
-.about .content-image { height: 300px !important; }
+/* About page: match image block height to adjacent text and crop within that height */
+.about .content-section .content-grid { align-items: stretch !important; }
+.about .content-section .content-image { height: 100% !important; max-height: none !important; }
+.about .content-section .content-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* crop to section/text height */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
+}
+/* When the grid stacks (tablet/mobile), let the image size naturally to avoid excess cropping */
+@media (max-width: 900px) {
+  .about .content-section .content-grid { align-items: start !important; }
+  .about .content-section .content-image { height: auto !important; }
+  .about .content-section .content-image img { height: auto !important; object-fit: contain !important; }
+}
+
+/* Services page: remove any potential blur from images */
+body.services .content-image img,
+body.services .service-hero img,
+body.services img {
+  -webkit-filter: none !important;
+  filter: none !important;
+  transform: none !important; /* ensure no scaling transforms */
+  image-rendering: auto !important; /* default crisp rendering */
+}
 /* Generic utilities */
 .h-300 { height: 300px !important; }
 .h-380 { height: 380px !important; }
