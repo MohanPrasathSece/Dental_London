@@ -180,16 +180,6 @@ body.services .contact-modern {
   .about .content-section .content-image { height: auto !important; }
   .about .content-section .content-image img { height: auto !important; object-fit: contain !important; }
 }
-
-/* Services page: remove any potential blur from images */
-body.services .content-image img,
-body.services .service-hero img,
-body.services img {
-  -webkit-filter: none !important;
-  filter: none !important;
-  transform: none !important; /* ensure no scaling transforms */
-  image-rendering: auto !important; /* default crisp rendering */
-}
 /* Generic utilities */
 .h-300 { height: 300px !important; }
 .h-380 { height: 380px !important; }
