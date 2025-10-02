@@ -23,9 +23,34 @@
   .home .hero { padding-top: 4.5rem !important; }
 }
 
+/* Home: use provided background image in the first section (hero) */
+body.home .hero {
+  background:
+    /* Heavier on the left for text, lighter towards the image on the right */
+    linear-gradient(90deg,
+      rgba(255,255,255,0.90) 0%,
+      rgba(255,255,255,0.80) 35%,
+      rgba(255,255,255,0.60) 65%,
+      rgba(255,255,255,0.45) 100%
+    ),
+    url('images/home/bgimage.jpg') center center / cover no-repeat !important;
+}
+
 /* Gallery: remove hover effects/overlays, enforce 2-column, uniform larger tiles */
-.gallery .gallery-item { transition: none !important; box-shadow: none !important; }
-.gallery .gallery-item:hover { transform: none !important; box-shadow: none !important; border-color: inherit !important; }
+.gallery .gallery-item {
+  transition: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  transform: none !important; /* defeat inline transforms from JS */
+}
+.gallery .gallery-item:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+.gallery .gallery-item, .gallery .gallery-item:hover { transition: none !important; }
 .gallery .gallery-overlay { display: none !important; }
 
 /* Base grid: 2 columns on all screens by default */
@@ -33,6 +58,37 @@
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 1.25rem !important;
+}
+
+/* Gallery page: reduce space before 'Advanced Technology' heading */
+body.gallery main > section.content-section.alt-bg:nth-of-type(3) {
+  padding-top: 1.5rem !important;
+}
+
+/* Technology page: vertically center text next to image in split sections */
+body.technology .tech4-section .tech4-split { align-items: center !important; }
+body.technology .tech4-section .tech4-text { align-self: center !important; }
+
+/* About page: background image for 'Our Commitment to Excellence' section */
+body.about main > section:nth-of-type(4).content-section.alt-2 {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.78)),
+    url('images/about/bgimage1.png') center center / cover no-repeat !important;
+}
+
+/* About page: Uncrop image in 'Our Expertise' section (alt-1) */
+body.about main > section.content-section.alt-1 .content-image {
+  height: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+body.about main > section.content-section.alt-1 .content-image img {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 420px !important;
+  object-fit: contain !important;
 }
 
 /* Uniform tile sizing with a larger aspect ratio */
@@ -172,21 +228,20 @@ body.services .contact-modern {
 
 /* Utility classes replacing former inline styles */
 .centered-block { text-align: center !important; }
-.centered-title { text-align: center !important; margin-bottom: 3rem !important; }
 .lead-subtext { font-size: 1.2rem !important; margin-bottom: 2rem !important; color: #666 !important; }
 .mb-3rem { margin-bottom: 3rem !important; }
 .alt-bg { background: #f8f9ff !important; }
 .phone-link { text-decoration: none !important; color: #08335b !important; font-weight: 700 !important; }
 
-/* About page: match image block height to adjacent text and crop within that height */
-.about .content-section .content-grid { align-items: stretch !important; }
-.about .content-section .content-image { height: 100% !important; max-height: none !important; }
+/* Gallery page: add space before the final CTA heading */
+body.gallery .content-section.alt-bg .container .centered-block {
+  margin-top: 3rem !important; /* space before 'Experience Our Modern Facility' */
+}
 .about .content-section .content-image img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important; /* crop to section/text height */
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: auto;
 }
 /* When the grid stacks (tablet/mobile), let the image size naturally to avoid excess cropping */
 @media (max-width: 900px) {

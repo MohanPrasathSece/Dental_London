@@ -1771,8 +1771,8 @@ footer .social-links a:hover {
   transform: translateY(-2px) !important; 
 }
 /* Normalize image sizes in footer regardless of brand */
-footer .social-links a.use-image img { width: 20px !important; height: 20px !important; }
-footer .social-links a.use-image[title="LinkedIn"] img { width: 20px !important; height: 20px !important; }
+footer .social-links a.use-image img { width: 28px !important; height: 28px !important; }
+footer .social-links a.use-image[title="LinkedIn"] img { width: 36px !important; height: 36px !important; }
 
 .footer-bottom {
     text-align: center;
