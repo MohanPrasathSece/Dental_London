@@ -112,18 +112,12 @@ body.about main > section.content-section.alt-1 .content-image img {
   .gallery .gallery-item img { height: 100% !important; width: 100% !important; object-fit: cover !important; }
 }
 
-/* Mobile header offset + consistent branding across all pages */
+/* Mobile header: flush to the very top, no extra padding */
 @media (max-width: 900px) {
-  :root { --mobile-header-gap: 12px; }
+  header { top: 0 !important; }
+  body { padding-top: 0 !important; }
 
-  /* Keep the header slightly below the device top edge */
-  header { top: calc(var(--mobile-header-gap) + env(safe-area-inset-top, 0px)) !important; }
-
-  /* Reserve matching space for content under fixed header */
-  body { padding-top: 88px !important; }
-
-  /* Always show full brand name and reduce size */
-  .logo { font-size: 1.3rem !important; }
+  /* Keep smaller brand sizing; full name controlled elsewhere */
   .logo .logo-full { display: inline !important; }
   .logo .logo-short { display: none !important; }
 
@@ -139,9 +133,9 @@ body.about main > section.content-section.alt-1 .content-image img {
     border-radius: 0 3px 3px 0;
   }
 
-  /* Anchor scroll safety */
-  html { scroll-padding-top: calc(84px + var(--mobile-header-gap)); }
-  .content-section, .hero, .tech4-section { scroll-margin-top: calc(84px + var(--mobile-header-gap)); }
+  /* Minimal anchor scroll safety under fixed header */
+  html { scroll-padding-top: 64px; }
+  .content-section, .hero, .tech4-section { scroll-margin-top: 64px; }
 }
 /* Tablet layout fixes: keep mobile and desktop untouched */
 @media (min-width: 700px) and (max-width: 1024px) {

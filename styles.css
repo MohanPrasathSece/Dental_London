@@ -51,6 +51,9 @@
     h2 { font-size: 1.8rem; }
     .content-section { padding: 2rem 0; }
     .content-grid { gap: 1.5rem; }
+    /* Reverse order utility for mobile: place text before image */
+    .reverse-mobile .content-text { order: 1; }
+    .reverse-mobile .content-image { order: 2; }
 }
 
 /* Ensure floating actions are visible on contact page */
@@ -141,6 +144,38 @@ body.contact .email-floating { display: inline-flex !important; }
     .footer-content .footer-section:nth-child(4) {
         order: initial; text-align: center; grid-column: auto;
     }
+}
+
+/* Footer bottom styling */
+.footer-bottom { background: transparent; border-top: none; }
+.footer-bottom .container { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.footer-bottom .legal-links { display: inline-flex; gap: 0.75rem; }
+.footer-bottom .made-by { color: #ffffff; font-weight: 700; font-size: 0.9rem; opacity: 0.95; }
+.footer-bottom .made-by a { color: #8b5cf6; font-weight: 800; text-decoration: underline; text-underline-offset: 2px; letter-spacing: 0.15px; font-size: 0.9rem; }
+.footer-bottom .made-by a:hover { text-decoration: underline; }
+
+/* Expertise inline photo under subheading */
+.expertise-photo {
+  width: 100%;
+  height: auto;
+  display: none; /* hidden by default on desktop */
+  border-radius: 15px;
+  margin: 0.5rem 0 1rem;
+}
+@media (max-width: 900px) {
+  .expertise-photo { display: block; }
+  /* Hide the separate grid image for Expertise section on mobile */
+  .about .content-section.alt-1 .content-grid .content-image { display: none !important; }
+}
+
+/* Hide Services column in footer on mobile (it's the 3rd section) */
+@media (max-width: 700px) {
+  .footer-content .footer-section:nth-child(3) { display: none; }
+}
+
+/* Mobile top bar height: increase nav padding slightly */
+@media (max-width: 900px) {
+  nav { padding-top: 1rem !important; padding-bottom: 1rem !important; }
 }
 
 /* Reset and Base Styles */
@@ -488,23 +523,8 @@ header {
 }
 
 @media (max-width: 900px) {
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 16px;
-        background: rgba(255, 255, 255, 0.92);
-        -webkit-backdrop-filter: blur(12px);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 2px 12px rgba(8, 27, 107, 0.08);
-        z-index: 999;
-        pointer-events: none;
-    }
-
-    /* Contact: remove the small white top overlay band below navbar */
-    body.contact::before { display: none; }
+    /* Remove the small top overlay band entirely on mobile */
+    body::before { display: none !important; content: none !important; }
 }
 /* Prevent content from being hidden under the fixed header when there is no hero */
 main > :first-child:not(.hero) { margin-top: 84px; }
@@ -552,7 +572,14 @@ nav {
 
 @media (max-width: 480px) {
     .brand-subline { display: none; }
-    .logo { font-size: 1.1rem !important; }
+    .logo { font-size: 1.05rem !important; }
+}
+
+@media (max-width: 900px) {
+    /* Standard brand text size on mobile/tablet */
+    .logo { font-size: 1.2rem !important; }
+    /* Slightly larger mobile menu link text */
+    .nav-menu li a { font-size: 1rem !important; }
 }
 
 @media (max-width: 700px) {

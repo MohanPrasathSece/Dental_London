@@ -60,6 +60,44 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Referrals page: force download the referral PDF on click (no new tab)
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        if (!document.body.classList.contains('referrals')) return;
+        const btn = document.querySelector('.btn-download[href$="Endodontic-Referral-Form.pdf"]');
+        if (!btn) return;
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = this.getAttribute('href');
+            // Fetch the file and download as a Blob to avoid the browser opening it
+            fetch(url)
+              .then(res => res.blob())
+              .then(blob => {
+                  const blobUrl = URL.createObjectURL(blob);
+                  const a = document.createElement('a');
+                  a.href = blobUrl;
+                  // Try to preserve filename
+                  a.download = url.split('/').pop() || 'Endodontic-Referral-Form.pdf';
+                  document.body.appendChild(a);
+                  a.click();
+                  document.body.removeChild(a);
+                  setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+              })
+              .catch(err => {
+                  console.warn('Referral PDF download failed, falling back to direct link:', err);
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = '';
+                  document.body.appendChild(a);
+                  a.click();
+                  document.body.removeChild(a);
+              });
+        });
+    } catch (e) {
+        console.warn('Referral download handler error:', e);
+    }
+});
+
 // Disable scroll-in animations: make everything visible immediately
 document.addEventListener('DOMContentLoaded', function() {
     // Sections become visible by applying 'fade-in' (matches styles.css rule .section.fade-in)

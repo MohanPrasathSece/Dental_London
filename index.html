@@ -6,7 +6,7 @@
     <title>Precision Root Canal Therapy & Hygiene - London Dental Clinic</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="overrides.css">
-    <meta name="description" content="Expert Root Canal Therapy and dental hygiene services in London. Located at 71 Church Road, London, SE19 2J. Premium dental care with modern technology.">
+    <meta name="description" content="Expert Root Canal Therapy and dental hygiene services in London. Located at 71 Church Road, London, SE19 2LJ. Premium dental care with modern technology.">
     <style>
       footer .social-links a.use-image img { display: block !important; }
       .call-floating { bottom: 113px !important; }
@@ -17,11 +17,10 @@
       }
       /* Mobile active nav highlight */
       @media (max-width: 900px) {
-        /* Reserve space for fixed header to avoid content cut-off */
-        header { top: 12px; }
-        body { padding-top: 100px; }
-        /* Show full brand name on mobile and reduce size */
-        .logo { font-size: 1.3rem !important; }
+        /* Header should sit flush at the very top on mobile */
+        header { top: 0; }
+        body { padding-top: 0; }
+        /* Show full brand name on mobile; size uses global styles */
         .logo .logo-full { display: inline !important; }
         .logo .logo-short { display: none !important; }
         .nav-menu a.active {
@@ -53,7 +52,7 @@
                     <span class="logo-short">Precision</span>
                 </a>
                 <div class="brand-subline">
-                    <div class="top-item"><span class="ico ico-location" aria-hidden="true"></span><span>71 Church Road, London, SE19 2J</span></div>
+                    <div class="top-item"><span class="ico ico-location" aria-hidden="true"></span><span>71 Church Road, London, SE19 2LJ</span></div>
                     <div class="top-item"><span class="ico ico-phone" aria-hidden="true"></span><a href="tel:+02087717888" class="topbar-phone">+020 87717888</a></div>
                 </div>
             </div>
@@ -90,7 +89,7 @@
                         <div class="hero-info">
                             <div class="info-item">
                                 <span class="icon ico-location"></span>
-                                <span>71 Church Road, London, SE19 2J</span>
+                                <span>71 Church Road, London, SE19 2LJ</span>
                             </div>
                             <div class="info-item">
                                 <span class="icon ico-phone"></span>
@@ -302,7 +301,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Precision Root Canal Therapy &amp; Hygiene</h3>
-                    <p>71 Church Road, London, SE19 2J</p>
+                    <p>71 Church Road, London, SE19 2LJ</p>
                     <p>+020 87717888</p>
                 </div>
                 
@@ -341,6 +340,7 @@
                         <a href="#">Terms of Use</a>
                         <a href="#">Privacy Policy</a>
                     </div>
+                    <div class="made-by"><a href="#" rel="noopener noreferrer">Made by Zyra Digitals</a></div>
                 </div>
             </div>
         </div>
