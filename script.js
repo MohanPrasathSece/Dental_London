@@ -125,7 +125,7 @@ function submitForm(event) {
     }
 
     // Build a prefilled email using mailto
-    const to = 'info@precisionrootcanal.co.uk';
+    const to = 'info@mindfuldentist.london';
     const subject = `Appointment Request: ${service || 'General Enquiry'} - ${firstName} ${lastName}`;
     const bodyLines = [
         'Hello Precision Root Canal Therapy Team,',
