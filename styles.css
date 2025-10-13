@@ -1,5 +1,72 @@
 :root { --topbar-h: 36px; }
 
+/* Technology sections: square media, cover (no side white) */
+.tech4-media {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* square */
+  height: auto; /* with aspect-ratio ensures square based on width */
+  max-width: 420px; /* keep reasonable size */
+}
+.tech4-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* zoom to fill, crop edges */
+  display: block;
+  border-radius: 12px;
+}
+/* Inline image that appears inside text on mobile, below subheading */
+.tech4-inline { display: none; width: 100%; height: auto; border-radius: 12px; margin: 0.5rem 0 0.75rem; }
+/* Layout for tech sections */
+.tech4-split { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.tech4-text { flex: 1 1 0; }
+.tech4-media { flex: 0 0 auto; }
+@media (max-width: 900px) {
+  .tech4-split { flex-direction: column; align-items: center; text-align: left; }
+  /* On mobile: hide side media and show inline image below the subheading */
+  .tech4-media { display: none; }
+  .tech4-inline { display: block; }
+}
+
+/* CBCT gallery */
+.cbct-gallery {
+  margin-top: 1rem;
+}
+/* 3-up grid with captions */
+.cbct-gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+.cbct-item { background: #fff; border: 1px solid rgba(8,51,91,0.06); border-radius: 12px; padding: 0.5rem; }
+.cbct-item .thumb { border-radius: 10px; overflow: hidden; }
+.cbct-item .thumb img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+.cbct-item .caption { margin-top: 0.4rem; font-size: 0.95rem; color: #334155; }
+.cbct-item .caption .title { display: block; font-weight: 700; color: #0b2a4a; margin-bottom: 0.15rem; }
+@media (max-width: 900px) { .cbct-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; } }
+@media (max-width: 560px) {
+  .cbct-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; justify-items: center; }
+  .cbct-item { padding: 0.35rem; }
+  .cbct-item .thumb { width: 140px; }
+}
+@media (max-width: 380px) {
+  .cbct-item .thumb { width: 120px; }
+}
+/* CBCT zigzag image-text pairs */
+.cbct-pairs { display: flex; flex-direction: column; gap: 1rem; }
+.cbct-pair { display: flex; align-items: center; gap: 0.9rem; }
+.cbct-pair.reverse { flex-direction: row-reverse; }
+.cbct-thumb { flex: 0 0 320px; max-width: 320px; }
+.cbct-thumb img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; display: block; }
+.cbct-text { flex: 1 1 0; }
+.cbct-text h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+.cbct-text p { margin: 0; color: #334155; }
+@media (max-width: 900px) {
+  .cbct-pair, .cbct-pair.reverse { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .cbct-thumb { width: 100%; max-width: 520px; }
+}
+@media (max-width: 900px) {
+  .tech4-media { max-width: 360px; }
+}
+@media (max-width: 700px) {
+  .tech4-media { max-width: 300px; }
+}
+
 /* Home hero: highlight address/phone/timings chips */
 .hero-info {
     display: flex;
@@ -135,6 +202,112 @@ body.contact .email-floating { display: inline-flex !important; }
     .email-floating { right: 16px; bottom: 12px; width: 60px; height: 60px; }
 }
 
+/* Prices Floating Button (text pill) */
+.prices-floating {
+    position: fixed;
+    right: 20px;
+    bottom: 70px; /* placed between call and email */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #1a237e, #3f51b5);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 12px 30px rgba(26,35,126,0.30), 0 4px 10px rgba(26,35,126,0.18);
+    z-index: 1001;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.prices-floating:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(26,35,126,0.40), 0 6px 14px rgba(26,35,126,0.24); }
+.prices-floating .ico { width: 18px; height: 18px; color: #fff; }
+@media (max-width: 600px) {
+    .prices-floating { right: 16px; bottom: 52px; padding: 0.55rem 0.85rem; font-weight: 800; }
+}
+
+/* Inline Prices CTA (small section between content blocks) */
+.prices-cta {
+    background: #f7f9ff;
+    border-top: 1px solid rgba(8,51,91,0.06);
+    border-bottom: 1px solid rgba(8,51,91,0.06);
+    padding: 0.9rem 0;
+}
+.prices-cta .prices-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid rgba(26,35,126,0.12);
+    box-shadow: 0 6px 18px rgba(26,35,126,0.08);
+}
+.prices-cta .prices-inline .ico { color: #3f51b5; width: 18px; height: 18px; }
+.prices-cta .prices-inline .label { color: #08335b; font-weight: 700; }
+.prices-cta .prices-inline .link-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #1a237e, #3f51b5);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 20px rgba(26,35,126,0.22);
+}
+.prices-cta .prices-inline .link-pill:hover { filter: brightness(1.06); }
+.prices-cta .center { display: flex; justify-content: center; }
+
+/* Prices CTA variants */
+.prices-cta--band {
+    background: linear-gradient(135deg, #eef3ff 0%, #f7f9ff 100%);
+    border: none;
+    padding: 1.25rem 0;
+}
+.prices-cta--band .prices-inline {
+    background: #fff;
+    border-color: rgba(26,35,126,0.16);
+    box-shadow: 0 10px 26px rgba(26,35,126,0.14);
+}
+
+.prices-cta--card { background: transparent; border: none; padding: 1.2rem 0; }
+.prices-cta--card .prices-inline {
+    padding: 0.7rem 1.1rem;
+    background: #ffffff;
+    border-color: rgba(8,27,107,0.14);
+    box-shadow: 0 14px 30px rgba(8,27,107,0.16);
+}
+
+.prices-cta--minimal { background: transparent; border-bottom: none; }
+.prices-cta--minimal .prices-inline {
+    background: #f7f9ff;
+    border-color: rgba(26,35,126,0.10);
+    box-shadow: 0 6px 16px rgba(26,35,126,0.10);
+}
+
+.prices-cta--bar { background: #eef3ff; border: none; }
+.prices-cta--bar .prices-inline { background: #fff; border-color: rgba(26,35,126,0.12); }
+
+.prices-cta--soft { background: #f9fbff; border-top: 1px solid rgba(8,51,91,0.06); border-bottom: 1px solid rgba(8,51,91,0.06); }
+.prices-cta--soft .prices-inline { background: #fff; border-style: solid; }
+
+.prices-cta--glow { background: transparent; border: none; }
+.prices-cta--glow .prices-inline {
+    background: #ffffff;
+    border-color: rgba(26,35,126,0.18);
+    box-shadow: 0 0 0 6px rgba(63,81,181,0.08), 0 18px 42px rgba(26,35,126,0.18);
+}
+
+/* Mobile sizing adjustments for prices-cta */
+@media (max-width: 600px) {
+  .prices-cta .prices-inline { gap: 0.5rem; padding: 0.4rem 0.7rem; }
+  .prices-cta .prices-inline .label { font-size: 0.9rem; }
+  .prices-cta .prices-inline .link-pill { padding: 0.3rem 0.7rem; font-size: 0.85rem; }
+}
+
 /* Footer responsive stacking */
 @media (max-width: 900px) {
     .footer-content { grid-template-columns: 1fr; }
@@ -148,24 +321,34 @@ body.contact .email-floating { display: inline-flex !important; }
 
 /* Footer bottom styling */
 .footer-bottom { background: transparent; border-top: none; }
-.footer-bottom .container { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.footer-bottom .container { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding-top: 0.6rem; padding-bottom: 0.6rem; text-align: center; }
 .footer-bottom .legal-links { display: inline-flex; gap: 0.75rem; }
 .footer-bottom .made-by { color: #ffffff; font-weight: 700; font-size: 0.9rem; opacity: 0.95; }
 .footer-bottom .made-by a { color: #8b5cf6; font-weight: 800; text-decoration: underline; text-underline-offset: 2px; letter-spacing: 0.15px; font-size: 0.9rem; }
 .footer-bottom .made-by a:hover { text-decoration: underline; }
 
+/* Footer address line breaks for mobile */
+.footer-address span { display: inline; }
+@media (max-width: 700px) {
+  .footer-address span { display: block; }
+}
+
 /* Expertise inline photo under subheading */
 .expertise-photo {
   width: 100%;
   height: auto;
-  display: none; /* hidden by default on desktop */
+  display: none; /* default hidden; enabled per-section rules below */
   border-radius: 15px;
   margin: 0.5rem 0 1rem;
 }
-@media (max-width: 900px) {
-  .expertise-photo { display: block; }
-  /* Hide the separate grid image for Expertise section on mobile */
-  .about .content-section.alt-1 .content-grid .content-image { display: none !important; }
+/* About -> Our Expertise (alt-1): always stack text, then inline image, then text; hide grid image on all screens */
+.about .content-section.alt-1 .expertise-photo { display: block; }
+.about .content-section.alt-1 .content-grid .content-image { display: none !important; }
+/* Center layout & reduce inline image size */
+.about .content-section.alt-1 .content-text { text-align: center; }
+.about .content-section.alt-1 .expertise-photo {
+  max-width: 520px;
+  margin: 0.5rem auto 1rem;
 }
 
 /* Hide Services column in footer on mobile (it's the 3rd section) */
@@ -358,6 +541,8 @@ body.services {
 /* About page: reduce card size only in 'Our Commitment to Excellence' section */
 .about .content-section.alt-2 .services-grid {
     gap: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .about .content-section.alt-2 .services-grid .service-card {
     padding: 1.25rem;            /* was 1.5rem */
@@ -374,6 +559,12 @@ body.services {
     width: 54px;                 /* was 60px */
     height: 54px;
     font-size: 1.3rem;           /* was 1.5rem */
+}
+@media (max-width: 1000px) {
+  .about .content-section.alt-2 .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .about .content-section.alt-2 .services-grid { grid-template-columns: 1fr; }
 }
 body {
     font-family: 'Rio Pro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1341,7 +1532,11 @@ nav {
     box-shadow: 0 8px 22px rgba(26, 35, 126, 0.08);
     padding: 1.25rem 1.25rem 1.5rem;
     position: relative;
-    overflow: hidden;
+    /* allow content to flow without clipping */
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    height: auto;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
