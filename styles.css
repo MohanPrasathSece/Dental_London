@@ -31,6 +31,8 @@
 .cbct-gallery {
   margin-top: 1rem;
 }
+/* Diagnosis subheading: themed blue */
+.cbct-gallery-section .page-section-subtitle { color: #08335b; }
 /* 3-up grid with captions */
 .cbct-gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
 .cbct-item { background: #fff; border: 1px solid rgba(8,51,91,0.06); border-radius: 12px; padding: 0.5rem; }
@@ -901,14 +903,14 @@ nav {
 /* Hero Section - Royal & Elegant */
 .hero {
     background: 
-        radial-gradient(1200px 600px at 20% -10%, rgba(26, 35, 126, 0.12), transparent 60%),
-        radial-gradient(800px 500px at 85% 0%, rgba(63, 81, 181, 0.08), transparent 55%),
+        radial-gradient(1200px 600px at 20% -10%, rgba(32, 48, 225, 0.12), transparent 60%),
+        radial-gradient(800px 500px at 85% 0%, rgba(44, 71, 226, 0.08), transparent 55%),
         linear-gradient(135deg, #f8faff 0%, #ffffff 45%, #f0f4ff 100%);
     padding: 8rem 0 4rem;
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    position: relative;
+        align-items: center;
+        position: relative;
     overflow: visible; /* allow full text to show */
 }
 
