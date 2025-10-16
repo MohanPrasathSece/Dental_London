@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Precision Root Canal Therapy & Hygiene - London Dental Clinic</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="overrides.css">
     <meta name="description" content="Expert Root Canal Therapy and dental hygiene services in London. Located at 71 Church Road, London, SE19 2LJ. Premium dental care with modern technology.">
     <style>
-      body { font-family: 'Open Sans', Arial, sans-serif; }
+      body { font-family: 'Poppins', Arial, sans-serif; }
       .hero-background-slideshow {
         position: absolute;
         top: 0;
@@ -20,14 +20,6 @@
         background-position: center;
         background-repeat: no-repeat;
         z-index: 0;
-      }
-      /* Subtle white overlay above slideshow for readability */
-      .hero-bg-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(90deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.45) 70%, rgba(255,255,255,0.25) 100%);
-        z-index: 0;
-        pointer-events: none;
       }
       /* Ensure the slideshow is visible and the static hero bg doesn't cover it */
       .home .hero { background: none !important; }
@@ -108,34 +100,17 @@
     </header>
 
     <main>
-        <section class="hero" style="position: relative;">
+        <section class="hero">
             <div class="hero-background-slideshow"></div>
             <div class="hero-bg-overlay"></div>
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
                         <h1>Precision Root Canal Therapy &amp; Hygiene</h1>
-
-                        <p class="hero-description">Experience exceptional dental care with our specialised root canal therapy and comprehensive hygiene services. Using the latest technology and gentle techniques, we ensure your comfort while preserving your natural teeth.</p>
-
                         <div class="hero-buttons">
-                            <a href="contact.html" class="btn">Book Consultation →</a>
-                            <a href="services.html" class="btn btn-outline">Explore Services</a>
-                        </div>
-
-                        <div class="hero-info">
-                            <div class="info-item">
-                                <span class="icon ico-location"></span>
-                                <span>71 Church Road, London, SE19 2LJ</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="icon ico-phone"></span>
-                                <span>020 8771 7888</span>
-                            </div>
-
+                            <a href="contact.html" class="btn">BOOK AN APPOINTMENT</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -195,14 +170,14 @@
         <section class="section content-section">
             <div class="container">
                 <div class="content-grid">
-                    <div class="content-image fade-in-left h-380">
-                        <img src="images/home/modern.png" alt="Modern dental equipment" />
-                    </div>
-                    <div class="content-text fade-in-right">
+                    <div class="content-text fade-in-left">
                         <h2>State-of-the-Art Technology</h2>
                         <p>We invest in the latest dental technology to ensure precise diagnoses and comfortable treatments. Our advanced equipment includes digital imaging, rotary endodontic systems, and modern sterilization techniques.</p>
                         <p>This commitment to technology means shorter treatment times, better outcomes, and a more comfortable experience for our patients.</p>
                         <a href="technology.html" class="btn">Explore Our Technology</a>
+                    </div>
+                    <div class="content-image fade-in-right h-380">
+                        <img src="images/home/modern.png" alt="Modern dental equipment" />
                     </div>
                 </div>
             </div>
@@ -379,8 +354,11 @@
       // Background slideshow script - Multiple image rotation
       document.addEventListener('DOMContentLoaded', function() {
         const images = [
-          'images/home/bgimage.jpg',
-          'images/home/bg2.jpg'
+          'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&h=1080&fit=crop',
+          'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1920&h=1080&fit=crop',
+          'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1920&h=1080&fit=crop',
+          'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1920&h=1080&fit=crop',
+          'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=1920&h=1080&fit=crop'
         ];
         let currentIndex = 0;
         const slideshowElement = document.querySelector('.hero-background-slideshow');

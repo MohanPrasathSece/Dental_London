@@ -773,7 +773,7 @@ nav {
 
 @media (max-width: 480px) {
     .brand-subline { display: none; }
-    .logo { font-size: 0.95rem !important; line-height: 1 !important; }
+    .logo { font-size: 0.8rem !important; line-height: 1 !important; }
 }
 
 @media (max-width: 900px) {
@@ -820,9 +820,9 @@ nav {
     display: none;
     background: transparent;
     border: 0;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     line-height: 1;
-    padding: 0.25rem 0.5rem;
+    padding: 0.2rem 0.4rem;
     color: #1a237e;
     cursor: pointer;
 }
@@ -1464,16 +1464,16 @@ nav {
 .simple-fees {
     background: #ffffff;
     border-radius: 12px;
-    padding: 2rem;
+    padding: 1.25rem;
     box-shadow: 0 4px 20px rgba(26, 35, 126, 0.08);
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 .fee-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     border-bottom: 1px solid rgba(26, 35, 126, 0.1);
 }
 
@@ -1485,21 +1485,22 @@ nav {
     color: #08335b;
     font-weight: 600;
     flex: 1;
+    font-size: 0.9rem;
 }
 
 .fee-amount {
     color: #1a237e;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: right;
-    min-width: 100px;
+    min-width: 60px;
 }
 
 .fees-notes {
     background: #f8faff;
     border-radius: 8px;
-    padding: 1.5rem;
-    margin-top: 2rem;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
     border-left: 4px solid #3f51b5;
 }
 
@@ -1510,31 +1511,34 @@ nav {
 
 .fees-notes li {
     color: #555;
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
 }
 
 /* Mobile responsiveness for fees */
 @media (max-width: 768px) {
     .simple-fees {
-        padding: 1.5rem;
+        padding: 1rem;
+        margin: 1rem 0;
     }
 
     .fee-item {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         gap: 0.5rem;
-        padding: 0.75rem 0;
+        padding: 0.5rem 0;
     }
 
     .fee-service {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
     }
 
     .fee-amount {
-        font-size: 1rem;
-        text-align: left;
+        font-size: 0.75rem;
+        text-align: right;
         font-weight: 700;
+        min-width: 60px;
     }
 }
 /* Section eyebrow label (small pill above title) */
@@ -1614,11 +1618,7 @@ nav {
     line-height: 1.55;
     margin: 0;
     font-size: 0.95rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;   /* show at most 3 lines */
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    display: block; /* Changed from -webkit-box to block for full text visibility */
 }
 
 @media (max-width: 600px) {
@@ -1626,10 +1626,184 @@ nav {
     .expect-card { padding: 1rem; }
 }
 
-@media (max-width: 900px) {
-    .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+@media (max-width: 768px) {
+    /* Global typography - force smaller sizes */
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.75rem !important; }
+    h3 { font-size: 1.5rem !important; }
+    h4 { font-size: 1.25rem !important; }
+
+    /* Global text - force smaller */
+    p { font-size: 0.9rem !important; line-height: 1.4 !important; }
+
+    /* Buttons - force much smaller */
+    .btn { padding: 0.75rem 1.5rem !important; font-size: 0.8rem !important; }
+    .btn-outline { padding: 0.75rem 1.5rem !important; font-size: 0.8rem !important; }
+
+    /* Hero section - force much smaller */
+    .hero { padding: 4rem 0 2rem !important; min-height: 70vh !important; }
+    .hero h1 { font-size: 2.2rem !important; }
+    .hero-description { font-size: 0.95rem !important; }
+    .hero-buttons { gap: 0.75rem !important; }
+
+    /* Container padding - force much smaller */
+    .container { padding: 0 1rem !important; }
+
+    /* Content sections - force much smaller */
+    .content-section { padding: 2rem 0 !important; }
+    .section { padding: 2.5rem 0 !important; }
+
+    /* Cards and grids - force much smaller */
+    .service-card { padding: 1.5rem 1.25rem !important; }
+    .service-card h3 { font-size: 1.1rem !important; }
+    .service-card p { font-size: 0.85rem !important; }
+
+    .expect-card { padding: 1rem !important; }
+    .expect-card h3 { font-size: 0.95rem !important; }
+    .expect-card p { font-size: 0.85rem !important; }
+
+    /* Footer - force much smaller */
+    footer { padding: 1.5rem 0 0 !important; }
+    footer .footer-section h3 { font-size: 1rem !important; }
+    footer .footer-section p,
+    footer .footer-section a { font-size: 0.85rem !important; }
+
+    /* Contact form - force much smaller */
+    .contact-card { padding: 0.75rem !important; }
+    .contact-icon { width: 40px !important; height: 40px !important; font-size: 1.2rem !important; }
+    .contact-details h4 { font-size: 0.9rem !important; }
+    .contact-details p { font-size: 0.8rem !important; }
+
+    .form-group input,
+    .form-group textarea { padding: 0.75rem !important; font-size: 0.9rem !important; }
+
+    /* Technology page - force much smaller */
+    .tech-item-v2 { padding: 1.5rem !important; min-height: 220px !important; }
+    .tech-item-v2 h3 { font-size: 1.1rem !important; }
+    .tech-item-v2 p { font-size: 0.85rem !important; }
+
+    /* FAQ - force much smaller */
+    .faq-title { font-size: 1.75rem !important; }
+    .faq-subtitle { font-size: 0.9rem !important; }
+    .faq-trigger { padding: 0.75rem 1rem !important; }
+    .faq-item .question { font-size: 0.9rem !important; }
+
+    /* Navigation - force much smaller */
+    .nav-menu a { font-size: 0.85rem !important; padding: 0.3rem 0.6rem !important; }
+    .logo { font-size: 0.9rem !important; line-height: 1 !important; }
+
+    /* Hamburger menu text - force much smaller */
+    .nav-menu li a { font-size: 0.75rem !important; padding: 0.5rem 0.75rem !important; }
+
+    /* Mobile menu toggle button - make smaller */
+    .mobile-menu-toggle { font-size: 1.5rem !important; padding: 0.2rem 0.4rem !important; }
+
+    /* Floating buttons - force much smaller */
+    .call-floating,
+    .email-floating { width: 60px !important; height: 60px !important; }
+    .call-floating .ico,
+    .email-floating img { width: 24px !important; height: 24px !important; }
+
+    /* Grid gaps - force much smaller */
+    .services-grid,
+    .tech-grid,
+    .gallery-grid { gap: 1rem !important; }
+
+    /* Quick links - force much smaller */
+    .quick-link { padding: 1.5rem !important; }
+    .quick-link h3 { font-size: 1.1rem !important; }
+    .quick-link p { font-size: 0.85rem !important; }
+
+    /* Mobile breakpoint adjustments */
+    body.contact .contact-modern { padding-top: 100px !important; }
+
+    /* Footer content grid - force much smaller */
+    .footer-content { gap: 0.75rem !important; }
+
+    /* Social links - force much smaller */
+    footer .social-links a { width: 32px !important; height: 32px !important; }
+    footer .social-links a .ico { width: 14px !important; height: 14px !important; }
+
+    /* Footer CTA - force much smaller */
+    .footer-cta { padding: 1.5rem 1rem 1rem !important; }
+    .footer-cta h2 { font-size: 1.5rem !important; }
+    .footer-cta p { font-size: 0.9rem !important; }
+    .footer-cta .btn-cta { padding: 0.75rem 1.25rem !important; font-size: 0.9rem !important; }
+
+    /* General spacing - force much smaller */
+    .mb-3rem { margin-bottom: 1.5rem !important; }
+    .mb-2rem { margin-bottom: 1rem !important; }
+    .mt-3rem { margin-top: 1.5rem !important; }
+    .mt-2rem { margin-top: 1rem !important; }
+
+    /* Reduce padding in various elements - force much smaller */
+    .content-grid { gap: 2rem !important; }
+    .content-text { padding: 0.75rem !important; }
+
+    /* FAQ content - force much smaller */
+    .faq-content { padding: 0 1rem 0.75rem !important; font-size: 0.85rem !important; }
+
+    /* Technology page specific - force much smaller */
+    .technology .tech-hero-v2 { padding: 5rem 0 2rem !important; min-height: 60vh !important; }
+    .technology .hero-desc { font-size: 1rem !important; }
+    .technology .metric { padding: 0.75rem !important; }
+    .technology .metric-value { font-size: 1.5rem !important; }
+    .technology .metric-label { font-size: 0.8rem !important; }
+
+    .technology .tech-item-v2.primary { padding: 2rem !important; min-height: 160px !important; }
+    .technology .tech-item-v2.primary h3 { font-size: 1.5rem !important; }
+    .technology .tech-item-v2.primary p { font-size: 1rem !important; }
+
+    /* Gallery - force much smaller */
+    .gallery-item { height: 200px !important; font-size: 0.9rem !important; }
+
+    /* Contact modern - force much smaller */
+    .contact-modern .info-item { padding: 0.75rem !important; }
+    .contact-modern .info-icon { width: 48px !important; height: 48px !important; font-size: 1.2rem !important; }
+    .contact-modern .info-text h4 { font-size: 0.9rem !important; }
+    .contact-modern .info-text p { font-size: 0.8rem !important; }
+
+    .contact-modern .form-panel { padding: 0.75rem !important; }
+    .contact-modern .form-inner { padding: 0.75rem !important; }
+    .contact-modern input, .contact-modern select, .contact-modern textarea { padding: 0.6rem !important; font-size: 0.85rem !important; }
+    .contact-modern .btn-primary { padding: 0.75rem 1rem !important; font-size: 0.9rem !important; }
+
+    /* Mobile breakpoint adjustments */
+    body.technology main > :first-child { margin-top: 36px !important; }
+
+    /* Reduce image heights - force much smaller */
+    .content-image { height: 200px !important; }
+    .h-380 { height: 220px !important; }
+
+    /* General responsive adjustments - force much smaller */
+    .services-grid { grid-template-columns: 1fr !important; }
+    .tech-grid { grid-template-columns: 1fr !important; }
+    .gallery-grid { grid-template-columns: 1fr !important; }
+
+    /* Hero grid adjustments - force much smaller */
+    .hero-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+    .hero-content { padding-right: 0 !important; }
+
+    /* Footer bottom row - force much smaller */
+    .footer-bottom-row { gap: 0.5rem !important; }
+    .footer-links-bottom { gap: 0.75rem !important; }
+
+    /* Technology CTA - force much smaller */
+    .technology .cta-v2 { padding: 2rem !important; gap: 2rem !important; }
+    .technology .cta-visual { height: 150px !important; }
+    .technology .float-element { font-size: 1.5rem !important; }
+
+    /* Safety protocols - force much smaller */
+    .technology .safety-split { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .technology .safety-photo { max-width: 400px !important; }
+
+    /* Patient benefits - force much smaller */
+    .technology .benefits-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .technology .benefit-card { padding: 1.5rem 1rem !important; }
+    .technology .benefit-number { width: 32px !important; height: 32px !important; font-size: 0.85rem !important; }
+    .technology .benefit-card h3 { font-size: 1rem !important; }
+    .technology .benefit-card p { font-size: 0.85rem !important; }
+    .technology .benefit-metric { font-size: 0.8rem !important; padding: 0.4rem 0.8rem !important; }
 }
 
 .tech-item {
@@ -1929,9 +2103,9 @@ footer .footer-section h3 {
 }
 footer .footer-section p,
 footer .footer-section a {
-    color: rgba(230, 238, 249, 0.85);
-    text-decoration: none;
-    line-height: 1.6;
+color: rgba(230, 238, 249, 0.85);
+text-decoration: none;
+line-height: 1.6;
 }
 footer .footer-section a:hover { color: #ffffff; text-decoration: underline; text-underline-offset: 2px; }
 footer .social-links { display: flex; gap: 0.5rem; }
@@ -2109,7 +2283,7 @@ footer .social-links a.use-image[title="LinkedIn"] img { width: 36px !important;
 
 .footer-bottom {
     text-align: center;
-    padding-top: 0.75rem;
+    padding-top: 0.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     color: rgba(230,238,249,0.75);
 }
@@ -2240,8 +2414,66 @@ body.contact main { padding-top: 0; background: transparent; }
 /* Technology Page Complete Redesign V2 */
 
 /* Services: ensure hero uses gradient similar to technology */
-body.services .hero {
-    background: linear-gradient(135deg, #f8faff 0%, #eef3ff 100%);
+/* Services page - reduce all section font sizes */
+body.services .page-section-title {
+    font-size: 2rem !important;
+}
+
+body.services .page-section-subtitle {
+    font-size: 1rem !important;
+}
+
+body.services h2 {
+    font-size: 1.8rem !important;
+}
+
+body.services h3 {
+    font-size: 1.3rem !important;
+}
+
+body.services p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+}
+
+body.services .service-card h3 {
+    font-size: 1.1rem !important;
+}
+
+body.services .service-card p {
+    font-size: 0.85rem !important;
+}
+
+body.services .service-card ul li {
+    font-size: 0.8rem !important;
+}
+
+body.services .expect-card h3 {
+    font-size: 0.95rem !important;
+}
+
+body.services .expect-card p {
+    font-size: 0.85rem !important;
+}
+
+body.services .fee-service {
+    font-size: 0.8rem !important;
+}
+
+body.services .fee-amount {
+    font-size: 0.9rem !important;
+}
+
+body.services .fees-notes {
+    font-size: 0.85rem !important;
+}
+
+body.services .fees-notes p {
+    font-size: 0.85rem !important;
+}
+
+body.services .fees-notes li {
+    font-size: 0.8rem !important;
 }
 .technology .tech-hero-v2 {
     padding: 8rem 0 4rem;
@@ -3618,7 +3850,7 @@ footer {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 1fr 1.6fr 1.7fr;
+    grid-template-columns: 0.8fr 1.4fr 1.8fr;
     gap: 2.5rem;
     margin-bottom: 3rem;
     justify-items: stretch;

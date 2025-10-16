@@ -17,23 +17,110 @@
   text-underline-offset: 3px;
 }
 .quick-link:hover .view-more { text-decoration: underline; }
+/* Home: nudge the quick-links grid slightly to the right */
+body.home .quick-links { margin-left: 1rem; }
 
 /* Home hero: reduce top padding on mobile to bring image closer to header */
 @media (max-width: 900px) {
   .home .hero { padding-top: 4.5rem !important; }
 }
 
-/* Home: use provided background image in the first section (hero) */
-body.home .hero {
-  background:
-    /* Heavier on the left for text, lighter towards the image on the right */
-    linear-gradient(90deg,
-      rgba(255,255,255,0.90) 0%,
-      rgba(255,255,255,0.80) 35%,
-      rgba(255,255,255,0.60) 65%,
-      rgba(255,255,255,0.45) 100%
-    ),
-    url('images/home/bgimage.jpg') center center / cover no-repeat !important;
+/* Enhanced Hero Section Styling - Professional Blue Theme */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-background-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  color: white;
+  z-index: 2;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+  color: white !important;
+  text-transform: uppercase;
+}
+
+.hero-buttons {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .btn {
+  background: #000;
+  color: white;
+  padding: 0.8rem 3rem;
+  text-decoration: none;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-block;
+}
+
+.hero .btn:hover {
+  background: #1a237e;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(26,35,126,0.3);
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero .btn {
+    padding: 0.6rem 2rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
 }
 
 /* Gallery: remove hover effects/overlays, enforce 2-column, uniform larger tiles */
@@ -133,6 +220,9 @@ body.about main > section.content-section.alt-1 .content-image img {
     border-radius: 0 3px 3px 0;
   }
 
+  /* Ensure hero title is white on mobile */
+  .hero h1 { color: white !important; }
+
   /* Minimal anchor scroll safety under fixed header */
   html { scroll-padding-top: 64px; }
   .content-section, .hero, .tech4-section { scroll-margin-top: 64px; }
@@ -151,11 +241,12 @@ body.about main > section.content-section.alt-1 .content-image img {
   .logo .logo-full { display: inline !important; }
   .logo .logo-short { display: none !important; }
   .nav-menu { gap: 0.4rem !important; flex: 1 1 auto !important; min-width: 0 !important; flex-wrap: nowrap !important; }
-  .nav-menu a { padding: 0.35rem 0.5rem !important; font-size: 0.8rem !important; }
+  .nav-menu a { padding: 0.35rem 0.5rem !important; font-size: 0.7rem !important; }
   .nav-utility { flex: 0 0 auto !important; order: initial !important; margin-top: 0 !important; }
 
   /* Hero adjustments */
   .hero { padding: 6rem 0 3rem !important; min-height: initial !important; }
+  .hero h1 { color: white !important; }
   .hero-image, .home .welcome-visual, .home .home-welcome .content-image { max-height: 380px !important; }
 
   /* Generic content grids */
@@ -189,7 +280,10 @@ body.about main > section.content-section.alt-1 .content-image img {
     border: 0 !important;
     box-shadow: none !important;
   }
-  .nav-menu li a { display: inline-block !important; }
+}
+.nav-menu a {
+  text-transform: uppercase;
+  font-size: 0.8rem;
 }
 
 /* Standardize first section headings across all pages - match "Get In Touch" exactly */
@@ -360,3 +454,344 @@ body.gallery .contact-modern {
 
 /* Footer: ensure space below legal links (e.g., Privacy Policy) */
 .footer-bottom { padding-bottom: 1rem !important; }
+/* Footer bottom: center copyright and Made by lines */
+footer .footer-bottom .container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important; /* move left */
+  justify-content: center !important;
+  text-align: center !important;       /* left-align text */
+  width: 100% !important;
+  gap: 0.25rem !important;
+  padding-left: 1rem !important;     /* adjust for better alignment */
+  padding-right: 0 !important;       /* symmetrical */
+}
+.footer-bottom .made-by,
+.footer-bottom div { text-align: center !important; margin: 0 !important; }
+
+/* Footer: equal spacing between all sections on desktop */
+@media (min-width: 901px) {
+  /* Shift the whole footer content slightly to the right */
+  footer .container { padding-left: 10rem !important; padding-right: 2rem !important; }
+
+  /* Enforce equal-width columns and consistent gaps */
+  footer .container .footer-content {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 2.25rem !important; /* equal space between sections */
+    justify-items: stretch !important;
+    align-items: start !important;
+    width: 100% !important;
+    justify-content: space-between !important; /* distribute tracks evenly */
+  }
+
+  /* Reset any custom ordering and keep alignment consistent */
+  .footer-content .footer-section { order: initial !important; text-align: left !important; padding: 0 1rem !important; margin: 0 !important; }
+}
+
+/* Extra-wide screens: move a bit more to the right */
+@media (min-width: 1300px) {
+  footer .container { padding-left: 2rem !important; padding-right: 3rem !important; }
+}
+
+/* Global font enforcement to keep typography consistent across pages */
+body {
+  font-family: 'Poppins', Arial, sans-serif !important;
+}
+
+/* Ensure key page section headings are consistent in size across pages */
+.page-section-title {
+  font-size: 2.5rem !important; /* match desktop header size across pages */
+}
+
+/* Keep the same footer color/gradient on mobile as desktop */
+@media (max-width: 900px) {
+  footer {
+    background: linear-gradient(135deg, #08335b 0%, #1a237e 100%) !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Dark blur background utilities (apply on any section) */
+.bg-dark-blur,
+.bg-dark-blur-strong,
+.overlay-dark-blur {
+  position: relative !important;
+  isolation: isolate; /* ensure overlay stacking */
+  color: #ffffff !important; /* readable text */
+}
+
+.bg-dark-blur::before,
+.bg-dark-blur-strong::before,
+.overlay-dark-blur::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Medium strength dark blur */
+.bg-dark-blur::before,
+.overlay-dark-blur::before {
+  background: rgba(7, 15, 28, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Stronger dark blur */
+.bg-dark-blur-strong::before {
+  background: rgba(7, 15, 28, 0.65);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* Elevate content above overlay */
+.bg-dark-blur > *,
+.bg-dark-blur-strong > *,
+.overlay-dark-blur > * { position: relative; z-index: 1; }
+
+/* Improve link/button visibility on dark backgrounds */
+.bg-dark-blur a,
+.bg-dark-blur-strong a,
+.overlay-dark-blur a { color: #e6eef9 !important; }
+.bg-dark-blur .btn,
+.bg-dark-blur-strong .btn,
+.overlay-dark-blur .btn { border-color: rgba(255,255,255,0.8) !important; color: #fff !important; }
+
+/* Mobile: slightly reduce blur for performance */
+@media (max-width: 700px) {
+  .bg-dark-blur::before,
+  .overlay-dark-blur::before { -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  .bg-dark-blur-strong::before { -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+}
+
+/* ------------------------------ */
+/* Larger typography: Services & Referrals pages only */
+/* ------------------------------ */
+/* Desktop/tablet scaling */
+body.services p,
+body.services li,
+body.services .page-section-subtitle,
+body.services .list-left-muted,
+body.services .fee-item,
+body.services .expect-card p,
+body.services .service-card p,
+body.services .content-text p { font-size: 1.08rem !important; }
+
+body.referrals p,
+body.referrals li,
+body.referrals .page-section-subtitle,
+body.referrals .referral-card { font-size: 1.08rem !important; }
+
+/* Headings scale */
+body.services h2,
+body.referrals h2 { font-size: 2.7rem !important; }
+body.services h3,
+body.referrals h3 { font-size: 2.2rem !important; }
+
+/* Specific components */
+/* Services fees */
+body.services .simple-fees .fee-item { font-size: 1.06rem !important; }
+body.services .simple-fees .fee-service,
+body.services .simple-fees .fee-amount { font-size: 1.06em !important; }
+
+/* Services Expect cards */
+body.services .expect-card h3 { font-size: 1.3rem !important; }
+body.services .expect-badge { font-size: 1.05rem !important; }
+
+/* Referral page button */
+body.referrals .btn-download { font-size: 1rem !important; }
+
+/* Buttons (page-local) */
+body.services .btn,
+body.services .btn-outline,
+body.referrals .btn,
+body.referrals .btn-outline { font-size: 1rem !important; }
+
+/* Mobile: slightly reduce the bump to avoid overflow */
+@media (max-width: 700px) {
+  body.services p,
+  body.services li,
+  body.services .page-section-subtitle,
+  body.services .list-left-muted,
+  body.services .fee-item,
+  body.services .expect-card p,
+  body.services .service-card p,
+  body.services .content-text p { font-size: 1.04rem !important; }
+
+  body.referrals p,
+  body.referrals li,
+  body.referrals .page-section-subtitle,
+  body.referrals .referral-card { font-size: 1.04rem !important; }
+
+  body.services h2,
+  body.referrals h2 { font-size: 2.5rem !important; }
+  body.services h3,
+  body.referrals h3 { font-size: 2.05rem !important; }
+
+  body.services .btn,
+  body.services .btn-outline,
+  body.referrals .btn,
+  body.referrals .btn-outline { font-size: 0.95rem !important; }
+}
+
+/* Services page: enlarge the hero/title heading "Our Services" */
+body.services .contact-modern .page-section-title {
+  font-size: 2.875rem !important;
+}
+@media (max-width: 700px) {
+  body.services .contact-modern .page-section-title {
+    font-size: 2.475rem !important;
+  }
+}
+
+body.services p,
+body.services li,
+body.services .page-section-subtitle,
+body.services .list-left-muted,
+body.services .fee-item,
+body.services .expect-card p,
+body.services .service-card p,
+body.services .content-text p { font-size: 1rem !important; }
+
+body.referrals p,
+body.referrals li,
+body.referrals .page-section-subtitle,
+body.referrals .referral-card { font-size: 1rem !important; }
+
+body.services .simple-fees .fee-item { font-size: 1rem !important; }
+body.services .simple-fees .fee-service,
+body.services .simple-fees .fee-amount { font-size: 1em !important; }
+
+body.services .btn,
+body.services .btn-outline,
+body.referrals .btn,
+body.referrals .btn-outline,
+body.referrals .btn-download { font-size: 1rem !important; }
+
+@media (max-width: 700px) {
+  body.services p,
+  body.services li,
+  body.services .page-section-subtitle,
+  body.services .list-left-muted,
+  body.services .fee-item,
+  body.services .expect-card p,
+  body.services .service-card p,
+  body.services .content-text p { font-size: 1rem !important; }
+
+  body.referrals p,
+  body.referrals li,
+  body.referrals .page-section-subtitle,
+  body.referrals .referral-card { font-size: 1rem !important; }
+}
+
+/* ------------------------------ */
+/* Standardize section vertical spacing across all pages */
+/* ------------------------------ */
+.content-section { padding: 3rem 0 !important; }
+.section { padding: 3rem 0 !important; }
+
+/* Mobile spacing */
+@media (max-width: 700px) {
+  .content-section, .section { padding: 2rem 0 !important; }
+}
+
+/* Remove gallery-specific extra paddings to keep uniformity */
+.gallery .content-section { padding: 3rem 0 !important; }
+.gallery .content-section:first-of-type { padding-top: 3rem !important; }
+
+body.home .home-why { background: linear-gradient(135deg, #0b1e3a, #0d274a) !important; color: #ffffff !important; }
+body.home .home-why .why-title { color: #ffffff !important; }
+body.home .home-why .why-title .why-accent { color: #ffffff !important; }
+body.home .home-why .why-subtitle { color: #e6eef9 !important; }
+body.home .home-why .why-list li { color: #f1f5ff !important; }
+body.home .home-why .why-list li::before { color: #8bb3ff !important; }
+body.home .home-why .btn { background: #ffffff !important; color: #1a237e !important; border: 2px solid rgba(26,35,126,0.2) !important; box-shadow: 0 8px 20px rgba(255,255,255,0.12) !important; }
+body.home .home-why .btn:hover { background: #f3f6ff !important; color: #0d1b6b !important; border-color: rgba(26,35,126,0.35) !important; }
+
+/* Home final CTA: dark blue background, white text, white button with blue text */
+body.home .content-section.alt-bg {
+  background: linear-gradient(135deg, #0b1e3a, #0d274a) !important;
+  color: #ffffff !important;
+}
+body.home .content-section.alt-bg .centered-block h2 { color: #ffffff !important; }
+body.home .content-section.alt-bg .centered-block p { color: #e6eef9 !important; }
+body.home .content-section.alt-bg .btn {
+  background: #ffffff !important;
+  color: #1a237e !important;
+  border: 2px solid rgba(26,35,126,0.2) !important;
+  box-shadow: 0 8px 20px rgba(255,255,255,0.12) !important;
+}
+body.home .content-section.alt-bg .btn:hover {
+  background: #f3f6ff !important;
+  color: #0d1b6b !important;
+  border-color: rgba(26,35,126,0.35) !important;
+}
+body.home .content-section.alt-bg .btn.btn-outline {
+  background: #ffffff !important;
+  color: #1a237e !important;
+  border: 2px solid rgba(26,35,126,0.2) !important;
+}
+
+/* About -> Our Expertise section (alt-1): dark blue background, white text */
+body.about .content-section.alt-1 {
+  background: linear-gradient(135deg, #0b1e3a, #0d274a) !important;
+  color: #ffffff !important;
+}
+body.about .content-section.alt-1 h2,
+body.about .content-section.alt-1 h3 { color: #ffffff !important; }
+body.about .content-section.alt-1 p { color: #e6eef9 !important; }
+body.about .content-section.alt-1 a { color: #dbe7ff !important; }
+body.about .content-section.alt-1 .btn,
+body.about .content-section.alt-1 .btn-outline {
+  background: #ffffff !important;
+  color: #1a237e !important;
+  border: 2px solid rgba(26,35,126,0.2) !important;
+  box-shadow: 0 8px 20px rgba(255,255,255,0.12) !important;
+}
+body.about .content-section.alt-1 .btn:hover,
+body.about .content-section.alt-1 .btn-outline:hover {
+  background: #f3f6ff !important;
+  color: #0d1b6b !important;
+  border-color: rgba(26,35,126,0.35) !important;
+}
+
+/* Services -> Our Specialised Services (3rd section) and Treatment Fees section */
+body.services main > section:nth-of-type(3),
+body.services main > section#treatment-fees {
+  background: linear-gradient(135deg, #0b1e3a, #0d274a) !important;
+  color: #ffffff !important;
+}
+/* Top headings/subtitles within these dark sections */
+body.services main > section:nth-of-type(3) .page-section-title,
+body.services main > section:nth-of-type(3) .page-section-subtitle,
+body.services main > section#treatment-fees .page-section-title,
+body.services main > section#treatment-fees .page-section-subtitle {
+  color: #ffffff !important;
+}
+/* General paragraph/link color in dark sections but avoid overriding inside white cards */
+body.services main > section:nth-of-type(3) > .container > *:not(.services-grid) p,
+body.services main > section:nth-of-type(3) > .container > *:not(.services-grid) a,
+body.services main > section#treatment-fees > .container > *:not(.simple-fees) p,
+body.services main > section#treatment-fees > .container > *:not(.simple-fees) a {
+  color: #e6eef9 !important;
+}
+/* Buttons inside these sections: white with blue text */
+body.services main > section:nth-of-type(3) .btn,
+body.services main > section:nth-of-type(3) .btn-outline,
+body.services main > section#treatment-fees .btn,
+body.services main > section#treatment-fees .btn-outline {
+  background: #ffffff !important;
+  color: #1a237e !important;
+  border: 2px solid rgba(26,35,126,0.2) !important;
+  box-shadow: 0 8px 20px rgba(255,255,255,0.12) !important;
+}
+body.services main > section:nth-of-type(3) .btn:hover,
+body.services main > section:nth-of-type(3) .btn-outline:hover,
+body.services main > section#treatment-fees .btn:hover,
+body.services main > section#treatment-fees .btn-outline:hover {
+  background: #f3f6ff !important;
+  color: #0d1b6b !important;
+  border-color: rgba(26,35,126,0.35) !important;
+}
