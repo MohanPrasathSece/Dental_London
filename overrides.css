@@ -8,6 +8,15 @@
   transition: none !important;
 }
 
+/* Extra-compact Prices CTA on mobile: shrink label, icon, spacing */
+@media (max-width: 700px) {
+  .prices-cta { padding: 0.45rem 0 !important; }
+  .prices-cta .prices-inline { gap: 0.35rem !important; padding: 0.28rem 0.5rem !important; }
+  .prices-cta .prices-inline .label { font-size: 0.75rem !important; }
+  .prices-cta .prices-inline .ico { width: 14px !important; height: 14px !important; }
+  .prices-cta .prices-inline .link-pill { padding: 0.2rem 0.5rem !important; font-size: 0.7rem !important; }
+}
+
 /* Quick-links: style the View more CTA */
 .quick-link .view-more {
   display: inline-block;
@@ -498,6 +507,20 @@ body {
   font-family: 'Poppins', Arial, sans-serif !important;
 }
 
+/* Secondary text font: use Open Sans for body copy without affecting headings */
+p,
+li,
+a,
+small,
+label,
+.page-section-subtitle,
+.list-left-muted,
+.fee-item,
+.footer-section p,
+.footer-section a {
+  font-family: 'Open Sans', Arial, sans-serif !important;
+}
+
 /* Ensure key page section headings are consistent in size across pages */
 .page-section-title {
   font-size: 2.5rem !important; /* match desktop header size across pages */
@@ -608,6 +631,12 @@ body.services .btn,
 body.services .btn-outline,
 body.referrals .btn,
 body.referrals .btn-outline { font-size: 1rem !important; }
+
+/* Footer heading size: keep compact on Services & Referrals */
+body.services footer .footer-section h3,
+body.referrals footer .footer-section h3 {
+  font-size: 1.05rem !important;
+}
 
 /* Mobile: slightly reduce the bump to avoid overflow */
 @media (max-width: 700px) {
@@ -794,4 +823,73 @@ body.services main > section#treatment-fees .btn-outline:hover {
   background: #f3f6ff !important;
   color: #0d1b6b !important;
   border-color: rgba(26,35,126,0.35) !important;
+}
+
+/* Home hero mobile adjustments: push content down and make background full screen */
+@media (max-width: 900px) {
+  body.home .hero {
+    min-height: 100svh !important; /* ensure full viewport height on mobile */
+    padding-top: 40vh !important;  /* move the heading/button lower */
+    padding-bottom: 1.5rem !important;
+  }
+  body.home .hero-background-slideshow {
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+  body.home .hero .hero-content { text-align: center !important; }
+  body.home .hero .hero-buttons { margin-top: 1rem !important; }
+}
+
+/* Reduce 'View Prices' CTA size globally */
+.prices-cta .prices-inline .link-pill {
+  padding: 0.3rem 0.6rem !important;
+  font-size: 0.78rem !important;
+}
+/* Shrink overall Prices CTA bubble globally (desktop/tablet too) */
+.prices-cta .prices-inline {
+  gap: 0.4rem !important;
+  padding: 0.35rem 0.6rem !important;
+}
+.prices-cta .prices-inline .label { font-size: 0.85rem !important; }
+.prices-cta .prices-inline .ico { width: 14px !important; height: 14px !important; }
+@media (max-width: 600px) {
+  .prices-cta .prices-inline .link-pill {
+    padding: 0.28rem 0.6rem !important;
+    font-size: 0.78rem !important;
+  }
+}
+
+/* Compact the entire Prices CTA band globally */
+.prices-cta { padding: 0.5rem 0 !important; }
+.prices-cta--band { padding: 0.75rem 0 !important; }
+.prices-cta--card { padding: 0.8rem 0 !important; }
+.prices-cta--minimal { padding: 0.5rem 0 !important; }
+.prices-cta--bar { padding: 0.7rem 0 !important; }
+.prices-cta--soft { padding: 0.6rem 0 !important; }
+.prices-cta--glow { padding: 0.6rem 0 !important; }
+
+/* On mobile, make the CTA band even shorter */
+@media (max-width: 700px) {
+  .prices-cta { padding: 0.35rem 0 !important; }
+  .prices-cta--band,
+  .prices-cta--card,
+  .prices-cta--minimal,
+  .prices-cta--bar,
+  .prices-cta--soft,
+  .prices-cta--glow { padding: 0.4rem 0 !important; }
+}
+
+/* Services cards: reduce height on mobile */
+@media (max-width: 700px) {
+  /* Shorter hero image inside each card */
+  body.services .service-hero { aspect-ratio: 16 / 9 !important; }
+  /* Tighter card padding */
+  body.services .service-card { padding: 1rem 0.9rem !important; }
+  /* Reduce heading and spacing */
+  body.services .service-card h3 { margin-bottom: 0.6rem !important; }
+  /* Reduce paragraph spacing and line-height */
+  body.services .service-card p { margin-bottom: 0.8rem !important; line-height: 1.5 !important; }
+  /* Tighten list spacing */
+  body.services .service-card ul { margin-top: 0.4rem !important; }
+  body.services .service-card ul li { margin: 0.35rem 0 !important; }
 }
