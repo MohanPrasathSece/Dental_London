@@ -370,7 +370,7 @@ body.contact .email-floating { display: inline-flex !important; }
     box-sizing: border-box;
 }
 
-/* Brand logo uses Florentina for consistency */
+/* Brand logo uses Playfair Display for elegant serif styling */
 nav .logo {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 700;

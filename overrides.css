@@ -194,6 +194,14 @@ body.home .quick-links { margin-left: 1rem; }
   /* Gallery grid: two columns on tablet */
   .gallery .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 1.25rem !important; }
 
+  /* Gallery grid: two columns on mobile */
+  @media (max-width: 700px) {
+    .gallery .gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 0.9rem !important;
+    }
+  }
+
   /* Section headings sizing for balance */
   /* tablet section heading sizing continues */
 
@@ -344,6 +352,9 @@ label,
 .footer-section a {
   font-family: 'Open Sans', Arial, sans-serif !important;
 }
+
+/* Ensure navbar brand heading uses Playfair Display, overriding global anchor font */
+nav .logo { font-family: 'Playfair Display', Georgia, serif !important; }
 
 /* Ensure key page section headings are consistent in size across pages */
 .page-section-title {
