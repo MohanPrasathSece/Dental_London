@@ -132,82 +132,6 @@ body.home .quick-links { margin-left: 1rem; }
   }
 }
 
-/* Gallery: remove hover effects/overlays, enforce 2-column, uniform larger tiles */
-.gallery .gallery-item {
-  transition: none !important;
-  box-shadow: none !important;
-  border: 0 !important;
-  outline: 0 !important;
-  background: transparent !important;
-  transform: none !important; /* defeat inline transforms from JS */
-}
-.gallery .gallery-item:hover {
-  transform: none !important;
-  box-shadow: none !important;
-  border: 0 !important;
-}
-.gallery .gallery-item, .gallery .gallery-item:hover { transition: none !important; }
-.gallery .gallery-overlay { display: none !important; }
-
-/* Base grid: 2 columns on all screens by default */
-.gallery .gallery-grid {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 1.25rem !important;
-}
-
-/* Gallery page: reduce space before 'Advanced Technology' heading */
-body.gallery main > section.content-section.alt-bg:nth-of-type(3) {
-  padding-top: 1.5rem !important;
-}
-
-/* Technology page: vertically center text next to image in split sections */
-body.technology .tech4-section .tech4-split { align-items: center !important; }
-body.technology .tech4-section .tech4-text { align-self: center !important; }
-
-/* About page: background image for 'Our Commitment to Excellence' section */
-body.about main > section:nth-of-type(4).content-section.alt-2 {
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.78)),
-    url('images/about/bgimage1.png') center center / cover no-repeat !important;
-}
-
-/* About page: Uncrop image in 'Our Expertise' section (alt-1) */
-body.about main > section.content-section.alt-1 .content-image {
-  height: auto !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-body.about main > section.content-section.alt-1 .content-image img {
-  width: auto !important;
-  max-width: 100% !important;
-  height: auto !important;
-  max-height: 420px !important;
-  object-fit: contain !important;
-}
-
-/* Uniform tile sizing with a larger aspect ratio */
-.gallery .gallery-item {
-  aspect-ratio: 4 / 3 !important; /* bigger tiles, consistent size */
-  height: auto !important;        /* let aspect-ratio control height */
-}
-.gallery .gallery-item img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;  /* fill tile without distortion */
-  display: block !important;
-  border-radius: 15px;
-}
-
-/* Gallery: use two columns on mobile */
-@media (max-width: 600px) {
-  /* Keep two columns on small screens and rely on aspect-ratio for height */
-  .gallery .gallery-grid { gap: 0.9rem !important; }
-  .gallery .gallery-item { height: auto !important; }
-  .gallery .gallery-item img { height: 100% !important; width: 100% !important; object-fit: cover !important; }
-}
-
 /* Mobile header: flush to the very top, no extra padding */
 @media (max-width: 900px) {
   header { top: 0 !important; }
@@ -315,14 +239,6 @@ body.about main > section.content-section.alt-1 .content-image img {
 /* Ensure consistent centering for first heading group within hero-like page headers */
 .contact-modern .container { text-align: center; }
 
-/* Unify About & Services header spacing/background with Gallery */
-body.about .contact-modern,
-body.services .contact-modern {
-  padding: 140px 0 2rem !important;
-  margin-top: 0 !important;
-  background: linear-gradient(135deg, #e9efff 0%, #eef3ff 100%) !important;
-}
-
 /* Utility classes replacing former inline styles */
 .centered-block { text-align: center !important; }
 .lead-subtext { font-size: 1.2rem !important; margin-bottom: 2rem !important; color: #666 !important; }
@@ -330,33 +246,10 @@ body.services .contact-modern {
 .alt-bg { background: #f8f9ff !important; }
 .phone-link { text-decoration: none !important; color: #08335b !important; font-weight: 700 !important; }
 
-/* Gallery page: add space before the final CTA heading */
-body.gallery .content-section.alt-bg .container .centered-block {
-  margin-top: 3rem !important; /* space before 'Experience Our Modern Facility' */
-}
-.about .content-section .content-image img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important; /* crop to section/text height */
-  image-rendering: -webkit-optimize-contrast;
-}
-/* When the grid stacks (tablet/mobile), let the image size naturally to avoid excess cropping */
-@media (max-width: 900px) {
-  .about .content-section .content-grid { align-items: start !important; }
-  .about .content-section .content-image { height: auto !important; }
-  .about .content-section .content-image img { height: auto !important; object-fit: contain !important; }
-}
 /* Generic utilities */
 .h-300 { height: 300px !important; }
 .h-380 { height: 380px !important; }
 .list-left-muted { text-align: left !important; margin-top: 1rem !important; color: #666 !important; }
-body.technology .contact-modern,
-body.gallery .contact-modern {
-  padding: 140px 0 2rem !important;
-  min-height: 0 !important;
-  margin-top: 0 !important;
-  background: linear-gradient(135deg, #e9efff 0%, #eef3ff 100%) !important;
-}
 
 /* Mobile spacing for all pages */
 @media (max-width: 700px) {
@@ -390,75 +283,6 @@ body.gallery .contact-modern {
   body.gallery .contact-modern {
     padding-top: 120px !important;
   }
-}
-
-/* Home Welcome: make image fill horizontally as a banner (override base rules) */
-.home .home-welcome .content-image {
-  height: auto !important;        /* allow full image to determine height */
-  overflow: visible;              /* no clipping */
-}
-.home .home-welcome .content-image img {
-  width: 100%;
-  height: auto !important;        /* keep full image visible */
-  object-fit: contain !important; /* no cropping */
-  object-position: center center !important;
-  display: block;
-}
-/* Ensure generic rule also allows full image */
-.home .welcome-visual img {
-  height: auto !important;
-  max-height: 480px !important;   /* preserve previous visual balance */
-  object-fit: contain !important;
-  object-position: center center !important;
-  border-radius: 16px !important;  /* rounded corners on the image */
-  box-shadow: none !important;    /* remove card-like shadow */
-}
-
-/* Remove any outer container styling around the welcome image */
-  .home .welcome-visual {
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    border-radius: 16px !important;
-  }
-  .home .home-welcome .content-image {
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    border-radius: 16px !important;  /* rounded container */
-    overflow: hidden;                 /* clip image to rounded corners */
-  }
-
-/* Services: make new service card images fit neatly and responsively */
-.services .service-hero {
-  height: auto !important;           /* override fixed pixel height */
-  aspect-ratio: 16 / 9;              /* consistent responsive frame */
-  overflow: hidden !important;       /* clip to rounded container */
-}
-.services .service-hero img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;      /* fill without distortion */
-  object-position: center center !important;
-  display: block !important;
-}
-@media (max-width: 600px) {
-  .services .service-hero { aspect-ratio: 4 / 3; }
-}
-
-/* Technology: crop Sterilization & Safety Protocols image to text height */
-.technology .tech4-section:nth-of-type(4) .tech4-split { align-items: stretch !important; }
-.technology .tech4-section:nth-of-type(4) .tech4-media { height: 85% !important; align-self: center !important; }
-.technology .tech4-section:nth-of-type(4) .tech4-media img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-}
-/* When stacking on smaller screens, let the image size naturally */
-@media (max-width: 1024px) {
-  .technology .tech4-section:nth-of-type(4) .tech4-media { height: auto !important; }
-  .technology .tech4-section:nth-of-type(4) .tech4-media img { height: auto !important; }
 }
 
 /* Footer: ensure space below legal links (e.g., Privacy Policy) */
@@ -534,188 +358,6 @@ label,
   }
 }
 
-/* Dark blur background utilities (apply on any section) */
-.bg-dark-blur,
-.bg-dark-blur-strong,
-.overlay-dark-blur {
-  position: relative !important;
-  isolation: isolate; /* ensure overlay stacking */
-  color: #ffffff !important; /* readable text */
-}
-
-.bg-dark-blur::before,
-.bg-dark-blur-strong::before,
-.overlay-dark-blur::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-/* Medium strength dark blur */
-.bg-dark-blur::before,
-.overlay-dark-blur::before {
-  background: rgba(7, 15, 28, 0.5);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-}
-
-/* Stronger dark blur */
-.bg-dark-blur-strong::before {
-  background: rgba(7, 15, 28, 0.65);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-}
-
-/* Elevate content above overlay */
-.bg-dark-blur > *,
-.bg-dark-blur-strong > *,
-.overlay-dark-blur > * { position: relative; z-index: 1; }
-
-/* Improve link/button visibility on dark backgrounds */
-.bg-dark-blur a,
-.bg-dark-blur-strong a,
-.overlay-dark-blur a { color: #e6eef9 !important; }
-.bg-dark-blur .btn,
-.bg-dark-blur-strong .btn,
-.overlay-dark-blur .btn { border-color: rgba(255,255,255,0.8) !important; color: #fff !important; }
-
-/* Mobile: slightly reduce blur for performance */
-@media (max-width: 700px) {
-  .bg-dark-blur::before,
-  .overlay-dark-blur::before { -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-  .bg-dark-blur-strong::before { -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-}
-
-/* ------------------------------ */
-/* Larger typography: Services & Referrals pages only */
-/* ------------------------------ */
-/* Desktop/tablet scaling */
-body.services p,
-body.services li,
-body.services .page-section-subtitle,
-body.services .list-left-muted,
-body.services .fee-item,
-body.services .expect-card p,
-body.services .service-card p,
-body.services .content-text p { font-size: 1.08rem !important; }
-
-body.referrals p,
-body.referrals li,
-body.referrals .page-section-subtitle,
-body.referrals .referral-card { font-size: 1.08rem !important; }
-
-/* Headings scale */
-body.services h2,
-body.referrals h2 { font-size: 2.7rem !important; }
-body.services h3,
-body.referrals h3 { font-size: 2.2rem !important; }
-
-/* Specific components */
-/* Services fees */
-body.services .simple-fees .fee-item { font-size: 1.06rem !important; }
-body.services .simple-fees .fee-service,
-body.services .simple-fees .fee-amount { font-size: 1.06em !important; }
-
-/* Services Expect cards */
-body.services .expect-card h3 { font-size: 1.3rem !important; }
-body.services .expect-badge { font-size: 1.05rem !important; }
-
-/* Referral page button */
-body.referrals .btn-download { font-size: 1rem !important; }
-
-/* Buttons (page-local) */
-body.services .btn,
-body.services .btn-outline,
-body.referrals .btn,
-body.referrals .btn-outline { font-size: 1rem !important; }
-
-/* Footer heading size: keep compact on Services & Referrals */
-body.services footer .footer-section h3,
-body.referrals footer .footer-section h3 {
-  font-size: 1.05rem !important;
-}
-
-/* Mobile: slightly reduce the bump to avoid overflow */
-@media (max-width: 700px) {
-  body.services p,
-  body.services li,
-  body.services .page-section-subtitle,
-  body.services .list-left-muted,
-  body.services .fee-item,
-  body.services .expect-card p,
-  body.services .service-card p,
-  body.services .content-text p { font-size: 1.04rem !important; }
-
-  body.referrals p,
-  body.referrals li,
-  body.referrals .page-section-subtitle,
-  body.referrals .referral-card { font-size: 1.04rem !important; }
-
-  body.services h2,
-  body.referrals h2 { font-size: 2.5rem !important; }
-  body.services h3,
-  body.referrals h3 { font-size: 2.05rem !important; }
-
-  body.services .btn,
-  body.services .btn-outline,
-  body.referrals .btn,
-  body.referrals .btn-outline { font-size: 0.95rem !important; }
-}
-
-/* Services page: enlarge the hero/title heading "Our Services" */
-body.services .contact-modern .page-section-title {
-  font-size: 2.875rem !important;
-}
-@media (max-width: 700px) {
-  body.services .contact-modern .page-section-title {
-    font-size: 2.475rem !important;
-  }
-}
-
-body.services p,
-body.services li,
-body.services .page-section-subtitle,
-body.services .list-left-muted,
-body.services .fee-item,
-body.services .expect-card p,
-body.services .service-card p,
-body.services .content-text p { font-size: 1rem !important; }
-
-body.referrals p,
-body.referrals li,
-body.referrals .page-section-subtitle,
-body.referrals .referral-card { font-size: 1rem !important; }
-
-body.services .simple-fees .fee-item { font-size: 1rem !important; }
-body.services .simple-fees .fee-service,
-body.services .simple-fees .fee-amount { font-size: 1em !important; }
-
-body.services .btn,
-body.services .btn-outline,
-body.referrals .btn,
-body.referrals .btn-outline,
-body.referrals .btn-download { font-size: 1rem !important; }
-
-@media (max-width: 700px) {
-  body.services p,
-  body.services li,
-  body.services .page-section-subtitle,
-  body.services .list-left-muted,
-  body.services .fee-item,
-  body.services .expect-card p,
-  body.services .service-card p,
-  body.services .content-text p { font-size: 1rem !important; }
-
-  body.referrals p,
-  body.referrals li,
-  body.referrals .page-section-subtitle,
-  body.referrals .referral-card { font-size: 1rem !important; }
-}
-
-/* ------------------------------ */
 /* Standardize section vertical spacing across all pages */
 /* ------------------------------ */
 .content-section { padding: 3rem 0 !important; }
@@ -725,10 +367,6 @@ body.referrals .btn-download { font-size: 1rem !important; }
 @media (max-width: 700px) {
   .content-section, .section { padding: 2rem 0 !important; }
 }
-
-/* Remove gallery-specific extra paddings to keep uniformity */
-.gallery .content-section { padding: 3rem 0 !important; }
-.gallery .content-section:first-of-type { padding-top: 3rem !important; }
 
 body.home .home-why { background: linear-gradient(135deg, #0b1e3a, #0d274a) !important; color: #ffffff !important; }
 body.home .home-why .why-title { color: #ffffff !important; }
@@ -761,68 +399,6 @@ body.home .content-section.alt-bg .btn.btn-outline {
   background: #ffffff !important;
   color: #1a237e !important;
   border: 2px solid rgba(26,35,126,0.2) !important;
-}
-
-/* About -> Our Expertise section (alt-1): dark blue background, white text */
-body.about .content-section.alt-1 {
-  background: linear-gradient(135deg, #0b1e3a, #0d274a) !important;
-  color: #ffffff !important;
-}
-body.about .content-section.alt-1 h2,
-body.about .content-section.alt-1 h3 { color: #ffffff !important; }
-body.about .content-section.alt-1 p { color: #e6eef9 !important; }
-body.about .content-section.alt-1 a { color: #dbe7ff !important; }
-body.about .content-section.alt-1 .btn,
-body.about .content-section.alt-1 .btn-outline {
-  background: #ffffff !important;
-  color: #1a237e !important;
-  border: 2px solid rgba(26,35,126,0.2) !important;
-  box-shadow: 0 8px 20px rgba(255,255,255,0.12) !important;
-}
-body.about .content-section.alt-1 .btn:hover,
-body.about .content-section.alt-1 .btn-outline:hover {
-  background: #f3f6ff !important;
-  color: #0d1b6b !important;
-  border-color: rgba(26,35,126,0.35) !important;
-}
-
-/* Services -> Our Specialised Services (3rd section) and Treatment Fees section */
-body.services main > section:nth-of-type(3),
-body.services main > section#treatment-fees {
-  background: linear-gradient(135deg, #0b1e3a, #0d274a) !important;
-  color: #ffffff !important;
-}
-/* Top headings/subtitles within these dark sections */
-body.services main > section:nth-of-type(3) .page-section-title,
-body.services main > section:nth-of-type(3) .page-section-subtitle,
-body.services main > section#treatment-fees .page-section-title,
-body.services main > section#treatment-fees .page-section-subtitle {
-  color: #ffffff !important;
-}
-/* General paragraph/link color in dark sections but avoid overriding inside white cards */
-body.services main > section:nth-of-type(3) > .container > *:not(.services-grid) p,
-body.services main > section:nth-of-type(3) > .container > *:not(.services-grid) a,
-body.services main > section#treatment-fees > .container > *:not(.simple-fees) p,
-body.services main > section#treatment-fees > .container > *:not(.simple-fees) a {
-  color: #e6eef9 !important;
-}
-/* Buttons inside these sections: white with blue text */
-body.services main > section:nth-of-type(3) .btn,
-body.services main > section:nth-of-type(3) .btn-outline,
-body.services main > section#treatment-fees .btn,
-body.services main > section#treatment-fees .btn-outline {
-  background: #ffffff !important;
-  color: #1a237e !important;
-  border: 2px solid rgba(26,35,126,0.2) !important;
-  box-shadow: 0 8px 20px rgba(255,255,255,0.12) !important;
-}
-body.services main > section:nth-of-type(3) .btn:hover,
-body.services main > section:nth-of-type(3) .btn-outline:hover,
-body.services main > section#treatment-fees .btn:hover,
-body.services main > section#treatment-fees .btn-outline:hover {
-  background: #f3f6ff !important;
-  color: #0d1b6b !important;
-  border-color: rgba(26,35,126,0.35) !important;
 }
 
 /* Home hero mobile adjustments: push content down and make background full screen */
@@ -879,17 +455,3 @@ body.services main > section#treatment-fees .btn-outline:hover {
   .prices-cta--glow { padding: 0.4rem 0 !important; }
 }
 
-/* Services cards: reduce height on mobile */
-@media (max-width: 700px) {
-  /* Shorter hero image inside each card */
-  body.services .service-hero { aspect-ratio: 16 / 9 !important; }
-  /* Tighter card padding */
-  body.services .service-card { padding: 1rem 0.9rem !important; }
-  /* Reduce heading and spacing */
-  body.services .service-card h3 { margin-bottom: 0.6rem !important; }
-  /* Reduce paragraph spacing and line-height */
-  body.services .service-card p { margin-bottom: 0.8rem !important; line-height: 1.5 !important; }
-  /* Tighten list spacing */
-  body.services .service-card ul { margin-top: 0.4rem !important; }
-  body.services .service-card ul li { margin: 0.35rem 0 !important; }
-}
