@@ -68,6 +68,30 @@
       .content-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; display: block; }
       /* Show full image (no crop) in the Welcome section */
       .home-welcome .content-image img { height: auto !important; object-fit: contain !important; }
+      /* Discover Our Expertise section: force text to blue */
+      .home .content-section.alt-2,
+      .home .content-section.alt-2 h2,
+      .home .content-section.alt-2 h3,
+      .home .content-section.alt-2 p,
+      .home .content-section.alt-2 .view-more {
+        color: #002b5b !important;
+      }
+      .home .content-section.alt-2 a {
+        color: #002b5b !important;
+      }
+      /* Increase image height in Why Choose section */
+      .home .home-why .why-media img {
+        width: 100%;
+        height: 600px !important;
+        object-fit: cover;
+        border-radius: 15px;
+        display: block;
+      }
+      @media (max-width: 600px) {
+        .home .home-why .why-media img {
+          height: 420px !important;
+        }
+      }
     </style>
 </head>
 <body class="home">
@@ -141,7 +165,7 @@
                     
                     <a href="gallery.html" class="quick-link fade-in-up">
                         <h3>Our Facility</h3>
-                        <p>Take a virtual tour of our modern, comfortable clinic designed with patient care in mind.</p>
+                        <p>View photos of our modern, comfortable clinic designed with patient care in mind.</p>
                         <span class="view-more">View more →</span>
                     </a>
                 </div>
@@ -151,7 +175,7 @@
         <section class="section home-why">
             <div class="container why-split">
                 <div class="why-media fade-in-left">
-                    <img src="images/home/endodontist.png" alt="Endodontist working with operating microscope" />
+                    <img src="images/home/view_microscope.jpg" alt="Endodontist working with operating microscope" />
                 </div>
                 <div class="why-content fade-in-right">
                     <h2 class="why-title">Why Choose <span class="why-accent">Precision</span> Root Canal Therapy?</h2>
@@ -276,8 +300,8 @@
                 <div class="center">
                     <div class="prices-inline">
                         <span class="ico ico-tooth" aria-hidden="true"></span>
-                        <span class="label">View our specialist treatment prices</span>
-                        <a class="link-pill" href="services.html#treatment-fees">View Prices</a>
+                        <span class="label">View our specialist treatment fees</span>
+                        <a class="link-pill" href="services.html#treatment-fees">View Fees</a>
                     </div>
                 </div>
             </div>
@@ -288,7 +312,9 @@
         <span class="ico ico-phone" aria-hidden="true"></span>
     </a>
     <a class="email-floating" href="mailto:info@mindfuldentist.london" aria-label="Email us">
-        <img src="images/emaillogo.png" alt="Email icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+        </svg>
     </a>
     <footer>
         <div class="container">

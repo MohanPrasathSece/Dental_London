@@ -9,16 +9,20 @@
         <link rel="stylesheet" href="overrides.css">
         <meta name="description" content="Advanced dental technology and equipment for precise root canal therapy. State-of-the-art tools ensuring comfortable and efficient treatments.">
         <style>
-          body { font-family: 'Open Sans', Arial, sans-serif; }
-          footer .social-links a.use-image img { display: block !important; }
           .call-floating { bottom: 113px !important; }
           .email-floating { bottom: 28px !important; }
-      @media (max-width: 600px) {
-        .call-floating { bottom: 92px !important; }
-        .email-floating { bottom: 12px !important; }
-      }
-      /* Mobile active nav highlight */
-      @media (max-width: 900px) {
+          @media (max-width: 600px) {
+            .call-floating { bottom: 92px !important; }
+            .email-floating { bottom: 12px !important; }
+          }
+          /* Custom style for Diagnosis heading */
+          .cbct-gallery-section .page-section-subtitle {
+            font-family: 'Poppins', sans-serif !important;
+            color: #002b5b !important;
+            font-weight: 600 !important;
+          }
+          /* Mobile active nav highlight */
+          @media (max-width: 900px) {
         /* Prevent anchor jumps under fixed header */
         html { scroll-padding-top: 84px; }
         .content-section, .hero, .tech4-section { scroll-margin-top: 84px; }
@@ -153,7 +157,7 @@
             <div class="container tech4-split">
                 <div class="tech4-text">
                     <h2 class="tech4-title">Employing the Latest Guidelines, Materials and Instrument Systems</h2>
-                    <img class="tech4-inline" src="images/technology/rotatory.png" alt="Rotary endodontic instruments" />
+                    <img class="tech4-inline" src="images/technology/rotatory.png" alt="Nickel titanium instrument system" />
                     <p>The application of the latest internationally recognised guidelines to provide the highest standards of care.</p>
                     <p>The use of the latest scientifically researched, safe instruments and materials such as:</p>
                     <ul class="tech4-list">
@@ -162,7 +166,7 @@
                     </ul>
                 </div>
                 <div class="tech4-media">
-                    <img src="images/technology/rotatory.png" alt="Rotary endodontic instruments" />
+                    <img src="images/technology/rotatory.png" alt="Advanced endodontic instruments" />
                 </div>
             </div>
         </section>
@@ -215,7 +219,9 @@
         <span class="ico ico-phone" aria-hidden="true"></span>
     </a>
     <a class="email-floating" href="mailto:info@mindfuldentist.london" aria-label="Email us">
-        <img src="images/emaillogo.png" alt="Email icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+        </svg>
     </a>
 
     <footer>

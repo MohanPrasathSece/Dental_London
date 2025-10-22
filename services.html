@@ -41,10 +41,67 @@
       }
       /* Ensure section images scale nicely */
       .content-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; display: block; }
-      /* Service card image header */
-      .service-hero { height: 200px; border-radius: 16px; overflow: hidden; margin-bottom: 0.75rem; box-shadow: 0 6px 18px rgba(26,35,126,0.12); }
-      .service-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
-      @media (max-width: 600px) { .service-hero { height: 160px; } }
+      /* Add gaps above headings */
+      .contact-modern .page-section-title,
+      .content-section .page-section-title {
+        margin-top: 4rem !important;
+        font-size: 3.5rem !important; /* Increased font size */
+      }
+      /* Simple specialised services styling (no hovers/animations) */
+      .services-simple {
+        margin-top: 2rem;
+      }
+      .services-simple-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+      .services-simple .card {
+        background: #fff;
+        border: 1px solid #e6eaf0;
+        border-radius: 14px;
+        padding: 1.5rem;
+        box-sizing: border-box;
+      }
+      .services-simple .card h3 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: #002b5b;
+        margin: 0 0 0.5rem 0;
+      }
+      .services-simple .card p {
+        margin: 0;
+        color: #4a5568;
+        line-height: 1.6;
+      }
+      /* Hover effects - subtle lift and shadow */
+      .services-simple .card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+      .services-simple .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 24px rgba(0,43,91,0.12);
+        border-color: #dbe4ee;
+      }
+      .expect-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .expect-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 24px rgba(0,43,91,0.12);
+      }
+      /* (removed specialized services card styles) */
+      /* Remove all animations and effects */
+      .fade-in-up, .fade-in-left, .fade-in-right,
+      .fade-in-up.animate, .fade-in-left.animate, .fade-in-right.animate {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+      }
+      /* Remove hover effects */
+      /* (no hover styles for removed cards) */
     </style>
 </head>
 <body class="services">
@@ -86,6 +143,16 @@
 
         
 
+        
+
+        
+
+
+        
+
+        
+
+
         <section class="section content-section">
             <div class="container">
                 <div class="content-grid">
@@ -96,87 +163,40 @@
                         <p>Don't let tooth pain control your life. Our expert root canal therapy can restore your oral health and preserve your natural smile.</p>
                     </div>
                     <div class="content-image fade-in-right h-380">
-                        <img src="images/services/primary (2).png" alt="Primary root canal treatment" />
+                        <img src="images/services/primary (2).png" alt="Primary root canal treatment" loading="lazy" />
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Our Specialised Services (simple) -->
         <section class="section content-section">
-            <div class="container">
+            <div class="container services-simple">
                 <h2 class="page-section-title mb-3rem">Our Specialised Services</h2>
-                
-                <div class="services-grid">
-                    <div class="service-card fade-in-up" id="root-canal">
-                        <div class="service-hero"><img src="images/services/root canal.jpg" alt="Root canal procedure" /></div>
+                <div class="services-simple-grid">
+                    <div class="card">
                         <h3>Primary Root Canal Therapy</h3>
-                        <p>Initial root canal treatment for infected or damaged teeth. We remove infected tissue, clean the root canals, and seal the tooth to prevent further infection.</p>
-                        <ul class="list-left-muted">
-                            <li>Digital imaging for precise diagnosis</li>
-                            <li>Rotary instrumentation for efficiency</li>
-                            <li>Advanced pain management</li>
-                            <li>Same-day treatment available</li>
-                        </ul>
+                        <p>Save your natural tooth when the pulp is infected or inflamed. We remove infected tissue, disinfect with microscopic precision, and seal the canals to prevent reinfection. Most cases finish in one or two comfortable visits.</p>
                     </div>
-                    
-                    <div class="service-card fade-in-up" id="retreatment">
-                        <div class="service-hero"><img src="images/services/prima.png" alt="Retreatment procedure" /></div>
-                        <h3>Retreatment</h3>
-                        <p>When a previous root canal treatment hasn't healed properly or new problems arise, retreatment can often save the tooth without extraction.</p>
-                        <ul class="list-left-muted">
-                            <li>Comprehensive evaluation</li>
-                            <li>Advanced cleaning techniques</li>
-                            <li>Microscopic precision</li>
-                            <li>Long-term success focus</li>
-                        </ul>
+                    <div class="card">
+                        <h3>Root Canal Retreatment</h3>
+                        <p>When a previous treatment hasn’t fully healed, we re‑access the tooth, locate missed anatomy, and re‑clean and seal using updated techniques and materials to improve long‑term success.</p>
                     </div>
-                    
-                    <div class="service-card fade-in-up" id="emergency">
-                        <div class="service-hero"><img src="images/services/emergency.jpg" alt="Emergency dental care" /></div>
-                        <h3>Emergency Root Canal</h3>
-                        <p>Severe tooth pain doesn't wait for convenient times. We provide emergency root canal services to relieve pain and address urgent dental issues.</p>
-                        <ul class="list-left-muted">
-                            <li>Same-day emergency appointments</li>
-                            <li>Immediate pain relief</li>
-                            <li>Rapid diagnosis and treatment</li>
-                            <li>After-hours availability</li>
-                        </ul>
+                    <div class="card">
+                        <h3>Emergency Root Canal Care</h3>
+                        <p>Rapid relief for severe toothache, swelling, or dental trauma. We prioritise same‑day appointments to stabilise the tooth, control pain, and begin definitive care.</p>
                     </div>
-                    
-                    <div class="service-card fade-in-up" id="consultation">
-                        <div class="service-hero"><img src="images/services/consultation.jpg" alt="Endodontic consultation" /></div>
-                        <h3>Endodontic Consultation</h3>
-                        <p>Comprehensive evaluation to determine if root canal therapy is the best treatment option for your specific situation.</p>
-                        <ul class="list-left-muted">
-                            <li>Detailed examination</li>
-                            <li>Digital X-rays</li>
-                            <li>Treatment planning</li>
-                            <li>Alternative options discussion</li>
-                        </ul>
+                    <div class="card">
+                        <h3>Specialist Consultation</h3>
+                        <p>A thorough review including history, examination, and digital imaging. We explain findings clearly and provide a personalised treatment plan with transparent timelines and fees.</p>
                     </div>
-                    
-                    <div class="service-card fade-in-up" id="dental-hygiene">
-                        <div class="service-hero"><img src="images/services/hygiene.jpg" alt="Dental hygiene" /></div>
-                        <h3>Professional Dental Hygiene</h3>
-                        <p>Comprehensive cleaning and preventive care to maintain optimal oral health and prevent future dental problems.</p>
-                        <ul class="list-left-muted">
-                            <li>Deep cleaning and scaling</li>
-                            <li>Plaque and tartar removal</li>
-                            <li>Gum health assessment</li>
-                            <li>Preventive care education</li>
-                        </ul>
+                    <div class="card">
+                        <h3>Microscopic Endodontics</h3>
+                        <p>All endodontic procedures are performed under high magnification for accuracy—helping to find hidden canals, preserve healthy tooth structure, and enhance outcomes.</p>
                     </div>
-                    
-                    <div class="service-card fade-in-up" id="preventive-care">
-                        <div class="service-hero"><img src="images/services/preventive.jpg" alt="Preventive dental care" /></div>
-                        <h3>Preventive Care</h3>
-                        <p>Regular maintenance and preventive treatments to keep your teeth and gums healthy and avoid future endodontic problems.</p>
-                        <ul class="list-left-muted">
-                            <li>Regular check-ups</li>
-                            <li>Early problem detection</li>
-                            <li>Oral health education</li>
-                            <li>Customized care plans</li>
-                        </ul>
+                    <div class="card">
+                        <h3>CBCT Imaging & Diagnosis</h3>
+                        <p>3D imaging (where indicated) offers precise views of root anatomy, lesions, and previous treatments, improving diagnosis and guiding minimally invasive care.</p>
                     </div>
                 </div>
             </div>
@@ -186,12 +206,12 @@
             <div class="container">
                 <div class="content-grid">
                     <div class="content-image fade-in-left h-380">
-                        <img src="images/services/hygiene tool.jpg" alt="Dental hygiene tools" />
+                        <img src="images/services/hygiene tool.jpg" alt="Dental hygiene tools" loading="lazy" />
                     </div>
                     <div class="content-text fade-in-right">
                         <h2>Comprehensive Dental Hygiene</h2>
                         <p>Maintaining excellent oral hygiene is crucial for preventing dental problems and supporting overall health. Our dental hygiene services go beyond basic cleaning to provide comprehensive care tailored to your individual needs.</p>
-                        <p>Our experienced hygienists use the latest techniques and equipment to ensure thorough cleaning while maintaining your comfort. We also provide personalized education to help you maintain optimal oral health at home.</p>
+                        <p>Our experienced hygienists use the latest techniques and equipment to ensure thorough cleaning while maintaining your comfort. We also provide personalised education to help you maintain optimal oral health at home.</p>
                         <p>Regular hygiene appointments are an investment in your long-term oral health and can help prevent the need for more extensive treatments in the future.</p>
                     </div>
                 </div>
@@ -312,7 +332,9 @@
         <span class="ico ico-phone" aria-hidden="true"></span>
     </a>
     <a class="email-floating" href="mailto:info@mindfuldentist.london" aria-label="Email us">
-        <img src="images/emaillogo.png" alt="Email icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+        </svg>
     </a>
     <footer>
         <div class="container">
