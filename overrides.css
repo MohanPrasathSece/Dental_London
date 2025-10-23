@@ -466,3 +466,29 @@ body.home .content-section.alt-bg .btn.btn-outline {
   .prices-cta--glow { padding: 0.4rem 0 !important; }
 }
 
+
+/* Gallery: remove dotted/focus outlines on images and taps */
+.gallery .gallery-item img,
+.gallery .gallery-item img:focus,
+.gallery .gallery-item:focus {
+  outline: none !important;
+  border: none !important;
+}
+.gallery .gallery-item { border: none !important; }
+.gallery .gallery-item,
+.gallery .gallery-item img {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Floating email button icon color */
+.email-floating { color: #4169e1 !important; }
+
+/* Extra-small View Fees CTA on mobile (all pages) */
+@media (max-width: 700px) {
+  .prices-cta { padding: 0.25rem 0 !important; }
+  .prices-cta .prices-inline { gap: 0.25rem !important; padding: 0.25rem 0.45rem !important; }
+  .prices-cta .prices-inline .label { font-size: 0.7rem !important; }
+  .prices-cta .prices-inline .ico { width: 12px !important; height: 12px !important; }
+  .prices-cta .prices-inline .link-pill { padding: 0.18rem 0.45rem !important; font-size: 0.68rem !important; }
+}
+
