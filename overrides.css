@@ -863,12 +863,28 @@ body.gallery .content-section .container > .gallery-grid:last-child {
   margin: 0 auto !important;
 }
 
-/* Style the 4th and 5th images to center in second row */
-.ul2-grid .gallery-item:nth-child(4),
-.ul2-grid .gallery-item:nth-child(5) {
-  justify-self: center !important;
-  max-width: 320px !important;
+.ul2-grid img {
   width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
+  aspect-ratio: 4/3 !important;
+  max-width: 320px !important;
+  justify-self: center !important;
+}
+
+.ul2-grid img:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+  border-radius: 16px !important;
+}
+
+/* Style the 4th and 5th images to center in second row */
+.ul2-grid img:nth-child(4),
+.ul2-grid img:nth-child(5) {
+  justify-self: center !important;
 }
 
 /* Mobile responsive for UL2 grid */
@@ -877,8 +893,8 @@ body.gallery .content-section .container > .gallery-grid:last-child {
     grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
   }
 
-  .ul2-grid .gallery-item:nth-child(4),
-  .ul2-grid .gallery-item:nth-child(5) {
+  .ul2-grid img:nth-child(4),
+  .ul2-grid img:nth-child(5) {
     justify-self: stretch !important;
   }
 }
