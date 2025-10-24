@@ -18,7 +18,6 @@
 }
 .apicectomy .gallery-item {
   width: 100% !important;
-  max-width: 320px !important;
 }
 @media (min-width: 1100px) {
   .apicectomy .gallery-grid { grid-template-columns: repeat(3, minmax(280px, 320px)) !important; }
@@ -39,28 +38,48 @@
   line-height: 1.3;
 }
 
-/* Fractured file removal: non-scrollable simple grid with captions */
+/* Fractured file removal: single row layout with captions */
 .fractured .gallery-grid {
   display: grid !important;
-  gap: 1rem !important;
-  overflow: visible !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 320px)) !important;
+  grid-template-columns: repeat(3, minmax(280px, 1fr)) !important;
+  gap: 1.25rem !important;
   justify-content: center !important;
+  align-items: start !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
 }
-.fractured .gallery-item {
-  width: 100% !important;
-  max-width: 320px !important;
+
+.fractured .thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4/3;
+  margin: 0 auto;
 }
-@media (min-width: 1100px) {
-  .fractured .gallery-grid { grid-template-columns: repeat(3, minmax(280px, 320px)) !important; }
+
+.fractured .thumb:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
-.fractured .gallery-item .thumb { border-radius: 12px; overflow: hidden; }
-.fractured .gallery-item .thumb {
+
+.fractured .thumb img {
   width: 100% !important;
   height: 100% !important;
+  object-fit: cover !important;
   display: block !important;
+  border-radius: 12px !important;
+  transition: transform 0.3s ease !important;
 }
-.fractured .gallery-item .caption {
+
+.fractured .thumb:hover img {
+  transform: scale(1.05) !important;
+}
+
+.fractured .caption {
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
@@ -571,7 +590,7 @@ body.home .content-section.alt-bg .btn.btn-outline {
   box-shadow: none !important;
 }
 
-/* Gallery image sizing and consistency - PERFECT ALIGNMENT */
+/* Gallery image sizing and consistency - UPDATED FOR DIRECT IMAGES */
 .gallery-grid {
   display: grid;
   gap: 1.5rem;
@@ -583,33 +602,22 @@ body.home .content-section.alt-bg .btn.btn-outline {
   max-width: 1200px;
 }
 
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
-  max-width: 320px;
-  aspect-ratio: 4/3;
+.gallery-grid img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
+  aspect-ratio: 4/3 !important;
+  max-width: 320px !important;
+  justify-self: center !important;
 }
 
-.gallery-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.05);
+.gallery-grid img:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+  border-radius: 16px !important;
 }
 
 /* Responsive gallery grid - PERFECT SPACING */
@@ -742,17 +750,72 @@ body.gallery .gallery-grid {
   }
 }
 
-/* Two-column compare layout for side-by-side viewing */
-.gallery-compare {
+/* Treatment comparison layout - Post removal vs 12-month healing */
+.treatment-comparison {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: start;
+  margin: 2rem auto;
 }
-.gallery .container > .gallery-compare,
-body.gallery .gallery-compare {
+
+.treatment-comparison .compare-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.treatment-comparison .compare-col .page-section-subtitle {
+  text-align: center !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #08335b !important;
+  margin-bottom: 1rem !important;
+  margin-top: 0 !important;
+}
+
+.treatment-comparison .gallery-grid,
+.resorption-comparison .gallery-grid,
+.gallery-compare .gallery-grid {
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+  margin: 0 !important;
+}
+
+.treatment-comparison .gallery-item,
+.resorption-comparison .gallery-item,
+.gallery-compare .gallery-item {
+  width: auto !important;
+  max-width: 320px !important;
+  margin: 0 auto !important;
+}
+
+.treatment-comparison img,
+.resorption-comparison img,
+.gallery-compare img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
+  aspect-ratio: 4/3 !important;
+  max-width: 320px !important;
+  justify-self: center !important;
+}
+
+.treatment-comparison img:hover,
+.resorption-comparison img:hover,
+.gallery-compare img:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+  border-radius: 16px !important;
+}
+
+.gallery .container > .resorption-comparison,
+body.gallery .resorption-comparison {
   align-self: stretch !important;
   width: 100% !important;
+  max-width: 1200px !important;
 }
 .gallery-compare .compare-col {
   display: flex;
@@ -762,19 +825,82 @@ body.gallery .gallery-compare {
   text-align: center !important;
   margin-bottom: 0.75rem !important;
 }
+/* Mobile responsive updates for new structure */
 @media (max-width: 900px) {
   .gallery-compare { grid-template-columns: 1fr; gap: 1rem; }
+  .treatment-comparison { grid-template-columns: 1fr; gap: 1.5rem; }
+  .resorption-comparison { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  .ul2-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+  }
+
+  .trauma-review-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+
+  .pre-op-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+  }
+
+  .post-op-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+  }
+
+  .fractured .gallery-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    gap: 1rem !important;
+  }
 }
 
-/* Inside compare columns, make each image row full-width and stacked vertically */
-.gallery-compare .gallery-grid {
+@media (max-width: 600px) {
+  .fractured .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+/* External cervical resorption comparison layout */
+.resorption-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin: 2rem auto;
+}
+
+.resorption-comparison .compare-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.resorption-comparison .compare-col .page-section-subtitle {
+  text-align: center !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #08335b !important;
+  margin-bottom: 1rem !important;
+  margin-top: 0 !important;
+}
+
+.resorption-comparison .gallery-grid {
   grid-template-columns: 1fr !important;
   justify-items: center !important;
+  gap: 1rem !important;
+  margin: 0 !important;
 }
-.gallery-compare .gallery-item {
+
+.resorption-comparison .gallery-item {
   width: auto !important;
   max-width: 320px !important;
   margin: 0 auto !important;
+}
+
+@media (max-width: 900px) {
+  .resorption-comparison {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -887,14 +1013,75 @@ body.gallery .content-section .container > .gallery-grid:last-child {
   justify-self: center !important;
 }
 
-/* Mobile responsive for UL2 grid */
-@media (max-width: 900px) {
-  .ul2-grid {
-    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
-  }
+/* Dental trauma - 6 month review: reduced gap between images */
+.trauma-review-grid {
+  grid-template-columns: repeat(2, minmax(280px, 1fr)) !important;
+  gap: 0.75rem !important;
+  justify-content: center !important;
+}
 
-  .ul2-grid img:nth-child(4),
-  .ul2-grid img:nth-child(5) {
-    justify-self: stretch !important;
-  }
+.trauma-review-grid img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
+  aspect-ratio: 4/3 !important;
+  max-width: 320px !important;
+  justify-self: center !important;
+}
+
+.trauma-review-grid img:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+  border-radius: 16px !important;
+}
+
+/* Open/Immature apex management: Pre-op section specific styling */
+.pre-op-grid {
+  grid-template-columns: repeat(2, minmax(280px, 1fr)) !important;
+  gap: 0.75rem !important;
+}
+
+.pre-op-grid img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
+  aspect-ratio: 4/3 !important;
+  max-width: 320px !important;
+  justify-self: center !important;
+}
+
+.pre-op-grid img:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+  border-radius: 16px !important;
+}
+
+/* Open/Immature apex management: Post-op section - 3 images per row */
+.post-op-grid {
+  grid-template-columns: repeat(3, minmax(280px, 1fr)) !important;
+  gap: 1rem !important;
+}
+
+.post-op-grid img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
+  aspect-ratio: 4/3 !important;
+  max-width: 320px !important;
+  justify-self: center !important;
+}
+
+.post-op-grid img:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+  border-radius: 16px !important;
 }
