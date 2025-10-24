@@ -8,6 +8,49 @@
   transition: none !important;
 }
 
+/* Molar apicectomy: force horizontal strip with captions */
+.apicectomy .gallery-grid {
+  display: flex !important;
+  gap: 1rem !important;
+  overflow-x: auto !important;
+  padding-bottom: 0.25rem !important;
+}
+.apicectomy .gallery-item {
+  flex: 0 0 320px !important;
+  max-width: 320px !important;
+}
+@media (min-width: 1100px) {
+  .apicectomy .gallery-item { flex: 0 0 calc((100% - 2rem) / 3) !important; max-width: none !important; }
+}
+.apicectomy .gallery-item .thumb { border-radius: 12px; overflow: hidden; }
+.apicectomy .gallery-item .caption {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #465169;
+  font-weight: 600;
+}
+
+/* Fractured file removal section: horizontal with captions */
+.fractured .gallery-grid {
+  display: flex !important;
+  gap: 1rem !important;
+  overflow-x: auto !important;
+  padding-bottom: 0.25rem !important;
+}
+.fractured .gallery-item {
+  flex: 0 0 320px !important;
+  max-width: 320px !important;
+}
+@media (min-width: 1100px) {
+  .fractured .gallery-item { flex: 0 0 calc((100% - 2rem) / 3) !important; max-width: none !important; }
+}
+.fractured .gallery-item .thumb { border-radius: 12px; overflow: hidden; }
+.fractured .gallery-item .caption {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #465169;
+  font-weight: 600;
+}
 /* Extra-compact Prices CTA on mobile: shrink label, icon, spacing */
 @media (max-width: 700px) {
   .prices-cta { padding: 0.45rem 0 !important; }
@@ -202,8 +245,34 @@ body.home .quick-links { margin-left: 1rem; }
     }
   }
 
-  /* Section headings sizing for balance */
-  /* tablet section heading sizing continues */
+  /* Gallery: remove all borders, outlines, and dotted lines */
+  .gallery .gallery-item,
+  .gallery .gallery-item img,
+  .gallery .gallery-grid,
+  .gallery-item,
+  .gallery-item img {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .gallery .gallery-item,
+  .gallery .gallery-item img,
+  .gallery-item,
+  .gallery-item img {
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 0 !important;
+  }
+
+  /* Remove any focus or hover borders */
+  .gallery .gallery-item:focus,
+  .gallery .gallery-item img:focus,
+  .gallery-item:focus,
+  .gallery-item img:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
 
   /* Force desktop-like nav on tablet to avoid mobile dropdown collapse */
   /* Hide mobile menu toggle button on tablet */
@@ -455,24 +524,45 @@ body.home .content-section.alt-bg .btn.btn-outline {
 .prices-cta--soft { padding: 0.6rem 0 !important; }
 .prices-cta--glow { padding: 0.6rem 0 !important; }
 
-/* On mobile, make the CTA band even shorter */
-@media (max-width: 700px) {
-  .prices-cta { padding: 0.35rem 0 !important; }
-  .prices-cta--band,
-  .prices-cta--card,
-  .prices-cta--minimal,
-  .prices-cta--bar,
-  .prices-cta--soft,
-  .prices-cta--glow { padding: 0.4rem 0 !important; }
+/* Gallery: remove all borders, outlines, and dotted lines */
+.gallery .gallery-item,
+.gallery .gallery-item img,
+.gallery .gallery-grid,
+.gallery-item,
+.gallery-item img {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
+.gallery .gallery-item,
+.gallery .gallery-item img,
+.gallery-item,
+.gallery-item img {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0 !important;
+}
 
-/* Gallery image sizing and consistency */
+/* Remove any focus or hover borders */
+.gallery .gallery-item:focus,
+.gallery .gallery-item img:focus,
+.gallery-item:focus,
+.gallery-item img:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Gallery image sizing and consistency - PERFECT ALIGNMENT */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin: 2rem 0;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .gallery-item {
@@ -481,6 +571,9 @@ body.home .content-section.alt-bg .btn.btn-outline {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4/3;
 }
 
 .gallery-item:hover {
@@ -490,7 +583,7 @@ body.home .content-section.alt-bg .btn.btn-outline {
 
 .gallery-item img {
   width: 100%;
-  height: 240px;
+  height: 100%;
   object-fit: cover;
   display: block;
   border-radius: 12px;
@@ -501,33 +594,234 @@ body.home .content-section.alt-bg .btn.btn-outline {
   transform: scale(1.05);
 }
 
-/* Responsive gallery grid */
+/* Responsive gallery grid - PERFECT SPACING */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
 @media (max-width: 900px) {
   .gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.875rem;
+    margin: 1.25rem auto;
   }
 }
 
 @media (max-width: 600px) {
   .gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem auto;
   }
   .gallery-item img {
-    height: 180px;
+    height: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.625rem;
+    margin: 0.875rem auto;
   }
 }
 
 /* Floating email button icon color */
 .email-floating { color: #4169e1 !important; }
 
-/* Extra-small View Fees CTA on mobile (all pages) */
+/* Gallery sections consistent spacing and structure */
+body.gallery .content-section {
+  padding: 3rem 0 !important;
+}
+
+body.gallery .gallery-grid {
+  margin: 2rem auto !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+}
+
+/* Ensure all gallery items are perfectly aligned */
+.gallery-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto !important;
+}
+
+/* Remove any potential gaps or misalignments */
+.gallery .gallery-item img,
+.gallery-item img {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Additional gallery improvements for perfect alignment */
+.gallery-item {
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+.gallery-item img {
+  box-sizing: border-box !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Enforce rounded corners for all gallery placeholders and images */
+body.gallery .gallery-item,
+body.gallery .gallery-item img {
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+/* Ensure consistent image loading and display */
+.gallery-item img[loading="lazy"] {
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Remove any browser default focus styles that might create dotted lines */
+.gallery-item:focus-within,
+.gallery-item img:focus {
+  outline: none !important;
+  border: none !important;
+}
+
+/* Perfect centering for all gallery sections */
+body.gallery .container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+body.gallery .gallery-grid {
+  align-self: stretch !important;
+}
+
 @media (max-width: 700px) {
-  .prices-cta { padding: 0.25rem 0 !important; }
-  .prices-cta .prices-inline { gap: 0.25rem !important; padding: 0.25rem 0.45rem !important; }
-  .prices-cta .prices-inline .label { font-size: 0.7rem !important; }
-  .prices-cta .prices-inline .ico { width: 12px !important; height: 12px !important; }
-  .prices-cta .prices-inline .link-pill { padding: 0.18rem 0.45rem !important; font-size: 0.68rem !important; }
+  body.gallery .content-section {
+    padding: 1.5rem 0 !important;
+  }
+  body.gallery .gallery-grid {
+    margin: 1.25rem auto !important;
+  }
+}
+
+/* Two-column compare layout for side-by-side viewing */
+.gallery-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.gallery .container > .gallery-compare,
+body.gallery .gallery-compare {
+  align-self: stretch !important;
+  width: 100% !important;
+}
+.gallery-compare .compare-col {
+  display: flex;
+  flex-direction: column;
+}
+.gallery-compare .compare-col .page-section-subtitle {
+  text-align: center !important;
+  margin-bottom: 0.75rem !important;
+}
+@media (max-width: 900px) {
+  .gallery-compare { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+/* Inside compare columns, make each image row full-width and stacked vertically */
+.gallery-compare .gallery-grid {
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+}
+.gallery-compare .gallery-item {
+  width: auto !important;
+  max-width: 320px !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 768px) {
+  body.gallery .page-section-title {
+    font-size: 1.8rem !important;
+  }
+
+  body.gallery .page-section-subtitle {
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.gallery .page-section-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.2 !important;
+  }
+
+  body.gallery .page-section-subtitle {
+    font-size: 0.85rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.4 !important;
+  }
+
+  body.gallery .content-section,
+  body.gallery .section {
+    padding: 1.5rem 0 !important;
+  }
+
+  body.gallery h3.page-section-subtitle {
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* Gallery page: normalize spacing between headings and grids */
+body.gallery h3.page-section-subtitle {
+  text-align: center !important;
+  margin: 1rem 0 0.75rem !important;
+}
+
+/* Add uniform top margin when a grid follows a title or subtitle */
+body.gallery .container > .page-section-title + .gallery-grid,
+body.gallery .container > .page-section-subtitle + .gallery-grid,
+body.gallery .container > h3.page-section-subtitle + .gallery-grid {
+  margin-top: 1.25rem !important;
+}
+
+/* Spacing between multiple grids or grid blocks within the same section */
+body.gallery .gallery-grid + h3.page-section-subtitle {
+  margin-top: 2rem !important;
+}
+body.gallery .gallery-grid + .gallery-grid {
+  margin-top: 1rem !important;
+}
+
+/* Avoid extra bottom gap inside the last grid of a section */
+body.gallery .content-section .container > .gallery-grid:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Ensure single-image rows stay centered with consistent width */
+body.gallery .gallery-grid .gallery-item:only-child {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
