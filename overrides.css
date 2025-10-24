@@ -467,17 +467,56 @@ body.home .content-section.alt-bg .btn.btn-outline {
 }
 
 
-/* Gallery: remove dotted/focus outlines on images and taps */
-.gallery .gallery-item img,
-.gallery .gallery-item img:focus,
-.gallery .gallery-item:focus {
-  outline: none !important;
-  border: none !important;
+/* Gallery image sizing and consistency */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
 }
-.gallery .gallery-item { border: none !important; }
-.gallery .gallery-item,
-.gallery .gallery-item img {
-  -webkit-tap-highlight-color: transparent;
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive gallery grid */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+  .gallery-item img {
+    height: 180px;
+  }
 }
 
 /* Floating email button icon color */
