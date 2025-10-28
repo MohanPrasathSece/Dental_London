@@ -756,6 +756,22 @@ body.gallery .clinical-warning-note {
   color: #4a5568 !important;
 }
 
+/* Slight navbar emphasis on gallery page */
+body.gallery .logo {
+  font-size: 1.55rem !important;
+  font-weight: 700 !important;
+}
+
+body.gallery nav .nav-menu a {
+  font-size: 1.02rem !important;
+  padding: 0.5rem 1.05rem !important;
+}
+
+body.gallery .topbar .top-item,
+body.gallery .nav-utility .top-item {
+  font-size: 0.96rem !important;
+}
+
 /* Slightly larger navbar presentation on gallery page */
 /* Apply Playfair Display to all text in gallery */
 body.gallery,
