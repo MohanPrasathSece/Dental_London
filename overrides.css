@@ -24,21 +24,31 @@
   align-items: start !important;
 }
 
-.apicectomy .image-with-caption { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; width: 100% !important; max-width: 320px !important; }
+.apicectomy .image-with-caption {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  max-width: 360px !important;
+}
 .apicectomy .image-with-caption img {
-  width: 280px !important;
-  height: 280px !important;
+  width: 340px !important;
+  height: 340px !important;
   object-fit: contain !important;
   border-radius: 12px !important;
   box-shadow: none !important;
   transition: none !important;
   transform: none !important;
+  display: block !important;
+  margin: 0 auto !important;
 }
-.apicectomy .image-with-caption img { transform: none !important; }
+
 .apicectomy .image-with-caption .caption { margin-top: 0.6rem !important; color: #465169 !important; font-weight: 600 !important; font-size: 0.95rem !important; line-height: 1.3 !important; }
 
 @media (max-width: 900px) { .apicectomy .gallery-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)) !important; } }
 @media (max-width: 600px) { .apicectomy .gallery-grid { grid-template-columns: 1fr !important; } }
+
 /* Fractured: ensure uniform sizing for all images - MAXIMUM SPECIFICITY */
 .fractured .gallery-grid {
   display: grid !important;
@@ -56,23 +66,20 @@
   align-items: center !important;
   text-align: center !important;
   width: 100% !important;
-  max-width: 320px !important;
+  max-width: 360px !important;
   margin: 0 auto !important;
 }
 
 .fractured .image-with-caption img {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
+  width: 340px !important;
+  height: 340px !important;
   object-fit: contain !important;
-  border-radius: 8px !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
   transition: none !important;
   display: block !important;
   margin: 0 auto !important;
 }
-
-/* Hover effects removed as requested */
 
 .fractured .image-with-caption .caption {
   text-align: center !important;
@@ -606,7 +613,7 @@ body.home .content-section.alt-bg .btn.btn-outline {
   margin: 0 auto !important;
   background: transparent !important;
   border: none !important;
-  border-radius: 12px !important;
+  border-radius: 16px !important;
 }
 
 /* Hover effects removed as requested */
@@ -818,7 +825,7 @@ body.gallery .caption {
   width: 300px !important;
   height: 300px !important;
   object-fit: contain !important;
-  border-radius: 12px !important;
+  border-radius: 16px !important;
   transform: none !important;
   transition: none !important;
   display: block !important;
@@ -978,7 +985,7 @@ body.gallery .gallery-grid {
   width: 300px !important;
   height: 300px !important;
   object-fit: contain !important;
-  border-radius: 12px !important;
+  border-radius: 16px !important;
   box-shadow: none !important;
   transition: none !important;
   justify-self: center !important;
@@ -1185,7 +1192,7 @@ body.gallery .content-section .container > .gallery-grid:last-child {
   width: 300px !important;
   height: 300px !important;
   object-fit: contain !important;
-  border-radius: 12px !important;
+  border-radius: 16px !important;
   box-shadow: none !important;
   transition: none !important;
   justify-self: center !important;
@@ -1194,7 +1201,7 @@ body.gallery .content-section .container > .gallery-grid:last-child {
 .ul2-grid img:hover {
   transform: none !important;
   box-shadow: none !important;
-  border-radius: 12px !important;
+  border-radius: 16px !important;
 }
 
 /* Style the 4th and 5th images to center in second row */
@@ -1216,7 +1223,7 @@ body.gallery .content-section .container > .gallery-grid:last-child {
   width: 320px !important;
   height: 320px !important;
   object-fit: contain !important;
-  border-radius: 12px !important;
+  border-radius: 16px !important;
   box-shadow: none !important;
   transition: none !important;
   justify-self: center !important;
@@ -1225,7 +1232,7 @@ body.gallery .content-section .container > .gallery-grid:last-child {
 .trauma-review-grid img:hover {
   transform: none !important;
   box-shadow: none !important;
-  border-radius: 12px !important;
+  border-radius: 16px !important;
 }
 
 /* Open/Immature apex management: Pre-op section specific styling */
@@ -1239,7 +1246,7 @@ body.gallery .content-section .container > .gallery-grid:last-child {
   width: 300px !important;
   height: 300px !important;
   object-fit: contain !important;
-  border-radius: 12px !important;
+  border-radius: 16px !important;
   box-shadow: none !important;
   transition: none !important;
   justify-self: center !important;
@@ -1248,7 +1255,7 @@ body.gallery .content-section .container > .gallery-grid:last-child {
 .pre-op-grid img:hover {
   transform: none !important;
   box-shadow: none !important;
-  border-radius: 12px !important;
+  border-radius: 16px !important;
 }
 
 /* Open/Immature apex management: Post-op section - 3 images per row */
@@ -1262,7 +1269,7 @@ body.gallery .content-section .container > .gallery-grid:last-child {
   width: 300px !important;
   height: 300px !important;
   object-fit: contain !important;
-  border-radius: 12px !important;
+  border-radius: 16px !important;
   box-shadow: none !important;
   transition: none !important;
   justify-self: center !important;
@@ -1276,4 +1283,5 @@ body.gallery .content-section .container > .gallery-grid:last-child {
 .gallery-compare img:hover {
   transform: none !important;
   box-shadow: none !important;
+  border-radius: 16px !important;
 }
