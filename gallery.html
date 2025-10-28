@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="overrides.css">
         <meta name="description" content="Take a virtual tour of our modern dental clinic in London. See our state-of-the-art equipment and comfortable patient environment.">
         <style>
-          body { font-family: 'Open Sans', Arial, sans-serif; }
+          /* Font consistency is now handled in styles.css and overrides.css */
           footer .social-links a.use-image img { display: block !important; }
           .call-floating { bottom: 113px !important; }
           .email-floating { bottom: 28px !important; }
@@ -86,14 +86,14 @@
         <!-- Warning before surgical sections -->
         <section class="section content-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 1px solid #ced4da; border-radius: 12px; padding: 1.5rem 1.25rem; margin: 2.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
             <div class="container">
-                <div style="text-align: center; color: #495057; position: relative;">
-                    <div style="width: 50px; height: 50px; background: #dc3545; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.25rem; color: white; box-shadow: 0 4px 8px rgba(220,53,69,0.2);">&#9888;</div>
-                    <h3 style="color: #212529; margin-bottom: 0.75rem; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em;">Clinical Content Advisory</h3>
-                    <div style="background: rgba(255,255,255,0.8); border-radius: 8px; padding: 1rem; border: 1px solid #dee2e6; max-width: 75ch; margin: 0 auto;">
-                        <p style="margin-bottom: 0; font-size: 1rem; line-height: 1.5; color: #495057; font-weight: 500;">
+                <div class="clinical-warning" style="text-align: center; color: #495057; position: relative;">
+                    <div class="clinical-warning-icon" style="width: 50px; height: 50px; background: #dc3545; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.25rem; color: white; box-shadow: 0 4px 8px rgba(220,53,69,0.2);">&#9888;</div>
+                    <h3 class="clinical-warning-title" style="color: #212529; margin-bottom: 0.75rem; font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em;">Clinical Content Advisory</h3>
+                    <div class="clinical-warning-panel" style="background: rgba(255,255,255,0.8); border-radius: 8px; padding: 1rem; border: 1px solid #dee2e6; max-width: 75ch; margin: 0 auto;">
+                        <p class="clinical-warning-primary" style="margin-bottom: 0; font-size: 1rem; line-height: 1.5; color: #495057; font-weight: 500;">
                             <strong style="color: #212529;">The clinical images below are intended for dental professionals to illustrate treatment procedures and outcomes.</strong>
                         </p>
-                        <p style="margin-bottom: 0; margin-top: 0.5rem; font-size: 0.95rem; color: #6c757d; line-height: 1.4;">
+                        <p class="clinical-warning-note" style="margin-bottom: 0; margin-top: 0.5rem; font-size: 0.95rem; color: #6c757d; line-height: 1.4;">
                             Some viewers may find these images disturbing. Caution is advised.
                         </p>
                     </div>
@@ -101,13 +101,13 @@
             </div>
         </section>
 
-        <section class="section content-section">
+        <section class="section content-section no-bg">
             <div class="container">
                 <h2 class="page-section-title mb-3rem">LR6: Root canal retreatment &amp; internal root resorption management and cuspal coverage</h2>
             </div>
         </section>
 
-        <section class="section content-section">
+        <section class="section content-section no-bg">
             <div class="container">
                 <h2 class="page-section-title mb-3rem">UL2: Root canal retreatment of open apex</h2>
                 <div class="gallery-grid ul2-grid">
@@ -143,7 +143,7 @@
             <div class="container">
                 <h2 class="page-section-title mb-3rem">Dental trauma management</h2>
                 <h3 class="page-section-subtitle">Pre-operative photo and X-ray</h3>
-                <div class="gallery-grid">
+                <div class="gallery-grid trauma-pre-grid">
                     <img loading="lazy" src="images/gallery/Pre-operative photo and X-ray-1.png" alt="Dental trauma management - Pre-operative photo and X-ray case 1" />
                     <img loading="lazy" src="images/gallery/Pre-operative photo and X-ray2.png" alt="Dental trauma management - Pre-operative photo and X-ray case 2" />
                     <img loading="lazy" src="images/gallery/Pre-operative photo and X-ray_dentaltrauma.png" alt="Dental trauma management - Pre-operative photo and X-ray case 3" />
@@ -151,7 +151,7 @@
                 <h3 class="page-section-subtitle">6 month review</h3>
                 <div class="gallery-grid trauma-review-grid">
                     <img loading="lazy" src="images/gallery/Pre-operative photo and X-ray-six_month_review.png" alt="Dental trauma management - 6 month review case 1" />
-                    <img loading="lazy" src="images/gallery/Pre-operative photo and X-ray_dentaltrauma.png" alt="Dental trauma management - 6 month review case 2" />
+                    <img loading="lazy" src="images/gallery/Pre-operative photo and X-ray-six_month_review2.jpg.png" alt="Dental trauma management - 6 month review case 2" />
                 </div>
             </div>
         </section>
@@ -168,7 +168,7 @@
                     </div>
                   </div>
                   <div class="compare-col">
-                    <h3 class="page-section-subtitle">Post-op Results</h3>
+                    <h3 class="page-section-subtitle">Procedure Photos</h3>
                     <div class="gallery-grid">
                         <img loading="lazy" src="images/gallery/Surgical management of external cervical resorption lesion/Post-op photos and X-ray1.png" alt="External cervical resorption - Post-op case 1" />
                         <img loading="lazy" src="images/gallery/Surgical management of external cervical resorption lesion/Post-op photos and X-ray2.png" alt="External cervical resorption - Post-op case 2" />
@@ -253,14 +253,12 @@
                     <img loading="lazy" src="images/gallery/OpenImmature apex management and internal whitening/preop1.png" alt="Open apex management - Pre-op Case 1" />
                     <img loading="lazy" src="images/gallery/OpenImmature apex management and internal whitening/preop2.png" alt="Open apex management - Pre-op Case 2" />
                 </div>
-                <h3 class="page-section-subtitle">Post-op</h3>
+                <h3 class="page-section-subtitle">Procedure Photos</h3>
                 <div class="gallery-grid post-op-grid">
-                    <img loading="lazy" src="images/gallery/OpenImmature apex management and internal whitening/postop1.png" alt="Open apex management - Post-op Case 1" />
-                    <img loading="lazy" src="images/gallery/OpenImmature apex management and internal whitening/postop3.png" alt="Open apex management - Post-op Case 3" />
-                    <img loading="lazy" src="images/gallery/OpenImmature apex management and internal whitening/postop2.png" alt="Open apex management - Post-op Case 2" />
-                </div>
-                <div class="gallery-grid">
-                    <img loading="lazy" src="images/gallery/OpenImmature apex management and internal whitening/postop4.png" alt="Open apex management - Post-op photo Case 4" />
+                    <img loading="lazy" src="images/gallery/OpenImmature apex management and internal whitening/postop1.png" alt="Open apex management - Procedure photo Case 1" />
+                    <img loading="lazy" src="images/gallery/OpenImmature apex management and internal whitening/postop2.png" alt="Open apex management - Procedure photo Case 2" />
+                    <img loading="lazy" src="images/gallery/OpenImmature apex management and internal whitening/postop3.png" alt="Open apex management - Procedure photo Case 3" />
+                    <img loading="lazy" src="images/gallery/OpenImmature apex management and internal whitening/postop4.png" alt="Open apex management - Procedure photo Case 4" />
                 </div>
             </div>
         </section>

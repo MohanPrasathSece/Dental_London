@@ -26,16 +26,15 @@
 
 .apicectomy .image-with-caption { display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important; width: 100% !important; max-width: 320px !important; }
 .apicectomy .image-with-caption img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: cover !important;
+  width: 280px !important;
+  height: 280px !important;
+  object-fit: contain !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
-  aspect-ratio: 4/3 !important;
-  max-width: 320px !important;
+  box-shadow: none !important;
+  transition: none !important;
+  transform: none !important;
 }
-.apicectomy .image-with-caption img:hover { transform: translateY(-4px) scale(1.05) !important; box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important; border-radius: 16px !important; }
+.apicectomy .image-with-caption img { transform: none !important; }
 .apicectomy .image-with-caption .caption { margin-top: 0.6rem !important; color: #465169 !important; font-weight: 600 !important; font-size: 0.95rem !important; line-height: 1.3 !important; }
 
 @media (max-width: 900px) { .apicectomy .gallery-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)) !important; } }
@@ -63,22 +62,17 @@
 
 .fractured .image-with-caption img {
   width: 100% !important;
+  max-width: 100% !important;
   height: auto !important;
-  object-fit: cover !important;
-  border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
-  aspect-ratio: 4/3 !important;
-  max-width: 320px !important;
-  min-width: 280px !important;
+  object-fit: contain !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05) !important;
+  transition: none !important;
   display: block !important;
+  margin: 0 auto !important;
 }
 
-.fractured .image-with-caption img:hover {
-  transform: translateY(-4px) scale(1.05) !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
-  border-radius: 16px !important;
-}
+/* Hover effects removed as requested */
 
 .fractured .image-with-caption .caption {
   text-align: center !important;
@@ -465,10 +459,6 @@ label,
 /* Ensure navbar brand heading uses Playfair Display, overriding global anchor font */
 nav .logo { font-family: 'Playfair Display', Georgia, serif !important; }
 
-/* Ensure key page section headings are consistent in size across pages */
-.page-section-title {
-  font-size: 2.5rem !important; /* match desktop header size across pages */
-}
 
 /* Keep the same footer color/gradient on mobile as desktop */
 @media (max-width: 900px) {
@@ -598,30 +588,28 @@ body.home .content-section.alt-bg .btn.btn-outline {
   display: grid;
   gap: 1.5rem;
   margin: 2rem auto;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  justify-items: center;
-  align-items: start;
-  width: 100%;
+  grid-template-columns: repeat(auto-fill, 300px);
+  justify-content: space-evenly;
+  align-items: center;
   max-width: 1200px;
+  padding: 1.5rem 0;
+  grid-auto-rows: 300px;
+  justify-items: center;
 }
 
 .gallery-grid img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: cover !important;
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain !important;
+  transition: none !important;
+  display: block !important;
+  margin: 0 auto !important;
+  background: transparent !important;
+  border: none !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
-  aspect-ratio: 4/3 !important;
-  max-width: 320px !important;
-  justify-self: center !important;
 }
 
-.gallery-grid img:hover {
-  transform: translateY(-4px) scale(1.05) !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
-  border-radius: 16px !important;
-}
+/* Hover effects removed as requested */
 
 /* Responsive gallery grid - PERFECT SPACING */
 @media (max-width: 1200px) {
@@ -670,14 +658,130 @@ body.home .content-section.alt-bg .btn.btn-outline {
 .email-floating { color: #4169e1 !important; }
 
 /* Gallery sections consistent spacing and structure */
-body.gallery .content-section {
-  padding: 3rem 0 !important;
+body.gallery main {
+  background: #edf3ff;
 }
 
-body.gallery .gallery-grid {
-  margin: 2rem auto !important;
-  width: 100% !important;
-  max-width: 1200px !important;
+body.gallery .content-section {
+  padding: 4rem 0;
+  background: transparent;
+}
+
+.gallery .content-section:nth-of-type(odd) {
+  background: #ffffff;
+}
+
+.gallery .content-section:nth-of-type(even) {
+  background: #f2f7ff;
+}
+
+.gallery .content-section:first-of-type {
+  padding-top: 5rem;
+}
+
+.gallery .content-section.case-highlight {
+  background: #ffffff;
+}
+
+/* Explicit no background helper for targeted sections */
+.gallery .content-section.no-bg {
+  background: transparent !important;
+}
+
+/* Fix navbar icon sizes in gallery page */
+body.gallery .ico,
+body.gallery .nav-utility .ico,
+body.gallery .topbar .ico,
+body.gallery .brand-subline .ico {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+body.gallery .call-floating .ico {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+/* Gallery landing section typography tweaks */
+body.gallery .contact-modern .page-section-title {
+  font-size: 3rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+body.gallery .contact-modern .page-section-subtitle {
+  font-size: 1.35rem !important;
+  line-height: 1.7 !important;
+  max-width: 60ch;
+  margin: 0 auto 2rem !important;
+}
+
+body.gallery .clinical-warning-title {
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem !important;
+}
+
+body.gallery .clinical-warning-icon {
+  width: 64px !important;
+  height: 64px !important;
+  font-size: 1.6rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+body.gallery .clinical-warning-panel {
+  padding: 1.25rem 1.5rem !important;
+}
+
+body.gallery .clinical-warning-primary {
+  font-size: 1.2rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+body.gallery .clinical-warning-primary strong {
+  font-weight: 700 !important;
+}
+
+body.gallery .clinical-warning-note {
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+  color: #4a5568 !important;
+}
+
+/* Slightly larger navbar presentation on gallery page */
+/* Apply Playfair Display to all text in gallery */
+body.gallery,
+body.gallery p,
+body.gallery h1,
+body.gallery h2,
+body.gallery h3,
+body.gallery h4,
+body.gallery h5,
+body.gallery h6,
+body.gallery .page-section-title,
+body.gallery .page-section-subtitle,
+body.gallery .caption {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+
+/* Better structured gallery sections */
+.gallery .content-section {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.gallery .page-section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(8, 51, 91, 0.1);
+}
+
+.gallery .page-section-subtitle {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 /* Ensure all gallery items are perfectly aligned */
@@ -706,6 +810,67 @@ body.gallery .gallery-grid {
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
+}
+
+/* Unified image styling across gallery: keep original size (scale down if large), no zoom, consistent rounded corners */
+.gallery .gallery-grid img,
+.gallery .image-with-caption img {
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain !important;
+  border-radius: 12px !important;
+  transform: none !important;
+  transition: none !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Standardize image-with-caption structure and caption typography */
+.gallery .image-with-caption {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.gallery .image-with-caption .caption {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  color: #465169 !important;
+  font-weight: 600 !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* Mobile adjustments for uniform tiles */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, 220px);
+    grid-auto-rows: 220px;
+  }
+  .gallery-grid img,
+  .gallery .gallery-grid img,
+  .gallery .image-with-caption img {
+    width: 220px !important;
+    height: 220px !important;
+  }
+  .ul2-grid,
+  .trauma-pre-grid,
+  .trauma-review-grid,
+  .pre-op-grid,
+  .post-op-grid {
+    grid-template-columns: repeat(auto-fill, 220px) !important;
+  }
+  .ul2-grid img,
+  .trauma-pre-grid img,
+  .trauma-review-grid img,
+  .pre-op-grid img,
+  .post-op-grid img,
+  .gallery-compare img {
+    width: 220px !important;
+    height: 220px !important;
+  }
 }
 
 /* Enforce rounded corners for all gallery placeholders and images */
@@ -810,23 +975,21 @@ body.gallery .gallery-grid {
 .treatment-comparison img,
 .resorption-comparison img,
 .gallery-compare img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: cover !important;
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
-  aspect-ratio: 4/3 !important;
-  max-width: 320px !important;
+  box-shadow: none !important;
+  transition: none !important;
   justify-self: center !important;
 }
 
 .treatment-comparison img:hover,
 .resorption-comparison img:hover,
 .gallery-compare img:hover {
-  transform: translateY(-4px) scale(1.05) !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
-  border-radius: 16px !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
 }
 
 .gallery .container > .resorption-comparison,
@@ -1000,29 +1163,38 @@ body.gallery .content-section .container > .gallery-grid:last-child {
 /* UL2: Root canal retreatment - 3 images first row, 2 centered second row */
 .ul2-grid {
   display: grid !important;
-  grid-template-columns: repeat(3, minmax(280px, 1fr)) !important;
-  gap: 1rem !important;
-  justify-content: center !important;
+  grid-template-columns: repeat(3, 300px) !important;
+  gap: 1.5rem !important;
+  justify-content: space-evenly !important;
   max-width: 1200px !important;
   margin: 0 auto !important;
+  justify-items: center !important;
+}
+
+/* UL2 grid: 3 images in first row, 2 centered in second row */
+.ul2-grid img:nth-child(n+4) {
+  grid-column: span 1;
+}
+
+.ul2-grid img:nth-child(4),
+.ul2-grid img:nth-child(5) {
+  grid-column: auto;
 }
 
 .ul2-grid img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: cover !important;
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
-  aspect-ratio: 4/3 !important;
-  max-width: 320px !important;
+  box-shadow: none !important;
+  transition: none !important;
   justify-self: center !important;
 }
 
 .ul2-grid img:hover {
-  transform: translateY(-4px) scale(1.05) !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
-  border-radius: 16px !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
 }
 
 /* Style the 4th and 5th images to center in second row */
@@ -1032,74 +1204,76 @@ body.gallery .content-section .container > .gallery-grid:last-child {
 }
 
 /* Dental trauma - 6 month review: reduced gap between images */
+.trauma-pre-grid,
 .trauma-review-grid {
-  grid-template-columns: repeat(2, minmax(280px, 1fr)) !important;
-  gap: 0.75rem !important;
-  justify-content: center !important;
+  grid-template-columns: repeat(auto-fill, 320px) !important;
+  gap: 1.5rem !important;
+  justify-content: space-evenly !important;
 }
 
+.trauma-pre-grid img,
 .trauma-review-grid img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: cover !important;
+  width: 320px !important;
+  height: 320px !important;
+  object-fit: contain !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
-  aspect-ratio: 4/3 !important;
-  max-width: 320px !important;
+  box-shadow: none !important;
+  transition: none !important;
   justify-self: center !important;
 }
 
 .trauma-review-grid img:hover {
-  transform: translateY(-4px) scale(1.05) !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
-  border-radius: 16px !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
 }
 
 /* Open/Immature apex management: Pre-op section specific styling */
 .pre-op-grid {
-  grid-template-columns: repeat(2, minmax(280px, 1fr)) !important;
-  gap: 0.75rem !important;
+  grid-template-columns: repeat(auto-fill, 300px) !important;
+  gap: 1.5rem !important;
+  justify-content: space-evenly !important;
 }
 
 .pre-op-grid img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: cover !important;
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
-  aspect-ratio: 4/3 !important;
-  max-width: 320px !important;
+  box-shadow: none !important;
+  transition: none !important;
   justify-self: center !important;
 }
 
 .pre-op-grid img:hover {
-  transform: translateY(-4px) scale(1.05) !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
-  border-radius: 16px !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
 }
 
 /* Open/Immature apex management: Post-op section - 3 images per row */
 .post-op-grid {
-  grid-template-columns: repeat(3, minmax(280px, 1fr)) !important;
-  gap: 1rem !important;
+  grid-template-columns: repeat(4, 300px) !important;
+  gap: 1.5rem !important;
+  justify-content: space-evenly !important;
 }
 
 .post-op-grid img {
-  width: 100% !important;
-  height: auto !important;
-  object-fit: cover !important;
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease !important;
-  aspect-ratio: 4/3 !important;
-  max-width: 320px !important;
+  box-shadow: none !important;
+  transition: none !important;
   justify-self: center !important;
 }
 
-.post-op-grid img:hover {
-  transform: translateY(-4px) scale(1.05) !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
-  border-radius: 16px !important;
+/* Remove any hover effects for uniform static tiles */
+.post-op-grid img:hover,
+.pre-op-grid img:hover,
+.ul2-grid img:hover,
+.trauma-review-grid img:hover,
+.gallery-compare img:hover {
+  transform: none !important;
+  box-shadow: none !important;
 }
