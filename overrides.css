@@ -716,10 +716,15 @@ body.gallery .contact-modern .page-section-title {
 }
 
 body.gallery .contact-modern .page-section-subtitle {
-  font-size: 1.35rem !important;
-  line-height: 1.7 !important;
+  font-size: 1.55rem !important;
+  line-height: 1.8 !important;
   max-width: 60ch;
   margin: 0 auto 2rem !important;
+}
+
+/* LR6 subtitle emphasis under UL2 */
+body.gallery .lr6-desc {
+  font-size: 1.4rem !important;
 }
 
 body.gallery .clinical-warning-title {
@@ -758,13 +763,13 @@ body.gallery .clinical-warning-note {
 
 /* Slight navbar emphasis on gallery page */
 body.gallery .logo {
-  font-size: 1.55rem !important;
+  font-size: 1.75rem !important;
   font-weight: 700 !important;
 }
 
 body.gallery nav .nav-menu a {
-  font-size: 1.02rem !important;
-  padding: 0.5rem 1.05rem !important;
+  font-size: 0.8rem !important;
+  padding: 0.4rem 0.8rem !important;
 }
 
 body.gallery .topbar .top-item,
@@ -928,6 +933,15 @@ body.gallery .container {
   align-items: center !important;
 }
 
+/* Gallery: slightly larger base text for readability (normal writing) */
+body.gallery p {
+  font-size: 1.08rem !important;
+  line-height: 1.75 !important;
+}
+body.gallery .caption {
+  font-size: 1.08rem !important;
+}
+
 body.gallery .gallery-grid {
   align-self: stretch !important;
 }
@@ -1078,6 +1092,28 @@ body.gallery .resorption-comparison {
   flex-direction: column;
 }
 
+/* About page: reduce Our Ethos image size */
+body.about .ethos-photo {
+  max-width: 70% !important;
+  max-height: 400px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+@media (max-width: 900px) {
+  body.about .ethos-photo {
+    max-width: 80% !important;
+    max-height: 340px !important;
+  }
+}
+@media (max-width: 600px) {
+  body.about .ethos-photo {
+    max-width: 95% !important;
+    max-height: 280px !important;
+  }
+}
 .resorption-comparison .compare-col .page-section-subtitle {
   text-align: center !important;
   font-size: 1.25rem !important;

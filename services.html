@@ -65,7 +65,7 @@
       .services-simple .card h3 {
         font-family: 'Playfair Display', serif;
         font-weight: 600;
-        font-size: 1.25rem;
+        font-size: 1.35rem;
         color: #002b5b;
         margin: 0 0 0.5rem 0;
       }
@@ -73,6 +73,7 @@
         margin: 0;
         color: #4a5568;
         line-height: 1.6;
+        font-size: 1.05rem;
       }
       /* Hover effects - subtle lift and shadow */
       .services-simple .card {
@@ -101,6 +102,31 @@
       }
       /* Remove hover effects */
       /* (no hover styles for removed cards) */
+      /* Services page: increase body text in descriptions and cards */
+      /* Increase base body text size on Services page (headings use rem so they stay unchanged) */
+      body.services { font-size: 23px; }
+      @media (max-width: 768px) { body.services { font-size: 22px; } }
+      /* Increase Services page title and subtitle sizes */
+      body.services .contact-modern .page-section-title { font-size: 3.6rem !important; }
+      body.services .contact-modern .page-section-subtitle { font-size: 1.8rem; line-height: 1.9; }
+      /* Increase first content section H2 (e.g., Root Canal Therapy Excellence) */
+      body.services main .content-text h2 { font-size: 3.4rem; }
+      /* Broadly enlarge description text inside Services main */
+      body.services main p, body.services main .content-text p, body.services .services-simple .card p, body.services .expect-card p { font-size: 1.5rem; line-height: 1.95; }
+      body.services main li, body.services .services-simple .card li, body.services .expect-card li { font-size: 1.4rem; line-height: 1.85; }
+      /* Fees list */
+      body.services .fee-item .fee-service, 
+      body.services .fee-item .fee-amount { font-size: 2rem; }
+      body.services .fee-item .fee-amount { font-weight: 700; }
+      @media (max-width: 768px) {
+        body.services .contact-modern .page-section-title { font-size: 2.8rem !important; }
+        body.services .contact-modern .page-section-subtitle { font-size: 1.5rem; line-height: 1.8; }
+        body.services main .content-text h2 { font-size: 2.6rem; }
+        body.services main p, body.services main .content-text p, body.services .services-simple .card p, body.services .expect-card p { font-size: 1.4rem; line-height: 1.9; }
+        body.services main li, body.services .services-simple .card li, body.services .expect-card li { font-size: 1.3rem; line-height: 1.8; }
+        body.services .fee-item .fee-service, 
+        body.services .fee-item .fee-amount { font-size: 1.6rem; }
+      }
     </style>
 </head>
 <body class="services">
@@ -174,28 +200,24 @@
                 <h2 class="page-section-title mb-3rem">Our Specialised Services</h2>
                 <div class="services-simple-grid">
                     <div class="card">
-                        <h3>Primary Root Canal Therapy</h3>
-                        <p>Save your natural tooth when the pulp is infected or inflamed. We remove infected tissue, disinfect with microscopic precision, and seal the canals to prevent reinfection. Most cases finish in one or two comfortable visits.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Root Canal Retreatment</h3>
-                        <p>When a previous treatment hasn’t fully healed, we re‑access the tooth, locate missed anatomy, and re‑clean and seal using updated techniques and materials to improve long‑term success.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Emergency Root Canal Care</h3>
-                        <p>Rapid relief for severe toothache, swelling, or dental trauma. We prioritise same‑day appointments to stabilise the tooth, control pain, and begin definitive care.</p>
-                    </div>
-                    <div class="card">
                         <h3>Specialist Consultation</h3>
                         <p>A thorough review including history, examination, and digital imaging. We explain findings clearly and provide a personalised treatment plan with transparent timelines and fees.</p>
+                    </div>
+                    <div class="card">
+                        <h3>CBCT Imaging & Diagnosis</h3>
+                        <p>3D imaging (where indicated) offers precise views of root anatomy, lesions, and previous treatments, improving diagnosis and guiding minimally invasive care.</p>
                     </div>
                     <div class="card">
                         <h3>Microscopic Endodontics</h3>
                         <p>All endodontic procedures are performed under high magnification for accuracy—helping to find hidden canals, preserve healthy tooth structure, and enhance outcomes.</p>
                     </div>
                     <div class="card">
-                        <h3>CBCT Imaging & Diagnosis</h3>
-                        <p>3D imaging (where indicated) offers precise views of root anatomy, lesions, and previous treatments, improving diagnosis and guiding minimally invasive care.</p>
+                        <h3>Primary Root Canal Therapy</h3>
+                        <p>Save your natural tooth when the pulp is infected or inflamed. We remove infected tissue, disinfect with microscopic precision, and seal the canals to prevent reinfection. Most cases finish in one or two comfortable visits.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Root Canal Retreatment</h3>
+                        <p>When a previous treatment hasn’t fully healed, we re‑access the tooth, locate missed anatomy, and re‑clean and seal using updated techniques and materials to improve long‑term success.</p>
                     </div>
                 </div>
             </div>
