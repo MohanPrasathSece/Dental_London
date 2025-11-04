@@ -149,47 +149,47 @@ body.contact .email-floating { display: inline-flex !important; }
 
 /* Floating Call Button (appears on all pages) */
 .call-floating {
-    position: fixed;
-    right: 20px;
-    bottom: 113px; /* lifted to make room for email button below */
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    text-decoration: none;
-    background: linear-gradient(135deg, #1a237e, #3f51b5);
-    box-shadow: 0 12px 30px rgba(26,35,126,0.35), 0 4px 10px rgba(26,35,126,0.2);
-    z-index: 1001;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  position: fixed;
+  right: 20px;
+  bottom: 113px; /* lifted to make room for email button below */
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #1a237e, #3f51b5);
+  box-shadow: 0 12px 30px rgba(26,35,126,0.35), 0 4px 10px rgba(26,35,126,0.2);
+  z-index: 1001;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 .call-floating:hover {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 16px 40px rgba(26,35,126,0.45), 0 6px 14px rgba(26,35,126,0.25);
 }
-.call-floating .ico { width: 32px; height: 32px; color: #fff; }
+.call-floating .ico { width: 46px; height: 46px; color: #fff; }
 @media (max-width: 600px) {
-    .call-floating { right: 16px; bottom: 92px; width: 60px; height: 60px; }
+  .call-floating { right: 16px; bottom: 92px; width: 72px; height: 72px; }
 }
 
 /* Email Floating Button */
 .email-floating {
-    position: fixed;
-    right: 20px;
-    bottom: 28px;
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background: #ffffff;
-    box-shadow: 0 12px 30px rgba(8,51,91,0.25), 0 4px 10px rgba(8,51,91,0.18);
-    z-index: 1001;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  position: fixed;
+  right: 20px;
+  bottom: 28px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(8,51,91,0.25), 0 4px 10px rgba(8,51,91,0.18);
+  z-index: 1001;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 .email-floating:hover {
     transform: translateY(-2px) scale(1.05);
@@ -197,14 +197,14 @@ body.contact .email-floating { display: inline-flex !important; }
 }
 .email-floating img,
 .email-floating svg {
-    width: 46px;
-    height: 46px;
-    object-fit: contain;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
 }
 @media (max-width: 600px) {
-    .email-floating { right: 16px; bottom: 12px; width: 60px; height: 60px; }
-    .email-floating img,
-    .email-floating svg { width: 40px; height: 40px; }
+  .email-floating { right: 16px; bottom: 12px; width: 72px; height: 72px; }
+  .email-floating img,
+  .email-floating svg { width: 52px; height: 52px; }
 }
 
 /* Prices Floating Button (text pill) */
@@ -948,7 +948,7 @@ nav {
     position: relative;
     padding: 0.35rem 0.7rem; /* smaller */
     border-radius: 5px;
-    font-size: 0.9rem; /* smaller font */
+    font-size: 1.1rem; /* increased font size for desktop */
 }
 
 /* Brand text defaults: show full name on desktop, hide short name */

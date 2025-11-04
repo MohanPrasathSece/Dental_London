@@ -199,6 +199,15 @@ body.home .quick-links { margin-left: 1rem; }
   box-shadow: 0 4px 15px rgba(26,35,126,0.3);
 }
 
+/* Global button sizing tweaks (applies across all pages) */
+.btn, a.btn { padding: 0.95rem 1.6rem !important; font-size: 1.08rem !important; border-width: 2px; }
+.btn-outline { padding: 0.95rem 1.6rem !important; font-size: 1.08rem !important; }
+.btn-primary { padding: 1rem 1.6rem !important; font-size: 1.08rem !important; }
+/* Header Book Appointment button */
+.nav-utility .cta-appoint { padding: 0.4rem 0.8rem !important; font-size: 0.8rem !important; box-shadow: 0 6px 16px rgba(26,35,126,0.18) !important; }
+/* Hero button align to slightly larger size */
+.hero .btn { padding: 1rem 2.6rem !important; font-size: 1.08rem !important; }
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.2rem;
@@ -419,6 +428,22 @@ footer .footer-bottom .container {
 }
 .footer-bottom .made-by,
 .footer-bottom div { text-align: center !important; margin: 0 !important; }
+
+/* Footer address: reduce text size on all pages */
+footer .footer-address { font-size: 0.9rem !important; line-height: 1.5 !important; }
+
+/* Make all footer text the same size across all pages */
+footer, 
+footer p, 
+footer a, 
+footer h3, 
+footer .footer-logo-bottom, 
+footer .footer-links-bottom a, 
+footer .footer-address, 
+footer .made-by {
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+}
 
 /* Footer: equal spacing between all sections on desktop */
 @media (min-width: 901px) {

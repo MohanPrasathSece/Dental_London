@@ -104,20 +104,35 @@
       /* (no hover styles for removed cards) */
       /* Services page: increase body text in descriptions and cards */
       /* Increase base body text size on Services page (headings use rem so they stay unchanged) */
-      body.services { font-size: 23px; }
-      @media (max-width: 768px) { body.services { font-size: 22px; } }
+      body.services { font-size: 18px; }
+      @media (max-width: 768px) { body.services { font-size: 16px; } }
       /* Increase Services page title and subtitle sizes */
       body.services .contact-modern .page-section-title { font-size: 3.6rem !important; }
       body.services .contact-modern .page-section-subtitle { font-size: 1.8rem; line-height: 1.9; }
       /* Increase first content section H2 (e.g., Root Canal Therapy Excellence) */
       body.services main .content-text h2 { font-size: 3.4rem; }
       /* Broadly enlarge description text inside Services main */
-      body.services main p, body.services main .content-text p, body.services .services-simple .card p, body.services .expect-card p { font-size: 1.5rem; line-height: 1.95; }
-      body.services main li, body.services .services-simple .card li, body.services .expect-card li { font-size: 1.4rem; line-height: 1.85; }
+      body.services main p, body.services main .content-text p, body.services .services-simple .card p, body.services .expect-card p { font-size: 1.15rem !important; line-height: 1.75 !important; }
+      body.services main li, body.services .services-simple .card li, body.services .expect-card li { font-size: 1.05rem !important; line-height: 1.6 !important; }
+      body.services .page-section-subtitle { font-size: 1.4rem !important; }
       /* Fees list */
       body.services .fee-item .fee-service, 
-      body.services .fee-item .fee-amount { font-size: 2rem; }
+      body.services .fee-item .fee-amount { font-size: 2.4rem; }
       body.services .fee-item .fee-amount { font-weight: 700; }
+      /* Fees section extras */
+      body.services #treatment-fees .page-section-subtitle { font-size: 2rem; }
+      body.services #treatment-fees .fees-notes p,
+      body.services #treatment-fees .fees-notes li { font-size: 1.3rem; }
+      /* Desktop boost for fees list (service + amount) */
+      @media (min-width: 1025px) {
+        body.services #treatment-fees .fee-item .fee-service { font-size: 2.6rem; }
+        body.services #treatment-fees .fee-item .fee-amount { font-size: 3rem; }
+      }
+      /* What to Expect section: larger title, headings, body, badges */
+      body.services .expect-title { font-size: 3.4rem; }
+      body.services .expect-card h3 { font-size: 2.2rem; }
+      body.services .expect-card p { font-size: 1.65rem; line-height: 2.0; }
+      body.services .expect-badge { font-size: 1.6rem; font-weight: 800; }
       @media (max-width: 768px) {
         body.services .contact-modern .page-section-title { font-size: 2.8rem !important; }
         body.services .contact-modern .page-section-subtitle { font-size: 1.5rem; line-height: 1.8; }
@@ -125,7 +140,32 @@
         body.services main p, body.services main .content-text p, body.services .services-simple .card p, body.services .expect-card p { font-size: 1.4rem; line-height: 1.9; }
         body.services main li, body.services .services-simple .card li, body.services .expect-card li { font-size: 1.3rem; line-height: 1.8; }
         body.services .fee-item .fee-service, 
-        body.services .fee-item .fee-amount { font-size: 1.6rem; }
+        body.services .fee-item .fee-amount { font-size: 1.8rem; }
+        /* Fees section extras (mobile) */
+        body.services #treatment-fees .page-section-subtitle { font-size: 1.6rem; }
+        body.services #treatment-fees .fees-notes p,
+        body.services #treatment-fees .fees-notes li { font-size: 1.15rem; }
+        /* What to Expect (mobile) */
+        body.services .expect-title { font-size: 2.4rem; }
+        body.services .expect-card h3 { font-size: 1.7rem; }
+        body.services .expect-card p { font-size: 1.35rem; line-height: 1.85; }
+        body.services .expect-badge { font-size: 1.3rem; }
+      }
+
+      /* Desktop balanced sizes (smaller, readable scale) */
+      @media (min-width: 1025px) {
+        body.services #treatment-fees .fee-item .fee-service { font-size: 2.2rem !important; }
+        body.services #treatment-fees .fee-item .fee-amount { font-size: 2.4rem !important; font-weight: 800 !important; }
+        body.services #treatment-fees .page-section-title { font-size: 2.8rem !important; }
+        body.services #treatment-fees .page-section-subtitle { font-size: 1.6rem !important; }
+        body.services #treatment-fees .fees-notes p,
+        body.services #treatment-fees .fees-notes li { font-size: 1.05rem !important; }
+
+        /* What to Expect - smaller balanced */
+        body.services .expect-title { font-size: 2.8rem !important; }
+        body.services .expect-card h3 { font-size: 1.6rem !important; }
+        body.services .expect-card p { font-size: 1.25rem !important; line-height: 1.8 !important; }
+        body.services .expect-badge { font-size: 1.2rem !important; }
       }
     </style>
 </head>
@@ -213,11 +253,11 @@
                     </div>
                     <div class="card">
                         <h3>Primary Root Canal Therapy</h3>
-                        <p>Save your natural tooth when the pulp is infected or inflamed. We remove infected tissue, disinfect with microscopic precision, and seal the canals to prevent reinfection. Most cases finish in one or two comfortable visits.</p>
+                        <p>We aim to save your natural tooth when the dental pulp is infected or inflamed. We remove infected or irreversibly inflammed tissue, disinfect and seal the roots to prevent reinfection. Most cases finish in one or two comfortable visits.</p>
                     </div>
                     <div class="card">
                         <h3>Root Canal Retreatment</h3>
-                        <p>When a previous treatment hasn’t fully healed, we re‑access the tooth, locate missed anatomy, and re‑clean and seal using updated techniques and materials to improve long‑term success.</p>
+                        <p>When a previous treatment hasn't fully healed, we re‑access the tooth, and re‑clean and seal the tooth to give the best chance of healing.</p>
                     </div>
                 </div>
             </div>
@@ -282,6 +322,10 @@
                         <span class="fee-amount">£375</span>
                     </div>
                     <div class="fee-item">
+                        <span class="fee-service">Dental Hygiene</span>
+                        <span class="fee-amount">£65</span>
+                    </div>
+                    <div class="fee-item">
                         <span class="fee-service">Treatment Reviews (within 6 months)</span>
                         <span class="fee-amount">Free of Charge</span>
                     </div>
@@ -299,7 +343,7 @@
 
         <section class="section content-section">
             <div class="container">
-                <h2 class="page-section-title mb-3rem">What to Expect</h2>
+                <h2 class="page-section-title mb-3rem expect-title">What to Expect</h2>
 
                 <div class="expect-grid">
                     <div class="expect-card fade-in-up">
@@ -393,7 +437,7 @@
                     <h3>Services</h3>
                     <p><a href="#root-canal">Root Canal Therapy</a></p>
                     <p><a href="#dental-hygiene">Dental Hygiene</a></p>
-                    <p><a href="#emergency">Emergency Care</a></p>
+                    <p><a href="#emergency">Dental Trauma</a></p>
                     <p><a href="#consultation">Consultations</a></p>
                 </div>
                 
