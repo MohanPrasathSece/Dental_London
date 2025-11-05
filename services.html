@@ -115,57 +115,114 @@
       body.services main p, body.services main .content-text p, body.services .services-simple .card p, body.services .expect-card p { font-size: 1.15rem !important; line-height: 1.75 !important; }
       body.services main li, body.services .services-simple .card li, body.services .expect-card li { font-size: 1.05rem !important; line-height: 1.6 !important; }
       body.services .page-section-subtitle { font-size: 1.4rem !important; }
-      /* Fees list */
-      body.services .fee-item .fee-service, 
-      body.services .fee-item .fee-amount { font-size: 2.4rem; }
-      body.services .fee-item .fee-amount { font-weight: 700; }
-      /* Fees section extras */
-      body.services #treatment-fees .page-section-subtitle { font-size: 2rem; }
-      body.services #treatment-fees .fees-notes p,
-      body.services #treatment-fees .fees-notes li { font-size: 1.3rem; }
-      /* Desktop boost for fees list (service + amount) */
-      @media (min-width: 1025px) {
-        body.services #treatment-fees .fee-item .fee-service { font-size: 2.6rem; }
-        body.services #treatment-fees .fee-item .fee-amount { font-size: 3rem; }
+      /* Fees list (prominent) */
+      body.services .fee-item {
+        padding: 0.4rem 0;
+        border-bottom: 1px solid rgba(26, 35, 126, 0.1);
+        margin: 0.2rem 0;
       }
-      /* What to Expect section: larger title, headings, body, badges */
-      body.services .expect-title { font-size: 3.4rem; }
-      body.services .expect-card h3 { font-size: 2.2rem; }
-      body.services .expect-card p { font-size: 1.65rem; line-height: 2.0; }
-      body.services .expect-badge { font-size: 1.6rem; font-weight: 800; }
+      body.services .fee-item .fee-service,
+      body.services .fee-item .fee-amount { 
+        font-size: 2rem;
+        line-height: 1.3;
+        margin: 0.2rem 0;
+      }
+      body.services .fee-item .fee-amount { 
+        font-weight: 900;
+        color: #0d47a1;
+        letter-spacing: 0.5px;
+      }
+      /* Fees section extras */
+      body.services #treatment-fees .page-section-subtitle { 
+        font-size: 2rem;
+        margin: 0.5rem 0 1rem 0;
+        color: #1a237e;
+        font-weight: 600;
+      }
+      body.services #treatment-fees .fees-notes p,
+      body.services #treatment-fees .fees-notes li { 
+        font-size: 1.15rem;
+        line-height: 1.7;
+      }
+      /* Desktop sizes - more prominent */
+      @media (min-width: 1025px) {
+        body.services #treatment-fees .fee-item .fee-service { 
+          font-size: 2.4rem;
+          font-weight: 700;
+          color: #1a237e;
+          margin: 0.1rem 0;
+        }
+        body.services #treatment-fees .fee-item .fee-amount { 
+          font-size: 2.8rem;
+          font-weight: 900;
+          color: #0d47a1;
+          margin: 0.1rem 0;
+        }
+      }
+      /* What to Expect section (reduced) */
+      body.services .expect-title { font-size: 2rem; }
+      body.services .expect-card h3 { font-size: 1.2rem; }
+      body.services .expect-card p { font-size: 1.05rem; line-height: 1.7; }
+      body.services .expect-badge { font-size: 1rem; font-weight: 800; }
       @media (max-width: 768px) {
-        body.services .contact-modern .page-section-title { font-size: 2.8rem !important; }
-        body.services .contact-modern .page-section-subtitle { font-size: 1.5rem; line-height: 1.8; }
-        body.services main .content-text h2 { font-size: 2.6rem; }
-        body.services main p, body.services main .content-text p, body.services .services-simple .card p, body.services .expect-card p { font-size: 1.4rem; line-height: 1.9; }
-        body.services main li, body.services .services-simple .card li, body.services .expect-card li { font-size: 1.3rem; line-height: 1.8; }
-        body.services .fee-item .fee-service, 
-        body.services .fee-item .fee-amount { font-size: 1.8rem; }
+        body.services .contact-modern .page-section-title { font-size: 2.2rem !important; }
+        body.services .contact-modern .page-section-subtitle { font-size: 1.1rem; line-height: 1.6; }
+        body.services main .content-text h2 { font-size: 2rem; }
+        body.services main p, body.services main .content-text p, body.services .services-simple .card p, body.services .expect-card p { font-size: 1rem; line-height: 1.7; }
+        body.services main li, body.services .services-simple .card li, body.services .expect-card li { font-size: 0.95rem; line-height: 1.6; }
+        body.services .fee-item {
+          padding: 0.3rem 0;
+          border-bottom: 1px solid rgba(26, 35, 126, 0.1);
+          margin: 0.1rem 0;
+        }
+        body.services .fee-item .fee-service,
+        body.services .fee-item .fee-amount { 
+          font-size: 1.9rem;
+          line-height: 1.3;
+          margin: 0.1rem 0;
+        }
+        body.services .fee-item .fee-amount { 
+          font-weight: 900;
+          color: #0d47a1;
+        }
         /* Fees section extras (mobile) */
-        body.services #treatment-fees .page-section-subtitle { font-size: 1.6rem; }
+        body.services #treatment-fees .page-section-subtitle { 
+          font-size: 1.4rem;
+          margin-bottom: 1.2rem;
+        }
         body.services #treatment-fees .fees-notes p,
-        body.services #treatment-fees .fees-notes li { font-size: 1.15rem; }
+        body.services #treatment-fees .fees-notes li { 
+          font-size: 1.1rem;
+          line-height: 1.6;
+        }
         /* What to Expect (mobile) */
-        body.services .expect-title { font-size: 2.4rem; }
-        body.services .expect-card h3 { font-size: 1.7rem; }
-        body.services .expect-card p { font-size: 1.35rem; line-height: 1.85; }
-        body.services .expect-badge { font-size: 1.3rem; }
+        body.services .expect-title { font-size: 1.7rem; }
+        body.services .expect-card h3 { font-size: 1.1rem; }
+        body.services .expect-card p { font-size: 0.98rem; line-height: 1.65; }
+        body.services .expect-badge { font-size: 0.95rem; }
       }
 
-      /* Desktop balanced sizes (smaller, readable scale) */
+      /* Desktop balanced sizes (increased) */
       @media (min-width: 1025px) {
-        body.services #treatment-fees .fee-item .fee-service { font-size: 2.2rem !important; }
-        body.services #treatment-fees .fee-item .fee-amount { font-size: 2.4rem !important; font-weight: 800 !important; }
-        body.services #treatment-fees .page-section-title { font-size: 2.8rem !important; }
-        body.services #treatment-fees .page-section-subtitle { font-size: 1.6rem !important; }
+        body.services #treatment-fees .page-section-title { 
+          font-size: 2.6rem !important;
+          margin-bottom: 1.5rem;
+        }
+        body.services #treatment-fees .page-section-subtitle { 
+          font-size: 1.5rem !important;
+          margin-bottom: 1.8rem;
+        }
         body.services #treatment-fees .fees-notes p,
-        body.services #treatment-fees .fees-notes li { font-size: 1.05rem !important; }
+        body.services #treatment-fees .fees-notes li { 
+          font-size: 1.2rem !important;
+          line-height: 1.8;
+        }
 
         /* What to Expect - smaller balanced */
-        body.services .expect-title { font-size: 2.8rem !important; }
-        body.services .expect-card h3 { font-size: 1.6rem !important; }
-        body.services .expect-card p { font-size: 1.25rem !important; line-height: 1.8 !important; }
-        body.services .expect-badge { font-size: 1.2rem !important; }
+        body.services .expect-title { font-size: 2rem !important; }
+        body.services .expect-card h3 { font-size: 1.2rem !important; }
+        body.services .expect-card p { font-size: 1.05rem !important; line-height: 1.7 !important; }
+        body.services .expect-badge { font-size: 1rem !important; }
       }
     </style>
 </head>
