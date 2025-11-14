@@ -1,0 +1,1585 @@
+/* Global overrides: disable scroll-in animations */
+.section,
+.section.fade-in,
+.fade-in-up, .fade-in-left, .fade-in-right,
+.fade-in-up.animate, .fade-in-left.animate, .fade-in-right.animate {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+body.gallery .content-section .container,
+body.gallery .contact-modern .container {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding-left: clamp(1rem, 4vw, 1.6rem) !important;
+  padding-right: clamp(1rem, 4vw, 1.6rem) !important;
+}
+
+.gallery .gallery-grid,
+.gallery-compare,
+.treatment-comparison {
+  width: 100% !important;
+  max-width: min(100%, 640px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media (min-width: 1024px) {
+  body.gallery .gallery-grid,
+  body.gallery .ul2-grid,
+  body.gallery .trauma-pre-grid,
+  body.gallery .trauma-review-grid,
+  body.gallery .pre-op-grid,
+  body.gallery .post-op-grid {
+    gap: 0.9rem 0.75rem !important;
+  }
+  body.gallery .gallery-compare,
+  body.gallery .treatment-comparison {
+    column-gap: 0.9rem !important;
+    row-gap: 1rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery .gallery-grid,
+  .gallery-compare,
+  .treatment-comparison {
+    max-width: 100% !important;
+  }
+  .gallery .gallery-grid img,
+  .gallery .image-with-caption img,
+  .gallery-compare img,
+  .treatment-comparison img {
+    width: min(88vw, 320px) !important;
+    max-width: min(88vw, 320px) !important;
+  }
+}
+
+/* Smaller image tiles for very small phones on Clinical Cases */
+@media (max-width: 600px) {
+  body.gallery .gallery-grid,
+  body.gallery .ul2-grid,
+  body.gallery .trauma-pre-grid,
+  body.gallery .trauma-review-grid,
+  body.gallery .pre-op-grid,
+  body.gallery .post-op-grid {
+    row-gap: 0.45rem !important;
+    column-gap: 0.75rem !important;
+  }
+  body.gallery .gallery-grid img,
+  body.gallery .image-with-caption img,
+  body.gallery .gallery-compare img,
+  body.gallery .treatment-comparison img {
+    width: min(42vw, 180px) !important;
+    max-width: min(42vw, 180px) !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Unified typography scale across all pages                          */
+/* ------------------------------------------------------------------ */
+
+body {
+  font-size: 16px !important;
+}
+
+body * {
+  font-size: inherit !important;
+}
+
+h1 {
+  font-size: 36px !important;
+}
+
+h2 {
+  font-size: 28px !important;
+}
+
+h3 {
+  font-size: 22px !important;
+}
+
+h4 {
+  font-size: 18px !important;
+}
+
+h5 {
+  font-size: 16px !important;
+}
+
+h6 {
+  font-size: 14px !important;
+}
+
+/* Stack gallery-compare only on smaller screens */
+@media (max-width: 700px) {
+  .gallery-compare { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+/* Molar apicectomy: Use standard gallery grid with captions below images */
+.apicectomy .container { display: block !important; padding: 0 2rem; }
+
+.apicectomy .gallery-grid {
+  grid-template-columns: repeat(3, minmax(280px, 1fr)) !important;
+  gap: 1rem !important;
+  justify-content: center !important;
+  justify-items: center !important;
+  align-items: start !important;
+}
+
+.apicectomy .image-with-caption {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  max-width: 360px !important;
+}
+.apicectomy .image-with-caption img {
+  width: 100% !important;
+  max-width: 340px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  transition: none !important;
+  transform: none !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+.apicectomy .image-with-caption .caption { margin-top: 0.6rem !important; color: #465169 !important; font-weight: 600 !important; font-size: 0.95rem !important; line-height: 1.3 !important; }
+
+@media (max-width: 900px) { .apicectomy .gallery-grid { grid-template-columns: repeat(2, minmax(220px, 1fr)) !important; } }
+@media (max-width: 600px) { .apicectomy .gallery-grid { grid-template-columns: 1fr !important; } }
+
+/* Fractured: ensure uniform sizing for all images - MAXIMUM SPECIFICITY */
+.fractured .gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1.25rem !important;
+  justify-items: center !important;
+  align-items: start !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+.fractured .image-with-caption {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  max-width: 360px !important;
+  margin: 0 auto !important;
+}
+
+.fractured .image-with-caption img {
+  width: 100% !important;
+  max-width: 340px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  transition: none !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+.fractured .image-with-caption .caption {
+  text-align: center !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0.5rem !important;
+  color: #465169 !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.3 !important;
+  width: 100% !important;
+}
+
+/* Extra-compact Prices CTA on mobile: shrink label, icon, spacing */
+@media (max-width: 700px) {
+  .prices-cta { padding: 0.45rem 0 !important; }
+  .prices-cta .prices-inline { gap: 0.35rem !important; padding: 0.28rem 0.5rem !important; }
+  .prices-cta .prices-inline .label { font-size: 0.75rem !important; }
+  .prices-cta .prices-inline .ico { width: 14px !important; height: 14px !important; }
+  .prices-cta .prices-inline .link-pill { padding: 0.2rem 0.5rem !important; font-size: 0.7rem !important; }
+}
+
+/* Quick-links: style the View more CTA */
+.quick-link .view-more {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: #1a237e;
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+.quick-link:hover .view-more { text-decoration: underline; }
+/* Home: nudge the quick-links grid slightly to the right */
+body.home .quick-links { margin-left: 1rem; }
+
+/* Home hero: reduce top padding on mobile to bring image closer to header */
+@media (max-width: 900px) {
+  .home .hero { padding-top: 4.5rem !important; }
+}
+
+/* Enhanced Hero Section Styling - Professional Blue Theme */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-background-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  color: white;
+  z-index: 2;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+  color: white !important;
+  text-transform: uppercase;
+}
+
+.hero-buttons {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .btn {
+  background: #000;
+  color: white;
+  padding: 0.8rem 3rem;
+  text-decoration: none;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-block;
+}
+
+.hero .btn:hover {
+  background: #1a237e;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(26,35,126,0.3);
+}
+
+/* Global button sizing tweaks (applies across all pages) */
+.btn, a.btn { padding: 0.95rem 1.6rem !important; font-size: 1.08rem !important; border-width: 2px; }
+.btn-outline { padding: 0.95rem 1.6rem !important; font-size: 1.08rem !important; }
+.btn-primary { padding: 1rem 1.6rem !important; font-size: 1.08rem !important; }
+/* Header Book Appointment button */
+.nav-utility .cta-appoint { padding: 0.4rem 0.8rem !important; font-size: 0.8rem !important; box-shadow: 0 6px 16px rgba(26,35,126,0.18) !important; }
+/* Hero button align to slightly larger size */
+.hero .btn { padding: 1rem 2.6rem !important; font-size: 1.08rem !important; }
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero .btn {
+    padding: 0.6rem 2rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile header: flush to the very top, no extra padding */
+@media (max-width: 900px) {
+  header { top: 0 !important; }
+  body { padding-top: 0 !important; }
+
+  /* Keep smaller brand sizing; full name controlled elsewhere */
+  .logo .logo-full { display: inline !important; }
+  .logo .logo-short { display: none !important; }
+
+  /* Improve mobile active highlight */
+  .nav-menu a.active { background: rgba(26,35,126,0.08); color: #08335b; }
+  .nav-menu a.active::after { display: none; }
+  .nav-menu a.active::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: #08335b;
+    border-radius: 0 3px 3px 0;
+  }
+
+  /* Ensure hero title is white on mobile */
+  .hero h1 { color: white !important; }
+
+  /* Minimal anchor scroll safety under fixed header */
+  html { scroll-padding-top: 64px; }
+  .content-section, .hero, .tech4-section { scroll-margin-top: 64px; }
+}
+/* Tablet layout fixes: keep mobile and desktop untouched */
+@media (min-width: 700px) and (max-width: 1024px) {
+  header { top: 8px !important; }
+  body { padding-top: 96px !important; }
+
+  /* Compact nav on tablet (single row, desktop-like) */
+  nav { padding: 0.5rem 0.75rem !important; flex-wrap: nowrap !important; }
+  .brand-wrap { max-width: 38% !important; min-width: 0 !important; }
+  .brand-subline { display: none !important; }
+  .logo { font-size: 1.15rem !important; letter-spacing: 0 !important; }
+  /* Keep full brand like desktop */
+  .logo .logo-full { display: inline !important; }
+  .logo .logo-short { display: none !important; }
+  .nav-menu { gap: 0.4rem !important; flex: 1 1 auto !important; min-width: 0 !important; flex-wrap: nowrap !important; }
+  .nav-menu a { padding: 0.35rem 0.5rem !important; font-size: 0.7rem !important; }
+  .nav-utility { flex: 0 0 auto !important; order: initial !important; margin-top: 0 !important; }
+
+  /* Hero adjustments */
+  .hero { padding: 6rem 0 3rem !important; min-height: initial !important; }
+  .hero h1 { color: white !important; }
+   .home .home-welcome .content-image { max-height: 380px !important; }
+
+  /* Generic content grids */
+  .content-grid, .services-grid, .expect-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Technology split sections */
+  .tech4-split { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 2rem !important; align-items: center !important; }
+
+  /* Gallery grid: two columns on tablet */
+  .gallery .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 1.25rem !important; }
+
+  /* Gallery grid: two columns on mobile */
+  @media (max-width: 700px) {
+    .gallery .gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 0.9rem !important;
+    }
+  }
+
+  /* Gallery: remove all borders, outlines, and dotted lines */
+  .gallery .gallery-item,
+  .gallery .gallery-item img,
+  .gallery .gallery-grid,
+  .gallery-item,
+  .gallery-item img {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .gallery .gallery-item,
+  .gallery .gallery-item img,
+  .gallery-item,
+  .gallery-item img {
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 0 !important;
+  }
+
+  /* Remove any focus or hover borders */
+  .gallery .gallery-item:focus,
+  .gallery .gallery-item img:focus,
+  .gallery-item:focus,
+  .gallery-item img:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Force desktop-like nav on tablet to avoid mobile dropdown collapse */
+  /* Hide mobile menu toggle button on tablet */
+  .mobile-menu-toggle { display: none !important; }
+  .nav-menu {
+    position: static !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    gap: 1rem !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+}
+.nav-menu a {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+/* Standardize first section headings across all pages - match "Get In Touch" exactly */
+.page-section-title {
+  text-align: center !important;
+  margin-bottom: 0.5rem !important; /* tighter gap to subtitle */
+  font-size: 2.5rem !important;
+  color: #08335b !important;
+  font-weight: 700 !important;
+}
+
+.page-section-subtitle {
+  display: block !important;            /* ensure block to allow margins */
+  text-align: center !important;
+  color: #5a5f73 !important;
+  max-width: 60ch !important;
+  margin: 0.5rem auto 1.5rem !important; /* consistent spacing under title and before next content */
+}
+
+/* Ensure consistent centering for first heading group within hero-like page headers */
+.contact-modern .container { text-align: center; }
+
+/* Utility classes replacing former inline styles */
+.centered-block { text-align: center !important; }
+.lead-subtext { font-size: 1.2rem !important; margin-bottom: 2rem !important; color: #666 !important; }
+.mb-3rem { margin-bottom: 3rem !important; }
+.alt-bg { background: #f8f9ff !important; }
+.phone-link { text-decoration: none !important; color: #08335b !important; font-weight: 700 !important; }
+
+/* Generic utilities */
+.h-380 { height: 380px !important; }
+
+/* Mobile spacing for all pages */
+@media (max-width: 700px) {
+  body.services .contact-modern,
+  body.about .contact-modern,
+  body.technology .contact-modern,
+  body.gallery .contact-modern {
+    margin-top: 0 !important;
+    padding-top: 120px !important;
+  }
+}
+
+/* Ensure main content has no extra padding for all pages */
+body.services main,
+body.about main,
+body.technology main,
+body.gallery main {
+  padding-top: 0 !important;
+  background: transparent !important;
+}
+
+/* Override any existing technology and gallery specific styles */
+body.technology .contact-modern,
+body.gallery .contact-modern {
+  padding: 140px 0 2rem !important;
+  background: linear-gradient(135deg, #e9efff 0%, #eef3ff 100%) !important;
+}
+
+@media (max-width: 700px) {
+  body.technology .contact-modern,
+  body.gallery .contact-modern {
+    padding-top: 120px !important;
+  }
+}
+
+/* Footer: ensure space below legal links (e.g., Privacy Policy) */
+.footer-bottom { padding-bottom: 1rem !important; }
+/* Footer bottom: center copyright and Made by lines */
+footer .footer-bottom .container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important; /* move left */
+  justify-content: center !important;
+  text-align: center !important;       /* left-align text */
+  width: 100% !important;
+  gap: 0.25rem !important;
+  padding-left: 1rem !important;     /* adjust for better alignment */
+  padding-right: 0 !important;       /* symmetrical */
+}
+.footer-bottom .made-by,
+.footer-bottom div { text-align: center !important; margin: 0 !important; }
+
+/* Footer address: reduce text size on all pages */
+footer .footer-address { font-size: 0.9rem !important; line-height: 1.5 !important; }
+
+/* Make all footer text the same size across all pages */
+footer, 
+footer p, 
+footer a, 
+footer h3, 
+footer .footer-logo-bottom, 
+footer .footer-links-bottom a, 
+footer .footer-address, 
+footer .made-by {
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+}
+
+/* Footer: equal spacing between all sections on desktop */
+@media (min-width: 901px) {
+  /* Shift the whole footer content slightly to the right */
+  footer .container { padding-left: 10rem !important; padding-right: 2rem !important; }
+
+  /* Enforce equal-width columns and consistent gaps */
+  footer .container .footer-content {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 2.25rem !important; /* equal space between sections */
+    justify-items: stretch !important;
+    align-items: start !important;
+    width: 100% !important;
+    justify-content: space-between !important; /* distribute tracks evenly */
+  }
+
+  /* Reset any custom ordering and keep alignment consistent */
+  .footer-content .footer-section { order: initial !important; text-align: left !important; padding: 0 1rem !important; margin: 0 !important; }
+}
+
+/* Extra-wide screens: move a bit more to the right */
+@media (min-width: 1300px) {
+  footer .container { padding-left: 2rem !important; padding-right: 3rem !important; }
+}
+
+/* Global font enforcement to keep typography consistent across pages */
+body {
+  font-family: 'Poppins', Arial, sans-serif !important;
+}
+
+/* Secondary text font: use Open Sans for body copy without affecting headings */
+p,
+li,
+a,
+label,
+.page-section-subtitle,
+.fee-item,
+.footer-section p,
+.footer-section a {
+  font-family: 'Open Sans', Arial, sans-serif !important;
+}
+
+/* Ensure navbar brand heading uses Playfair Display, overriding global anchor font */
+nav .logo { font-family: 'Playfair Display', Georgia, serif !important; }
+
+
+/* Keep the same footer color/gradient on mobile as desktop */
+@media (max-width: 900px) {
+  footer {
+    background: linear-gradient(135deg, #08335b 0%, #1a237e 100%) !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Standardize section vertical spacing across all pages */
+/* ------------------------------ */
+.content-section { padding: 3rem 0 !important; }
+.section { padding: 3rem 0 !important; }
+
+/* Mobile spacing */
+@media (max-width: 700px) {
+  .content-section, .section { padding: 2rem 0 !important; }
+}
+
+body.home .home-why { background: linear-gradient(135deg, #0b1e3a, #0d274a) !important; color: #ffffff !important; }
+body.home .home-why .why-title { color: #ffffff !important; }
+body.home .home-why .why-title .why-accent { color: #ffffff !important; }
+body.home .home-why .why-subtitle { color: #e6eef9 !important; }
+body.home .home-why .why-list li { color: #f1f5ff !important; }
+body.home .home-why .why-list li::before { color: #8bb3ff !important; }
+body.home .home-why .btn { background: #ffffff !important; color: #1a237e !important; border: 2px solid rgba(26,35,126,0.2) !important; box-shadow: 0 8px 20px rgba(255,255,255,0.12) !important; }
+body.home .home-why .btn:hover { background: #f3f6ff !important; color: #0d1b6b !important; border-color: rgba(26,35,126,0.35) !important; }
+
+/* Home final CTA: dark blue background, white text, white button with blue text */
+body.home .content-section.alt-bg {
+  background: linear-gradient(135deg, #0b1e3a, #0d274a) !important;
+  color: #ffffff !important;
+}
+body.home .content-section.alt-bg .centered-block h2 { color: #ffffff !important; }
+body.home .content-section.alt-bg .centered-block p { color: #e6eef9 !important; }
+body.home .content-section.alt-bg .btn {
+  background: #ffffff !important;
+  color: #1a237e !important;
+  border: 2px solid rgba(26,35,126,0.2) !important;
+  box-shadow: 0 8px 20px rgba(255,255,255,0.12) !important;
+}
+body.home .content-section.alt-bg .btn:hover {
+  background: #f3f6ff !important;
+  color: #0d1b6b !important;
+  border-color: rgba(26,35,126,0.35) !important;
+}
+body.home .content-section.alt-bg .btn.btn-outline {
+  background: #ffffff !important;
+  color: #1a237e !important;
+  border: 2px solid rgba(26,35,126,0.2) !important;
+}
+
+/* Home hero mobile adjustments: push content down and make background full screen */
+@media (max-width: 900px) {
+  body.home .hero {
+    min-height: 100svh !important; /* ensure full viewport height on mobile */
+    padding-top: 12vh !important;  /* keep hero content near the top */
+    padding-bottom: 1.5rem !important;
+  }
+  body.home .hero-background-slideshow {
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+  body.home .hero .hero-content { text-align: center !important; }
+  body.home .hero .hero-buttons { margin-top: 1rem !important; }
+}
+
+/* Reduce 'View Prices' CTA size globally */
+.prices-cta .prices-inline .link-pill {
+  padding: 0.3rem 0.6rem !important;
+  font-size: 0.78rem !important;
+}
+/* Shrink overall Prices CTA bubble globally (desktop/tablet too) */
+.prices-cta .prices-inline {
+  gap: 0.4rem !important;
+  padding: 0.35rem 0.6rem !important;
+}
+.prices-cta .prices-inline .label { font-size: 0.85rem !important; }
+.prices-cta .prices-inline .ico { width: 14px !important; height: 14px !important; }
+@media (max-width: 600px) {
+  .prices-cta .prices-inline .link-pill {
+    padding: 0.28rem 0.6rem !important;
+    font-size: 0.78rem !important;
+  }
+}
+
+/* Compact the entire Prices CTA band globally */
+.prices-cta { padding: 0.5rem 0 !important; }
+.prices-cta--band { padding: 0.75rem 0 !important; }
+.prices-cta--card { padding: 0.8rem 0 !important; }
+.prices-cta--minimal { padding: 0.5rem 0 !important; }
+
+/* Gallery: remove all borders, outlines, and dotted lines */
+.gallery .gallery-item,
+.gallery .gallery-item img,
+.gallery .gallery-grid,
+.gallery-item,
+.gallery-item img {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.gallery .gallery-item,
+.gallery .gallery-item img,
+.gallery-item,
+.gallery-item img {
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0 !important;
+}
+
+/* Remove any focus or hover borders */
+.gallery .gallery-item:focus,
+.gallery .gallery-item img:focus,
+.gallery-item:focus,
+.gallery-item img:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Gallery image sizing and consistency - UPDATED FOR DIRECT IMAGES */
+.gallery-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  grid-template-columns: repeat(auto-fill, 300px);
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 1200px;
+  padding: 1.5rem 0;
+  grid-auto-rows: 300px;
+  justify-items: center;
+}
+
+.gallery-grid img {
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain !important;
+  transition: none !important;
+  display: block !important;
+  margin: 0 auto !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 16px !important;
+}
+
+/* Hover effects removed as requested */
+
+/* Responsive gallery grid - PERFECT SPACING */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.875rem;
+    margin: 1.25rem auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin: 1rem auto;
+  }
+  .gallery-item img {
+    height: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.625rem;
+    margin: 0.875rem auto;
+  }
+}
+
+/* Floating email button icon color */
+.email-floating { color: #4169e1 !important; }
+
+/* Gallery sections consistent spacing and structure */
+body.gallery main {
+  background: #edf3ff;
+}
+
+body.gallery .content-section {
+  margin-bottom: 1.25rem;
+  padding: 4rem 0;
+  background: transparent;
+}
+
+.gallery .content-section:nth-of-type(odd) {
+  background: #ffffff;
+}
+
+.gallery .content-section:nth-of-type(even) {
+  background: #f2f7ff;
+}
+
+.gallery .content-section:first-of-type {
+  padding-top: 5rem;
+}
+
+/* Explicit no background helper for targeted sections */
+.gallery .content-section.no-bg {
+  background: transparent !important;
+}
+
+/* Fix navbar icon sizes in gallery page */
+body.gallery .ico,
+body.gallery .nav-utility .ico,
+body.gallery .brand-subline .ico {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+body.gallery .call-floating .ico {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+/* Gallery landing section typography tweaks */
+body.gallery .contact-modern .page-section-title {
+  font-size: inherit !important;
+  margin-bottom: 1.5rem !important;
+}
+
+body.gallery .contact-modern .page-section-subtitle {
+  font-size: inherit !important;
+  line-height: 1.6 !important;
+  max-width: 60ch;
+  margin: 0 auto 2rem !important;
+}
+
+body.gallery h2,
+body.gallery .page-section-title {
+  font-size: inherit !important;
+  line-height: 1.3 !important;
+}
+
+body.gallery h3,
+body.gallery .page-section-subtitle {
+  font-size: inherit !important;
+  line-height: 1.6 !important;
+}
+
+body.gallery p,
+body.gallery .caption,
+body.gallery .case-note,
+body.gallery li {
+  font-size: inherit !important;
+  line-height: 1.6 !important;
+}
+
+/* LR6 subtitle emphasis under UL2 */
+
+body.gallery .clinical-warning-title {
+  font-size: inherit !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem !important;
+}
+
+body.gallery .clinical-warning-icon {
+  width: 64px !important;
+  height: 64px !important;
+  font-size: 1.6rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+body.gallery .clinical-warning-panel {
+  padding: 1.25rem 1.5rem !important;
+}
+
+body.gallery .clinical-warning-primary {
+  font-size: inherit !important;
+  line-height: 1.7 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+body.gallery .clinical-warning-primary strong {
+  font-weight: 700 !important;
+}
+
+body.gallery .clinical-warning-note {
+  font-size: inherit !important;
+  line-height: 1.6 !important;
+  color: #4a5568 !important;
+}
+
+/* Slight navbar emphasis on gallery page */
+body.gallery .logo {
+  font-weight: 700 !important;
+}
+
+body.gallery nav .nav-menu a {
+  font-size: 0.85em !important;
+  padding: 0.4rem 0.8rem !important;
+}
+
+
+body.gallery .nav-utility .top-item {
+  font-size: inherit !important;
+}
+
+/* Slightly larger navbar presentation on gallery page */
+/* Apply Playfair Display to all text in gallery */
+body.gallery,
+body.gallery p,
+body.gallery h1,
+body.gallery h2,
+body.gallery h3,
+body.gallery h4,
+body.gallery .page-section-title,
+body.gallery .page-section-subtitle,
+body.gallery {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 18px !important;
+  line-height: 1.65 !important;
+}
+
+body.gallery h1 { font-size: 48px !important; line-height: 1.15 !important; }
+body.gallery h2 { font-size: 38px !important; line-height: 1.25 !important; }
+body.gallery h3 { font-size: 30px !important; line-height: 1.3 !important; }
+body.gallery h4 { font-size: 24px !important; }
+body.gallery h5 { font-size: 20px !important; }
+body.gallery h6 { font-size: 18px !important; }
+
+/* Better structured gallery sections */
+.gallery .content-section {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.gallery .page-section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(8, 51, 91, 0.1);
+}
+
+.gallery .page-section-subtitle {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Ensure all gallery items are perfectly aligned */
+.gallery-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto !important;
+}
+
+/* Remove any potential gaps or misalignments */
+.gallery .gallery-item img,
+.gallery-item img {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Additional gallery improvements for perfect alignment */
+.gallery-item {
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+.gallery-item img {
+  box-sizing: border-box !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Unified image styling across gallery: keep original size (scale down if large), no zoom, consistent rounded corners */
+.gallery .gallery-grid img,
+.gallery .image-with-caption img {
+  width: 100% !important;
+  max-width: 300px !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: contain !important;
+  border-radius: 16px !important;
+  transform: none !important;
+  transition: none !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Standardize image-with-caption structure and caption typography */
+.gallery .image-with-caption {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.gallery .image-with-caption .caption {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  color: #465169 !important;
+  font-weight: 600 !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* Mobile adjustments for uniform tiles */
+@media (max-width: 768px) {
+  .gallery .gallery-grid,
+  .ul2-grid,
+  .trauma-pre-grid,
+  .trauma-review-grid,
+  .pre-op-grid,
+  .post-op-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.2rem 1rem !important;
+    justify-items: center !important;
+  }
+  .gallery-compare,
+  .treatment-comparison {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 1.2rem !important;
+    row-gap: 1.2rem !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .gallery-grid,
+  .ul2-grid,
+  .trauma-pre-grid,
+  .trauma-review-grid,
+  .pre-op-grid,
+  .post-op-grid {
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+  }
+  .gallery-compare,
+  .treatment-comparison {
+    grid-template-columns: 1fr !important;
+    column-gap: 0 !important;
+  }
+  .gallery-grid img,
+  .gallery .gallery-grid img,
+  .gallery .image-with-caption img,
+  .gallery-compare img,
+  .treatment-comparison img {
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+}
+
+/* Broader anti-overflow safeguards for Clinical Cases */
+html, body { overflow-x: hidden !important; }
+
+.gallery .container,
+body.gallery .container,
+.gallery .gallery-grid,
+.gallery-compare,
+.treatment-comparison {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Ensure two-column comparisons collapse earlier on narrow screens */
+@media (max-width: 768px) {
+  .gallery-compare,
+  .treatment-comparison { grid-template-columns: 1fr !important; column-gap: 0 !important; }
+}
+
+/* Avoid flex intrinsic width growth on very small screens */
+@media (max-width: 700px) {
+  body.gallery .container { display: block !important; }
+}
+
+/* Navigation menu & logo sizing */
+nav .logo { font-size: 1.6rem !important; }
+nav .nav-menu a { font-size: 0.95rem !important; }
+@media (max-width: 900px) {
+  nav .logo { font-size: 1.35rem !important; }
+  nav .nav-menu a { font-size: 0.9rem !important; }
+}
+@media (max-width: 600px) {
+  nav .logo { font-size: 1.1rem !important; }
+  nav .nav-menu a { font-size: 1.05rem !important; }
+}
+
+/* Minimal mobile hamburger menu */
+@media (max-width: 900px) {
+  nav .nav-menu {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-radius: 8px !important;
+    margin: 0.4rem 0.6rem !important;
+    padding: 0.6rem 0.75rem !important;
+    box-shadow: 0 8px 20px rgba(8,51,91,0.08) !important;
+    border: 1px solid rgba(8,51,91,0.06) !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: calc(100% + 0.4rem) !important;
+  }
+  nav .nav-menu::before {
+    display: none;
+  }
+  nav .nav-menu li + li {
+    border-top: 1px solid rgba(8,51,91,0.08) !important;
+  }
+  nav .nav-menu li:last-child {
+    margin-top: 0.75rem !important;
+    border-top: 0 !important;
+  }
+  nav .nav-menu a {
+    color: #16324f !important;
+    padding: 0.55rem 0 !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    font-weight: 600 !important;
+  }
+  nav .nav-menu a::after {
+    display: none !important;
+  }
+  nav .nav-menu a:hover {
+    color: #0d1b6b !important;
+    background: rgba(8,51,91,0.04) !important;
+  }
+  nav .nav-menu li:last-child a {
+    background: #1a237e !important;
+    color: #ffffff !important;
+    padding: 0.65rem 0.75rem !important;
+    border-radius: 6px !important;
+    justify-content: center !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Enforce rounded corners for all gallery placeholders and images */
+body.gallery .gallery-item,
+body.gallery .gallery-item img {
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+/* Ensure consistent image loading and display */
+.gallery-item img[loading="lazy"] {
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Remove any browser default focus styles that might create dotted lines */
+.gallery-item:focus-within,
+.gallery-item img:focus {
+  outline: none !important;
+  border: none !important;
+}
+
+/* Perfect centering for all gallery sections */
+body.gallery .container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Gallery: slightly larger base text for readability (normal writing) */
+body.gallery p {
+  font-size: inherit !important;
+  line-height: 1.75 !important;
+}
+body.gallery .caption {
+  font-size: inherit !important;
+}
+
+body.gallery .gallery-grid {
+  align-self: stretch !important;
+}
+
+@media (max-width: 700px) {
+  body.gallery .content-section {
+    padding: 1.5rem 0 !important;
+  }
+  body.gallery .gallery-grid {
+    margin: 1.25rem auto !important;
+  }
+}
+
+/* Treatment comparison layout - Post removal vs 12-month healing */
+.treatment-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin: 2rem auto;
+}
+
+/* Generic two-column comparison layout */
+.gallery-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+  row-gap: 2rem;
+  align-items: start;
+  margin: 2rem auto;
+}
+
+/* Molar endodontics: larger center gap */
+.molar-endo .gallery-compare {
+  column-gap: 5rem !important;
+}
+
+.treatment-comparison .compare-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.treatment-comparison .compare-col .page-section-subtitle {
+  text-align: center !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #08335b !important;
+  margin-bottom: 1rem !important;
+  margin-top: 0 !important;
+}
+
+.treatment-comparison .gallery-grid,
+.resorption-comparison .gallery-grid,
+.gallery-compare .gallery-grid {
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+  margin: 0 !important;
+}
+
+.treatment-comparison .gallery-item,
+.resorption-comparison .gallery-item,
+.gallery-compare .gallery-item {
+  width: auto !important;
+  max-width: 320px !important;
+  margin: 0 auto !important;
+}
+
+.treatment-comparison img,
+.resorption-comparison img,
+.gallery-compare img {
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  transition: none !important;
+  justify-self: center !important;
+}
+
+.treatment-comparison img:hover,
+.resorption-comparison img:hover,
+.gallery-compare img:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+}
+
+.gallery .container > .resorption-comparison,
+body.gallery .resorption-comparison {
+  align-self: stretch !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+}
+.gallery-compare .compare-col {
+  display: flex;
+  flex-direction: column;
+}
+.gallery-compare .compare-col .page-section-subtitle {
+  text-align: center !important;
+  margin-bottom: 0.75rem !important;
+}
+/* Mobile responsive updates for new structure */
+@media (max-width: 900px) {
+  .treatment-comparison { grid-template-columns: 1fr; gap: 1.5rem; }
+  .resorption-comparison { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  .ul2-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+  }
+
+  .trauma-review-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+
+  .pre-op-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+  }
+
+  .post-op-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+  }
+
+  .fractured .gallery-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .fractured .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* External cervical resorption comparison layout */
+.resorption-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin: 2rem auto;
+}
+
+.resorption-comparison .compare-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* About page: reduce Our Ethos image size */
+body.about .ethos-photo {
+  max-width: 70% !important;
+  max-height: 400px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+@media (max-width: 900px) {
+  body.about .ethos-photo {
+    max-width: 80% !important;
+    max-height: 340px !important;
+  }
+}
+@media (max-width: 600px) {
+  body.about .ethos-photo {
+    max-width: 95% !important;
+    max-height: 280px !important;
+  }
+}
+.resorption-comparison .compare-col .page-section-subtitle {
+  text-align: center !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #08335b !important;
+  margin-bottom: 1rem !important;
+  margin-top: 0 !important;
+}
+
+.resorption-comparison .gallery-grid {
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+  gap: 1rem !important;
+  margin: 0 !important;
+}
+
+.resorption-comparison .gallery-item {
+  width: auto !important;
+  max-width: 320px !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 900px) {
+  .resorption-comparison {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body.gallery .page-section-title {
+    font-size: 1.8rem !important;
+  }
+
+  body.gallery .page-section-subtitle {
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body.gallery .page-section-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.2 !important;
+  }
+
+  body.gallery .page-section-subtitle {
+    font-size: 0.85rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.4 !important;
+  }
+
+  body.gallery .content-section,
+  body.gallery .section {
+    padding: 1.5rem 0 !important;
+  }
+
+  body.gallery h3.page-section-subtitle {
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* Gallery page: normalize spacing between headings and grids */
+body.gallery h3.page-section-subtitle {
+  text-align: center !important;
+  margin: 1rem 0 0.75rem !important;
+}
+
+/* Add uniform top margin when a grid follows a title or subtitle */
+body.gallery .container > .page-section-title + .gallery-grid,
+body.gallery .container > .page-section-subtitle + .gallery-grid,
+body.gallery .container > h3.page-section-subtitle + .gallery-grid {
+  margin-top: 1.25rem !important;
+}
+
+/* When grid comes before title (images first), ensure tight spacing to title below */
+body.gallery .container > .gallery-grid + .page-section-title {
+  margin-top: 1rem !important;
+}
+
+/* Spacing between multiple grids or grid blocks within the same section */
+body.gallery .gallery-grid + h3.page-section-subtitle {
+  margin-top: 2rem !important;
+}
+body.gallery .gallery-grid + .gallery-grid {
+  margin-top: 1rem !important;
+}
+
+/* Avoid extra bottom gap inside the last grid of a section */
+body.gallery .content-section .container > .gallery-grid:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* UL2: Root canal retreatment - clean text captions without placeholder */
+.ul2-grid .gallery-item .caption {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #465169;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+/* UL2: Root canal retreatment - 3 images first row, 2 centered second row */
+.ul2-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 300px) !important;
+  gap: 1.5rem !important;
+  justify-content: space-evenly !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  justify-items: center !important;
+}
+
+/* UL2 grid: 3 images in first row, 2 centered in second row */
+.ul2-grid img:nth-child(n+4) {
+  grid-column: span 1;
+}
+
+.ul2-grid img:nth-child(4),
+.ul2-grid img:nth-child(5) {
+  grid-column: auto;
+}
+
+.ul2-grid img {
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  transition: none !important;
+  justify-self: center !important;
+}
+
+.ul2-grid img:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 16px !important;
+}
+
+/* Style the 4th and 5th images to center in second row */
+.ul2-grid img:nth-child(4),
+.ul2-grid img:nth-child(5) {
+  justify-self: center !important;
+}
+
+/* Dental trauma - 6 month review: reduced gap between images */
+.trauma-pre-grid,
+.trauma-review-grid {
+  grid-template-columns: repeat(auto-fill, 320px) !important;
+  gap: 1.5rem !important;
+  justify-content: space-evenly !important;
+}
+
+.trauma-pre-grid img,
+.trauma-review-grid img {
+  width: 320px !important;
+  height: 320px !important;
+  object-fit: contain !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  transition: none !important;
+  justify-self: center !important;
+}
+
+.trauma-review-grid img:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 16px !important;
+}
+
+/* Open/Immature apex management: Pre-op section specific styling */
+.pre-op-grid {
+  grid-template-columns: repeat(auto-fill, 300px) !important;
+  gap: 1.5rem !important;
+  justify-content: space-evenly !important;
+}
+
+.pre-op-grid img {
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  transition: none !important;
+  justify-self: center !important;
+}
+
+.pre-op-grid img:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 16px !important;
+}
+
+/* Open/Immature apex management: Post-op section - 3 images per row */
+.post-op-grid {
+  grid-template-columns: repeat(4, 300px) !important;
+  gap: 1.5rem !important;
+  justify-content: space-evenly !important;
+}
+
+.post-op-grid img {
+  width: 300px !important;
+  height: 300px !important;
+  object-fit: contain !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  transition: none !important;
+  justify-self: center !important;
+}
+
+/* Remove any hover effects for uniform static tiles */
+.post-op-grid img:hover,
+.pre-op-grid img:hover,
+.ul2-grid img:hover,
+.trauma-review-grid img:hover,
+.gallery-compare img:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 16px !important;
+}

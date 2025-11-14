@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Precision Root Canal Therapy & Hygiene - London Dental Clinic</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="overrides.css">
+    <link rel="stylesheet" href="clean/styles.css">
+    <link rel="stylesheet" href="clean/overrides.css">
     <meta name="description" content="Expert Root Canal Therapy and dental hygiene services in London. Located at 71 Church Road, London, SE19 2LJ. Premium dental care with modern technology.">
     <style>
       body { font-family: 'Poppins', Arial, sans-serif; }
@@ -175,7 +175,7 @@
         <section class="section home-why">
             <div class="container why-split">
                 <div class="why-media fade-in-left">
-                    <img src="images/home/microscope.jpg" alt="Endodontist working with operating microscope" />
+                    <img src="images/home/microscope.png" alt="Endodontist working with operating microscope" />
                 </div>
                 <div class="why-content fade-in-right">
                     <h2 class="why-title">Why Choose <span class="why-accent">Precision</span> Root Canal Therapy?</h2>
@@ -379,19 +379,23 @@
       }
       // Background slideshow script - Multiple image rotation
       document.addEventListener('DOMContentLoaded', function() {
-        const images = [
-          'images/home/bg2.jpg',
-          'images/home/main.jpg',
-          'images/home/microscope.jpg',
+        const heroImagesDesktop = [
+          'images/home/bg2.png',
+          'images/home/main.png'
+        ];
+        const heroImagesMobile = [
+          ...heroImagesDesktop,
+          'images/home/microscope.png',
           'images/home/view_microscope.png'
         ];
+        const heroImages = window.matchMedia('(max-width: 768px)').matches ? heroImagesMobile : heroImagesDesktop;
         let currentIndex = 0;
         const slideshowElement = document.querySelector('.hero-background-slideshow');
         function changeBackground() {
           if (slideshowElement) {
-            slideshowElement.style.backgroundImage = `url('${images[currentIndex]}')`;
-            console.log('Background changed to:', images[currentIndex]); // Debug log
-            currentIndex = (currentIndex + 1) % images.length;
+            slideshowElement.style.backgroundImage = `url('${heroImages[currentIndex]}')`;
+            console.log('Background changed to:', heroImages[currentIndex]); // Debug log
+            currentIndex = (currentIndex + 1) % heroImages.length;
           } else {
             console.error('Slideshow element not found'); // Debug log
           }

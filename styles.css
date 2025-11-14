@@ -404,13 +404,6 @@ body.contact .email-floating { display: inline-flex !important; }
     box-sizing: border-box;
 }
 
-/* Brand logo uses Playfair Display for elegant serif styling */
-nav .logo {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 700;
-    letter-spacing: 0.2px;
-    color: #08335b;
-}
 .services main,
 .technology main,
 .gallery main {
@@ -1042,7 +1035,7 @@ nav {
 
 /* Home-specific hero background image and single-column layout */
 .home .hero {
-    background: url('images/home/bgimage.jpg') center/cover no-repeat;
+    background: url('images/home/bgimage.png') center/cover no-repeat;
 }
 .home .hero-grid {
     grid-template-columns: 1fr;
@@ -3498,7 +3491,7 @@ body.services .fees-notes li {
 .services .hero {
     background: 
         linear-gradient(135deg, rgba(26,35,126,0.40), rgba(63,81,181,0.22)),
-        url('images/hero-services.jpg');
+        url('images/hero-services.png');
     background-size: cover;
     background-position: center;
 }
@@ -3506,7 +3499,7 @@ body.services .fees-notes li {
 .technology .tech-hero {
     background: 
         linear-gradient(135deg, rgba(26,35,126,0.35), rgba(63,81,181,0.20)),
-        url('images/hero-technology.jpg');
+        url('images/hero-technology.png');
     background-size: cover;
     background-position: center;
 }
@@ -3514,7 +3507,7 @@ body.services .fees-notes li {
 .gallery .hero {
     background: 
         linear-gradient(135deg, rgba(26,35,126,0.30), rgba(63,81,181,0.18)),
-        url('images/hero-gallery.jpg');
+        url('images/hero-gallery.png');
     background-size: cover;
     background-position: center;
 }
@@ -3522,7 +3515,7 @@ body.services .fees-notes li {
 .contact .hero {
     background: 
         linear-gradient(135deg, rgba(26,35,126,0.35), rgba(63,81,181,0.20)),
-        url('images/hero-contact.jpg');
+        url('images/hero-contact.png');
     background-size: cover;
     background-position: center;
 }
@@ -3531,14 +3524,14 @@ body.services .fees-notes li {
 .about .content-section.alt-1 { 
     background: 
         linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.90)),
-        url('images/band-about-1.jpg');
+        url('images/band-about-1.png');
     background-size: cover;
     background-position: center;
 }
 .about .content-section.alt-2 { 
     background: 
         linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.90)),
-        url('images/band-about-2.jpg');
+        url('images/band-about-2.png');
     background-size: cover;
     background-position: center;
 }
@@ -3557,10 +3550,10 @@ body.services .fees-notes li {
 }
 
 /* Example utility presets — add one of these classes to any section */
-.bg-dental-abstract { background-image: url('images/bg-dental-abstract.jpg'); }
-.bg-soft-texture    { background-image: url('images/bg-soft-texture.jpg'); }
-.bg-lab             { background-image: url('images/bg-lab.jpg'); }
-.bg-smile           { background-image: url('images/bg-smile.jpg'); }
+.bg-dental-abstract { background-image: url('images/bg-dental-abstract.png'); }
+.bg-soft-texture    { background-image: url('images/bg-soft-texture.png'); }
+.bg-lab             { background-image: url('images/bg-lab.png'); }
+.bg-smile           { background-image: url('images/bg-smile.png'); }
 
 /* Technology 4-section redesign */
 .technology .tech4-section {

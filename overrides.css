@@ -736,20 +736,40 @@ body.gallery .call-floating .ico {
 
 /* Gallery landing section typography tweaks */
 body.gallery .contact-modern .page-section-title {
-  font-size: 3rem !important;
+  font-size: 2.5rem !important;
   margin-bottom: 1.5rem !important;
 }
 
 body.gallery .contact-modern .page-section-subtitle {
-  font-size: 1.55rem !important;
-  line-height: 1.8 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
   max-width: 60ch;
   margin: 0 auto 2rem !important;
 }
 
+body.gallery h2,
+body.gallery .page-section-title {
+  font-size: 2.5rem !important;
+  line-height: 1.3 !important;
+}
+
+body.gallery h3,
+body.gallery .page-section-subtitle {
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+}
+
+body.gallery p,
+body.gallery .caption,
+body.gallery .case-note,
+body.gallery li {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+}
+
 /* LR6 subtitle emphasis under UL2 */
 body.gallery .lr6-desc {
-  font-size: 1.4rem !important;
+  font-size: 1.25rem !important;
 }
 
 body.gallery .clinical-warning-title {
@@ -868,8 +888,9 @@ body.gallery .caption {
 /* Unified image styling across gallery: keep original size (scale down if large), no zoom, consistent rounded corners */
 .gallery .gallery-grid img,
 .gallery .image-with-caption img {
-  width: 300px !important;
-  height: 300px !important;
+  width: 100% !important;
+  max-width: 300px !important;
+  aspect-ratio: 1 / 1 !important;
   object-fit: contain !important;
   border-radius: 16px !important;
   transform: none !important;
@@ -899,21 +920,23 @@ body.gallery .caption {
 /* Mobile adjustments for uniform tiles */
 @media (max-width: 768px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, 220px);
-    grid-auto-rows: 220px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    grid-auto-rows: auto !important;
+    justify-content: center !important;
+    justify-items: center !important;
   }
   .gallery-grid img,
   .gallery .gallery-grid img,
   .gallery .image-with-caption img {
-    width: 220px !important;
-    height: 220px !important;
+    max-width: 180px !important;
+    height: auto !important;
   }
   .ul2-grid,
   .trauma-pre-grid,
   .trauma-review-grid,
   .pre-op-grid,
   .post-op-grid {
-    grid-template-columns: repeat(auto-fill, 220px) !important;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
   }
   .ul2-grid img,
   .trauma-pre-grid img,
@@ -921,8 +944,8 @@ body.gallery .caption {
   .pre-op-grid img,
   .post-op-grid img,
   .gallery-compare img {
-    width: 220px !important;
-    height: 220px !important;
+    max-width: 180px !important;
+    height: auto !important;
   }
 }
 
