@@ -1240,6 +1240,15 @@ body.gallery .gallery-item img {
   nav .logo { font-size: 0.85rem !important; line-height: 1.05 !important; }
 }
 
+/* Final desktop override: ensure Clinical Cases (gallery) menu text is smaller on desktop */
+@media (min-width: 901px) {
+  body.gallery header nav .nav-menu a {
+    font-size: 0.9rem !important;
+    padding: 0.25rem 0.6rem !important;
+    line-height: 1.1 !important;
+  }
+}
+
 /* Perfect centering for all gallery sections */
 body.gallery .container {
   display: flex !important;
@@ -1650,4 +1659,22 @@ body.gallery .content-section .container > .gallery-grid:last-child {
   transform: none !important;
   box-shadow: none !important;
   border-radius: 16px !important;
+}
+
+/* Final mobile heading size reductions for Clinical Cases */
+@media (max-width: 700px) {
+  /* Landing title (Clinical Case Studies) */
+  body.gallery .contact-modern .page-section-title { font-size: 1.6rem !important; }
+  body.gallery .contact-modern .page-section-subtitle { font-size: 1rem !important; }
+  /* Case section titles (e.g., UL2, LR6, etc.) */
+  body.gallery h2.page-section-title { font-size: 1.35rem !important; line-height: 1.25 !important; }
+  /* Subtitles within sections (e.g., Post Removal, Pre‑operative X‑ray) */
+  body.gallery .page-section-subtitle, body.gallery h3 { font-size: 0.95rem !important; line-height: 1.35 !important; }
+}
+
+@media (max-width: 480px) {
+  body.gallery .contact-modern .page-section-title { font-size: 1.45rem !important; }
+  body.gallery .contact-modern .page-section-subtitle { font-size: 0.95rem !important; }
+  body.gallery h2.page-section-title { font-size: 1.25rem !important; }
+  body.gallery .page-section-subtitle, body.gallery h3 { font-size: 0.9rem !important; }
 }
