@@ -1259,6 +1259,20 @@ body.gallery footer .container {
   text-align: initial !important;       /* allow sections to left-align like other pages */
 }
 
+/* Clinical Cases: force footer typography to match global footer (override gallery-wide Playfair) */
+body.gallery footer,
+body.gallery footer p,
+body.gallery footer a,
+body.gallery footer h3,
+body.gallery footer .footer-logo-bottom,
+body.gallery footer .footer-links-bottom a,
+body.gallery footer .footer-address,
+body.gallery footer .made-by {
+  font-family: 'Open Sans', Arial, sans-serif !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+}
+
 body.gallery footer .footer-bottom .container {
   display: flex !important;
   flex-direction: column !important;
