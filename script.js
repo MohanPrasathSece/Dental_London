@@ -3,22 +3,55 @@
 // Mobile Menu Toggle
 function toggleMobileMenu() {
     const navMenu = document.getElementById('navMenu');
-    if (!navMenu) return;
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    if (!navMenu || !toggleBtn) return;
     // Use 'open' to match CSS breakpoint styles; remove any legacy 'active'
     navMenu.classList.remove('active');
-    navMenu.classList.toggle('open');
+    const willOpen = !navMenu.classList.contains('open');
+    navMenu.classList.toggle('open', willOpen);
+    // Update button icon and ARIA state
+    toggleBtn.textContent = willOpen ? '✕' : '☰';
+    toggleBtn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    toggleBtn.setAttribute('aria-label', willOpen ? 'Close menu' : 'Open menu');
 }
 
 // Close mobile menu when clicking on a link
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-menu a');
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.getElementById('navMenu');
+
+    // Initialize ARIA for toggle button
+    if (toggleBtn) {
+        toggleBtn.setAttribute('aria-controls', 'navMenu');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.setAttribute('aria-label', 'Open menu');
+    }
+
+    // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            const navMenu = document.getElementById('navMenu');
             if (!navMenu) return;
             navMenu.classList.remove('active');
             navMenu.classList.remove('open');
+            if (toggleBtn) {
+                toggleBtn.textContent = '☰';
+                toggleBtn.setAttribute('aria-expanded', 'false');
+                toggleBtn.setAttribute('aria-label', 'Open menu');
+            }
         });
+    });
+
+    // Allow closing with Escape key on mobile
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('open')) {
+            navMenu.classList.remove('open');
+            if (toggleBtn) {
+                toggleBtn.textContent = '☰';
+                toggleBtn.setAttribute('aria-expanded', 'false');
+                toggleBtn.setAttribute('aria-label', 'Open menu');
+            }
+        }
     });
 
     // Highlight current page in navbar

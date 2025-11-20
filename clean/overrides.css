@@ -1230,6 +1230,16 @@ body.gallery .gallery-item img {
   border: none !important;
 }
 
+/* Final mobile nav sizing overrides (applies last) */
+@media (max-width: 900px) {
+  /* Reduce hamburger menu link text size on all pages */
+  nav .nav-menu a { font-size: 0.85rem !important; }
+  /* Ensure Clinical Cases page uses the same smaller size on mobile */
+  body.gallery nav .nav-menu a { font-size: 0.85rem !important; }
+  /* Reduce brand/logo text size in the top bar on mobile */
+  nav .logo { font-size: 0.85rem !important; line-height: 1.05 !important; }
+}
+
 /* Perfect centering for all gallery sections */
 body.gallery .container {
   display: flex !important;
