@@ -736,26 +736,26 @@ body.gallery .call-floating .ico {
 
 /* Gallery landing section typography tweaks */
 body.gallery .contact-modern .page-section-title {
-  font-size: 2.5rem !important;
-  margin-bottom: 1.5rem !important;
+  font-size: 3.3rem !important;
+  margin-bottom: 1.6rem !important;
 }
 
 body.gallery .contact-modern .page-section-subtitle {
-  font-size: 1.25rem !important;
+  font-size: 2.1rem !important;
   line-height: 1.6 !important;
-  max-width: 60ch;
-  margin: 0 auto 2rem !important;
+  max-width: 70ch;
+  margin: 0 auto 2.2rem !important;
 }
 
 body.gallery h2,
 body.gallery .page-section-title {
-  font-size: 2.5rem !important;
+  font-size: 3.4rem !important;
   line-height: 1.3 !important;
 }
 
 body.gallery h3,
 body.gallery .page-section-subtitle {
-  font-size: 1.25rem !important;
+  font-size: 1.8rem !important;
   line-height: 1.6 !important;
 }
 
@@ -773,7 +773,7 @@ body.gallery .lr6-desc {
 }
 
 body.gallery .clinical-warning-title {
-  font-size: 1.6rem !important;
+  font-size: 2.2rem !important;
   font-weight: 700 !important;
   letter-spacing: -0.01em;
   margin-bottom: 1rem !important;
@@ -791,7 +791,7 @@ body.gallery .clinical-warning-panel {
 }
 
 body.gallery .clinical-warning-primary {
-  font-size: 1.2rem !important;
+  font-size: 1.4rem !important;
   line-height: 1.7 !important;
   margin-bottom: 0.75rem !important;
 }
@@ -801,7 +801,7 @@ body.gallery .clinical-warning-primary strong {
 }
 
 body.gallery .clinical-warning-note {
-  font-size: 1.1rem !important;
+  font-size: 1.25rem !important;
   line-height: 1.6 !important;
   color: #4a5568 !important;
 }
@@ -849,12 +849,65 @@ body.gallery .caption {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid rgba(8, 51, 91, 0.1);
+  font-size: 4rem;
 }
 
 .gallery .page-section-subtitle {
   text-align: center;
   margin-bottom: 1.5rem;
   font-weight: 600;
+  font-size: 2rem;
+}
+
+.gallery .contact-modern .page-section-title {
+  font-size: 4rem;
+}
+
+.gallery .contact-modern .page-section-subtitle {
+  font-size: 2.3rem;
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.gallery footer {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .gallery .page-section-title {
+    font-size: 3rem;
+  }
+
+  .gallery .page-section-subtitle {
+    font-size: 1.75rem;
+  }
+
+  .gallery .contact-modern .page-section-title {
+    font-size: 3.4rem;
+  }
+
+  .gallery .contact-modern .page-section-subtitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery .page-section-title {
+    font-size: 2.6rem;
+  }
+
+  .gallery .page-section-subtitle {
+    font-size: 1.55rem;
+  }
+
+  .gallery .contact-modern .page-section-title {
+    font-size: 3rem;
+  }
+
+  .gallery .contact-modern .page-section-subtitle {
+    font-size: 1.75rem;
+  }
 }
 
 /* Ensure all gallery items are perfectly aligned */

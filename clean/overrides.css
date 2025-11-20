@@ -343,6 +343,10 @@ body.home .quick-links { margin-left: 1rem; }
   .logo .logo-short { display: none !important; }
 
   /* Improve mobile active highlight */
+  /* Consistent hamburger menu text size across all pages */
+  .nav-menu a { font-size: 1rem !important; }
+  /* Clinical Cases only: increase menu text size on mobile */
+  body.gallery .nav-menu a { font-size: 1.2rem !important; }
   .nav-menu a.active { background: rgba(26,35,126,0.08); color: #08335b; }
   .nav-menu a.active::after { display: none; }
   .nav-menu a.active::before {
@@ -353,6 +357,10 @@ body.home .quick-links { margin-left: 1rem; }
     background: #08335b;
     border-radius: 0 3px 3px 0;
   }
+
+  /* Prevent the left highlight bar from overlapping the first letter */
+  .nav-menu a { position: relative !important; padding-left: 0.9rem !important; }
+  .nav-menu a.active { padding-left: 1.1rem !important; }
 
   /* Ensure hero title is white on mobile */
   .hero h1 { color: white !important; }
@@ -717,6 +725,7 @@ body.home .content-section.alt-bg .btn.btn-outline {
 }
 
 /* Gallery image sizing and consistency - UPDATED FOR DIRECT IMAGES */
+/* Default gallery grid */
 .gallery-grid {
   display: grid;
   gap: 1.5rem;
@@ -728,6 +737,16 @@ body.home .content-section.alt-bg .btn.btn-outline {
   padding: 1.5rem 0;
   grid-auto-rows: 300px;
   justify-items: center;
+}
+
+/* Clinical Cases: center each row of images without changing their order */
+body.gallery .gallery-grid,
+body.gallery .ul2-grid,
+body.gallery .trauma-pre-grid,
+body.gallery .trauma-review-grid,
+body.gallery .pre-op-grid,
+body.gallery .post-op-grid {
+  justify-content: center !important;
 }
 
 .gallery-grid img {
@@ -770,12 +789,29 @@ body.home .content-section.alt-bg .btn.btn-outline {
 
 @media (max-width: 600px) {
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.5rem;
     margin: 1rem auto;
   }
   .gallery-item img {
     height: 100%;
+  }
+  /* Molar Endodontics: even tighter vertical spacing on small phones */
+  body.gallery .molar-endo .gallery-grid { row-gap: 0.4rem !important; }
+  /* Clinical Cases: overall smaller row gap on small phones */
+  body.gallery .gallery-grid,
+  body.gallery .ul2-grid,
+  body.gallery .trauma-pre-grid,
+  body.gallery .trauma-review-grid,
+  body.gallery .pre-op-grid,
+  body.gallery .post-op-grid {
+    grid-auto-rows: auto !important;
+    row-gap: 0.6rem !important;
+  }
+  /* Smaller image tiles on very small phones */
+  body.gallery .gallery-grid img,
+  body.gallery .image-with-caption img {
+    max-width: 160px !important;
   }
 }
 
@@ -833,44 +869,49 @@ body.gallery .call-floating .ico {
 
 /* Gallery landing section typography tweaks */
 body.gallery .contact-modern .page-section-title {
-  font-size: inherit !important;
-  margin-bottom: 1.5rem !important;
+  font-size: 2.6rem !important;
+  margin-bottom: 1.3rem !important;
 }
 
 body.gallery .contact-modern .page-section-subtitle {
-  font-size: inherit !important;
+  font-size: 1.6rem !important;
   line-height: 1.6 !important;
-  max-width: 60ch;
+  max-width: 70ch !important;
   margin: 0 auto 2rem !important;
 }
 
-body.gallery h2,
-body.gallery .page-section-title {
-  font-size: inherit !important;
-  line-height: 1.3 !important;
+/* All main case titles on Clinical Cases (e.g., UL2, LR6, Dental trauma, etc.) */
+body.gallery h2.page-section-title,
+body.gallery .content-section h2.page-section-title,
+body.gallery .content-section.no-bg h2.page-section-title,
+body.gallery h2.page-section-title.mb-3rem {
+  font-size: 1.8rem !important;
+  line-height: 1.25 !important;
 }
 
+/* All section subtitles on Clinical Cases (e.g., Post Removal, Pre‑operative X‑ray, etc.) */
 body.gallery h3,
 body.gallery .page-section-subtitle {
-  font-size: inherit !important;
-  line-height: 1.6 !important;
+  font-size: 1.5rem !important;
+  line-height: 1.4 !important;
 }
 
+/* Base text on gallery slightly larger for readability */
 body.gallery p,
 body.gallery .caption,
 body.gallery .case-note,
 body.gallery li {
-  font-size: inherit !important;
+  font-size: 1.05rem !important;
   line-height: 1.6 !important;
 }
 
 /* LR6 subtitle emphasis under UL2 */
 
 body.gallery .clinical-warning-title {
-  font-size: inherit !important;
+  font-size: 2.2rem !important;
   font-weight: 700 !important;
   letter-spacing: -0.01em;
-  margin-bottom: 1rem !important;
+  margin-bottom: 1.1rem !important;
 }
 
 body.gallery .clinical-warning-icon {
@@ -885,8 +926,8 @@ body.gallery .clinical-warning-panel {
 }
 
 body.gallery .clinical-warning-primary {
-  font-size: inherit !important;
-  line-height: 1.7 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
   margin-bottom: 0.75rem !important;
 }
 
@@ -895,7 +936,7 @@ body.gallery .clinical-warning-primary strong {
 }
 
 body.gallery .clinical-warning-note {
-  font-size: inherit !important;
+  font-size: 1.1rem !important;
   line-height: 1.6 !important;
   color: #4a5568 !important;
 }
@@ -906,7 +947,7 @@ body.gallery .logo {
 }
 
 body.gallery nav .nav-menu a {
-  font-size: 0.85em !important;
+  font-size: inherit !important; /* allow mobile/global menu font-size rules to apply */
   padding: 0.4rem 0.8rem !important;
 }
 
@@ -934,9 +975,10 @@ body.gallery {
 body.gallery h1 { font-size: 48px !important; line-height: 1.15 !important; }
 body.gallery h2 { font-size: 38px !important; line-height: 1.25 !important; }
 body.gallery h3 { font-size: 30px !important; line-height: 1.3 !important; }
-body.gallery h4 { font-size: 24px !important; }
-body.gallery h5 { font-size: 20px !important; }
-body.gallery h6 { font-size: 18px !important; }
+/* Slightly larger small headings on Clinical Cases */
+body.gallery h4 { font-size: 1.6rem !important; }
+body.gallery h5 { font-size: 1.4rem !important; }
+body.gallery h6 { font-size: 1.25rem !important; }
 
 /* Better structured gallery sections */
 .gallery .content-section {
@@ -1026,14 +1068,21 @@ body.gallery h6 { font-size: 18px !important; }
   .pre-op-grid,
   .post-op-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 1.2rem 1rem !important;
+    gap: 0.7rem 0.6rem !important;
     justify-items: center !important;
   }
   .gallery-compare,
   .treatment-comparison {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    column-gap: 1.2rem !important;
-    row-gap: 1.2rem !important;
+    column-gap: 1rem !important;
+    row-gap: 0.7rem !important;
+  }
+  /* Remove square tiles on mobile to eliminate extra vertical whitespace */
+  body.gallery .gallery-grid img,
+  body.gallery .image-with-caption img {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    max-width: 180px !important;
   }
 }
 
@@ -1047,6 +1096,15 @@ body.gallery h6 { font-size: 18px !important; }
     grid-template-columns: 1fr !important;
     justify-items: center !important;
   }
+  /* Tighten single-column vertical spacing */
+  body.gallery .gallery-grid,
+  body.gallery .ul2-grid,
+  body.gallery .trauma-pre-grid,
+  body.gallery .trauma-review-grid,
+  body.gallery .pre-op-grid,
+  body.gallery .post-op-grid {
+    row-gap: 0.5rem !important;
+  }
   .gallery-compare,
   .treatment-comparison {
     grid-template-columns: 1fr !important;
@@ -1058,7 +1116,7 @@ body.gallery h6 { font-size: 18px !important; }
   .gallery-compare img,
   .treatment-comparison img {
     width: 100% !important;
-    max-width: 320px !important;
+    max-width: 280px !important;
   }
 }
 
