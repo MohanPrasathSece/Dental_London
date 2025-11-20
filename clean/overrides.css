@@ -1249,6 +1249,45 @@ body.gallery .gallery-item img {
   }
 }
 
+/* Clinical Cases: ensure footer uses the same centered layout as other pages */
+body.gallery footer .container {
+  display: block !important;            /* undo flex from body.gallery .container */
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 1rem !important;        /* mobile/tablet default */
+  padding-right: 1rem !important;
+  text-align: initial !important;       /* allow sections to left-align like other pages */
+}
+
+body.gallery footer .footer-bottom .container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.25rem !important;
+  text-align: center !important;
+}
+
+@media (min-width: 901px) {
+  body.gallery footer .container {
+    padding-left: 10rem !important;     /* match global desktop footer padding */
+    padding-right: 2rem !important;
+  }
+  body.gallery footer .container .footer-content {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 2.25rem !important;
+    justify-items: stretch !important;
+    align-items: start !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+  body.gallery .footer-content .footer-section {
+    text-align: left !important;
+    padding: 0 1rem !important;
+    margin: 0 !important;
+  }
+}
+
 /* Perfect centering for all gallery sections */
 body.gallery .container {
   display: flex !important;
@@ -1485,7 +1524,7 @@ body.about .ethos-photo {
   }
 
   body.gallery .page-section-subtitle {
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
     margin-bottom: 1rem !important;
     line-height: 1.4 !important;
   }
@@ -1659,22 +1698,4 @@ body.gallery .content-section .container > .gallery-grid:last-child {
   transform: none !important;
   box-shadow: none !important;
   border-radius: 16px !important;
-}
-
-/* Final mobile heading size reductions for Clinical Cases */
-@media (max-width: 700px) {
-  /* Landing title (Clinical Case Studies) */
-  body.gallery .contact-modern .page-section-title { font-size: 1.6rem !important; }
-  body.gallery .contact-modern .page-section-subtitle { font-size: 1rem !important; }
-  /* Case section titles (e.g., UL2, LR6, etc.) */
-  body.gallery h2.page-section-title { font-size: 1.35rem !important; line-height: 1.25 !important; }
-  /* Subtitles within sections (e.g., Post Removal, Pre‑operative X‑ray) */
-  body.gallery .page-section-subtitle, body.gallery h3 { font-size: 0.95rem !important; line-height: 1.35 !important; }
-}
-
-@media (max-width: 480px) {
-  body.gallery .contact-modern .page-section-title { font-size: 1.45rem !important; }
-  body.gallery .contact-modern .page-section-subtitle { font-size: 0.95rem !important; }
-  body.gallery h2.page-section-title { font-size: 1.25rem !important; }
-  body.gallery .page-section-subtitle, body.gallery h3 { font-size: 0.9rem !important; }
 }
